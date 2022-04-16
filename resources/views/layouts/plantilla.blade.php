@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html x-data="data()" lang="en">
+<html x-data="data()" lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -19,18 +19,13 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
-    <!-- select2 -->
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-
-
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}" defer></script>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
 </head>
 
 <body>
@@ -47,12 +42,11 @@
             <!--- nav -->
             @include('layouts.partials.nav')
 
-            <main class="overflow-y-auto ">
+            <main class="overflow-y-auto overflow-x-hidden">
                 <div class="m-6 flex flex-col">
-                    <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+                    <div class="sm:-mx-6 lg:-mx-8">
                         <div class="py-4 inline-block min-w-full sm:px-6 lg:px-8">
-                            <div class="overflow-hidden">
-
+                            <div class="">
                                 <div class="mb-4 text-base font-bold flex items-center text-gray-600">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
                                         viewBox="0 0 24 24" stroke="currentColor">
