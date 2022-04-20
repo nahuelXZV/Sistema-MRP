@@ -15,6 +15,6 @@ class CategoriaPrimaController extends Controller
         return view('configuracion.categoriaprima.edit',compact('id'));
     }
     public function create(){
-        return view('configuracion.categoriaprima..create');
+        return view('configuracion.categoriaprima.create');
     }
 }
