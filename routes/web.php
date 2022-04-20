@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Configuracion\CategoriaPrimaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,4 +27,8 @@ Route::middleware([
     Route::get('/', function () {
         return view('welcome');
     });
+
+    Route::get('/categoria-prima',[CategoriaPrimaController::class,'index'])->name('categoria-prima.index');
+    Route::get('/categoria-prima/create',[CategoriaPrimaController::class,'create'])->name('categoria-prima.create');
+    Route::get('/categoria-prima/edit/{id}',[CategoriaPrimaController::class,'edit'])->name('categoria-prima.edit');
 });
