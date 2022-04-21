@@ -4,7 +4,7 @@
     Categoria
 @endsection
 @section('action')
-    <a href="/" class="hover:underline ">Home</a>
+    <a href="/sistema-unidad" class="hover:underline ">Unidades</a>
 @endsection
 
 @section('content')
