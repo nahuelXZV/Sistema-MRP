@@ -50,4 +50,9 @@ class LwSistemaUnidadIndex extends Component
         // return view('livewire.configuracion.categoria-prima.lw-categoria-prima-index', compact('categorias'));
 
     }
+
+    public function delete($id){
+        $unidad = SistemaUnidad::find($id);
+        $unidad->delete();
+    }
 }
