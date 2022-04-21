@@ -4,7 +4,7 @@
     Inicio
 @endsection
 @section('action')
-    <a href="/" class="hover:underline ">Home</a>
+    <a href="/" class="hover:underline ">Dashboard</a>
 @endsection
 
 @section('content')
