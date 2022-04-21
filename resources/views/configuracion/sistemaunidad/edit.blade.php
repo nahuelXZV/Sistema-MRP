@@ -1,12 +1,12 @@
 @extends('layouts.plantilla')
 
 @section('title')
-    Categoria
+    Unidad
 @endsection
 @section('action')
-    <a href="/" class="hover:underline ">Home</a>
+    <a href="{{route('sistema-unidad.index')}}" class="hover:underline ">unidad</a>
 @endsection
 
 @section('content')
-    @livewire('configuracion.categoria-prima.lw-categoria-prima-edit',["id"=>$id])
+    @livewire('configuracion.sistema-unidad.lw-sistema-unidad-edit',["id"=>$id])
 @endsection
