@@ -60,7 +60,7 @@
             
             <div class="container-fluid flex">
                 <div class="m-1 flex flex-row text-right">
-                    <a type="button" href="{{route('categoria-prima.create')}}"
+                    <a type="button" href="{{route('sistema-unidad.create')}}"
                         class="mr-2 inline-block px-6 py-2.5 bg-blue-600 text-white font-bold text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
                         Nuevo
                     </a>
@@ -138,8 +138,7 @@
                                         class="m-1 inline-block px-4 py-1.5 bg-blue-600 text-white font-bold text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
                                         <x-edit> </x-edit>
                                     </a>
-                                    {{-- {{route('unidad.edit',$unidad->id)}}
-                                    delete({{$unidad->id}}) --}}
+                                    
                                     <button type="button" wire:click=''
                                         class="m-1 inline-block px-4 py-1.5 bg-red-600 text-white font-bold text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out">
                                         <x-delete> </x-delete>
@@ -155,6 +154,8 @@
             </table>
             <x-pagination :modelo='$unidades'> </x-pagination>
         </x-table>
+        {{-- {{route('unidad.edit',$unidad->id)}}
+                                    delete({{$unidad->id}}) --}}
     </div>
     <!--- end table -->
 </div>

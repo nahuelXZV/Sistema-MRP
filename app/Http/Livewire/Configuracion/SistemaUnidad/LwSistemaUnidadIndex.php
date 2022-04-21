@@ -7,7 +7,7 @@ use App\Models\configuracion\SistemaUnidad;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class Index extends Component
+class LwSistemaUnidadIndex extends Component
 {
     use WithPagination;
     public $nombre;
@@ -45,7 +45,7 @@ class Index extends Component
                 ->orderBy($this->sort, $this->direction)
                 ->paginate($this->pagination);       
 
-                return view('livewire.configuracion.sistema-unidad.index', compact('unidades'));
+        return view('livewire.configuracion.sistema-unidad.lw-sistema-unidad-index', compact('unidades'));
         // return $categorias;
         // return view('livewire.configuracion.categoria-prima.lw-categoria-prima-index', compact('categorias'));
 

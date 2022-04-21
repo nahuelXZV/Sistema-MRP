@@ -1,13 +1,12 @@
 @extends('layouts.plantilla')
 
 @section('title')
-    Categoria
+    Unidad
 @endsection
-
 @section('action')
     <a href="/" class="hover:underline ">Home</a>
 @endsection
 
 @section('content')
- @livewire('configuracion.categoria-prima.lw-categoria-prima-index')
+    @livewire('configuracion.sistema-unidad.lw-sistema-unidad-create')
 @endsection

@@ -8,7 +8,7 @@
 @endsection
 
 @section('content')
- @livewire('configuracion.sistema-unidad.index')
+ @livewire('configuracion.sistema-unidad.lw-sistema-unidad-index')
 @endsection
 
 
