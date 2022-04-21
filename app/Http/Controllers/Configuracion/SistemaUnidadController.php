@@ -18,7 +18,7 @@ class SistemaUnidadController extends Controller
 
     public function create()
     {
-        //
+        return view('configuracion.sistemaunidad.create');
     }
     
     public function edit($id)

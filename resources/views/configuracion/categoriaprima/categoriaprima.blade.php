@@ -3,6 +3,7 @@
 @section('title')
     Categoria
 @endsection
+
 @section('action')
     <a href="{{route('categoria-prima.index')}}" class="hover:underline ">Categoria</a>
 @endsection
