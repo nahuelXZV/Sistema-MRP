@@ -15,9 +15,10 @@ class LwCategoriaPrimaCreate extends Component
         return view('livewire.configuracion.categoria-prima.lw-categoria-prima-create');
     }
 
-    public function guardar(){
-        $this->validate(['nombre'=>'required','descripcion'=>'required']);
-        CategoriaMateriaPrima::create(['nombre'=>$this->nombre,'descripcion'=>$this->descripcion]);
+    public function guardar()
+    {
+        $this->validate(['nombre' => 'required', 'descripcion' => 'required']);
+        CategoriaMateriaPrima::create(['nombre' => $this->nombre, 'descripcion' => $this->descripcion]);
         return redirect()->route('categoria-prima.index');
     }
 }
