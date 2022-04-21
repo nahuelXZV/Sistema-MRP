@@ -4,7 +4,7 @@
     Categoria
 @endsection
 @section('action')
-    <a href="/" class="hover:underline ">Home</a>
+    <a href="{{route('categoria-prima.index')}}" class="hover:underline ">Categoria</a>
 @endsection
 
 @section('content')

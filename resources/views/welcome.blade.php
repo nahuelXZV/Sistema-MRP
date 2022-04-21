@@ -8,7 +8,7 @@
 @endsection
 
 @section('content')
-    <div class="bg-blue-100 rounded-lg py-5 px-6 mb-4 text-base text-blue-700 mb-3" role="alert">
+    <div class="bg-blue-100 rounded-lg py-5 px-6 mb-4 text-base text-blue-700" role="alert">
         Diseño que seguiremos para los cruds! ubicacion: <span class="font-bold"> views/welcome</span>, solo es diseño
         cada uno aplicara su logica para
         hacerlo funcional, seguir la estructura explicada: <span class="font-bold"> modulo/caso de uso/archivo.php
