@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Configuracion\CategoriaPrimaController;
 use App\Http\Controllers\Configuracion\SistemaUnidadController;
+use App\Http\Controllers\Inventario\MateriaPrimaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,5 +36,8 @@ Route::middleware([
 
     Route::resource('sistema-unidad', SistemaUnidadController::class);
 
+    Route::get('/materia-prima',[MateriaPrimaController::class,'index'])->name('materia-prima.index');
+    Route::get('/materia-prima/create',[MateriaPrimaController::class,'create'])->name('materia-prima.create');
+    Route::get('/materia-prima/edit/{id}',[MateriaPrimaController::class,'edit'])->name('materia-prima.edit');
 
 });
