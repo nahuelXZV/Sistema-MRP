@@ -3,6 +3,8 @@
 use App\Http\Controllers\Configuracion\CategoriaPrimaController;
 use App\Http\Controllers\Configuracion\SistemaUnidadController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ClienteController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +36,7 @@ Route::middleware([
     Route::get('/categoria-prima/edit/{id}',[CategoriaPrimaController::class,'edit'])->name('categoria-prima.edit');
 
     Route::resource('sistema-unidad', SistemaUnidadController::class);
+    Route::resource('clientes', ClienteController::class);
 
 
 });
