@@ -4,7 +4,7 @@ use App\Http\Controllers\Configuracion\CategoriaPrimaController;
 use App\Http\Controllers\Configuracion\SistemaUnidadController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClienteController;
-
+use App\Http\Controllers\Inventario\ProductoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +37,14 @@ Route::middleware([
 
     Route::resource('sistema-unidad', SistemaUnidadController::class);
     Route::resource('clientes', ClienteController::class);
+
+
+    // Route Product
+    Route::get('/productos',[ProductoController::class,'index'])->name('productos.index');
+    Route::get('/productos/create',[ProductoController::class,'create'])->name('productos.create');
+    Route::get('/productos/edit/{id}',[ProductoController::class,'edit'])->name('productos.edit');
+    Route::get('/productos/show/{id}',[ProductoController::class,'show'])->name('productos.show');
+
 
 
 });
