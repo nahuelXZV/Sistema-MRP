@@ -1,26 +1,12 @@
-@extends('layouts.plantilla')
+<div>
+    {{-- Care about people's approval and you will be their prisoner. --}}
 
-@section('title')
-    Inicio
-@endsection
-@section('action')
-    <a href="/" class="hover:underline ">Dashboard</a>
-@endsection
-
-@section('content')
-    <div class="bg-blue-100 rounded-lg py-5 px-6 mb-4 text-base text-blue-700" role="alert">
-        Diseño que seguiremos para los cruds! ubicacion: <span class="font-bold"> views/welcome</span>, solo es diseño
-        cada uno aplicara su logica para
-        hacerlo funcional, seguir la estructura explicada: <span class="font-bold"> modulo/caso de uso/archivo.php
-        </span>
-    </div>
-
-    <!--begin table-->
-    <div class="m-1">
+     <!--begin table-->
+     <div class="m-1">
         <x-header-table>
             <div class="container-fluid flex flex-wrap">
                 <div class="m-1">
-                    <select
+                    <select wire:model='pagination'
                         class="w-32 px-3 py-1.5 text-base font-normal text-gray-700  bg-white  border border-solid border-gray-300 focus:border-blue-600">
                         <option selected value="10">Paginar</option>
                         <option value="20">20</option>
@@ -30,12 +16,12 @@
                 </div>
 
                 <div class="m-1 flex flex-row">
-                    <input type="text"
+                    <input type="text" wire:model.defer='attribute'
                         class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding
                                 border border-solid border-gray-300 rounded transition ease-in-out m-0
                                 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
                         id="exampleFormControlInput1" placeholder="Search.." />
-                    <button type="button"
+                    <button type="button" wire:click='render'
                         class="w-12 inline-block px-3 py-1.5 border-2 border-gray-700 text-black font-medium text-xs leading-normal uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mx-auto" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor">
@@ -60,7 +46,7 @@
                         aria-labelledby="dropdownMenuButton1">
                         <li>
                             <div class="form-check ml-2 mr-6">
-                                <input value='name'
+                                <input value='name' wire:model.defer="type"
                                     class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600  mt-1 align-top  mr-2"
                                     type="radio" name="flexRadioDefault" id="flexRadioDefault1">
                                 <label class="form-check-label inline-block text-gray-800" for="flexRadioDefault1">
@@ -68,22 +54,13 @@
                                 </label>
                             </div>
                         </li>
-                        <li>
-                            <div class="form-check ml-2">
-                                <input value='email'
-                                    class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600  mt-1 align-top  mr-2"
-                                    type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                <label class="form-check-label inline-block text-gray-800" for="flexRadioDefault1">
-                                    Correo
-                                </label>
-                            </div>
-                        </li>
-
+                    </ul>
                 </div>
             </div>
+            
             <div class="container-fluid flex">
                 <div class="m-1 flex flex-row text-right">
-                    <a type="button" href="#"
+                    <a type="button" href="{{route('sistema-unidad.create')}}"
                         class="mr-2 inline-block px-6 py-2.5 bg-blue-600 text-white font-bold text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
                         Nuevo
                     </a>
@@ -118,16 +95,10 @@
                         </h6>
                         <li>
                             <p
-                                class="dropdown-item flex text-sm py-2 px-4 font-normal w-full
+                                wire:click="order('nombre')" class="dropdown-item flex text-sm py-2 px-4 font-normal w-full
                                 whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100 ">
                                 Nombre
-                            </p>
-                        </li>
-                        <li>
-                            <p
-                                class="dropdown-item flex text-sm py-2 px-4 font-normal w-full
-                            whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100 ">
-                                Correo
+                                <x-signo-table :type='$type' :direction='$direction' etiqueta='nombre'> </x-signo-table>
                             </p>
                         </li>
                     </ul>
@@ -142,10 +113,10 @@
                     <tr>
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
                             Nombre
-
+                            <x-signo-table :type='$type' :direction='$direction' etiqueta='nombre'> </x-signo-table>
                         </th>
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
-                            Correo
+                            Abreviatura
                         </th>
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
                             Acciones
@@ -153,20 +124,22 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach ($unidades as $unidad)
                     <tr class="bg-white border-b">
                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                            Name</td>
+                            {{$unidad->nombre}}
+                        </td>
                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                            Email</td>
+                            {{$unidad->abreviatura}}</td>
                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                             <div class="flex items-center justify-center">
                                 <div class="inline-flex" role="group">
-                                    <a href="#"
+                                    <a href="{{route('sistema-unidad.edit',$unidad->id)}}"
                                         class="m-1 inline-block px-4 py-1.5 bg-blue-600 text-white font-bold text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
                                         <x-edit> </x-edit>
                                     </a>
-
-                                    <button type="button"
+                                    
+                                    <button type="button" wire:click='delete({{$unidad->id}})'
                                         class="m-1 inline-block px-4 py-1.5 bg-red-600 text-white font-bold text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out">
                                         <x-delete> </x-delete>
                                     </button>
@@ -174,10 +147,16 @@
                             </div>
                         </td>
                     </tr>
+                    @endforeach
+                    
                 </tbody>
 
             </table>
+            <x-pagination :modelo='$unidades'> </x-pagination>
         </x-table>
+        {{-- {{route('unidad.edit',$unidad->id)}}
+                                    delete({{$unidad->id}}) --}}
     </div>
     <!--- end table -->
-@endsection
+</div>
+

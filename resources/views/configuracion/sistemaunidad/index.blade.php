@@ -1,11 +1,14 @@
 @extends('layouts.plantilla')
 
 @section('title')
-    Inicio
+    Unidad
 @endsection
 @section('action')
     <a href="/" class="hover:underline ">Home</a>
 @endsection
 
 @section('content')
+ @livewire('configuracion.sistema-unidad.lw-sistema-unidad-index')
 @endsection
+
+

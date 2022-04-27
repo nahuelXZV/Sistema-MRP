@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html x-data="data()" lang="en">
+<html x-data="data()" lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -7,10 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title')</title>
 
-    <!-- Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-
     <!-- Styles -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
     @livewireStyles
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
@@ -19,18 +18,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
-    <!-- select2 -->
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-
-
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}" defer></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
 </head>
 
 <body>
@@ -39,20 +34,15 @@
 
         <!-- Desktop sidebar -->
         @include('layouts.partials.aside')
-        <!-- Mobile sidebar -->
-        <!-- Backdrop -->
-        @include('layouts.partials.asidem')
-
         <div class="flex flex-col flex-1 w-full bg-white">
             <!--- nav -->
             @include('layouts.partials.nav')
 
-            <main class="overflow-y-auto ">
+            <main class="overflow-y-auto overflow-x-hidden">
                 <div class="m-6 flex flex-col">
-                    <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+                    <div class="sm:-mx-6 lg:-mx-8">
                         <div class="py-4 inline-block min-w-full sm:px-6 lg:px-8">
-                            <div class="overflow-hidden">
-
+                            <div class="">
                                 <div class="mb-4 text-base font-bold flex items-center text-gray-600">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
                                         viewBox="0 0 24 24" stroke="currentColor">
