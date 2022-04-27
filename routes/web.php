@@ -6,6 +6,7 @@ use App\Http\Controllers\Inventario\MateriaPrimaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\Inventario\ProductoController;
+use App\Http\Controllers\Inventario\Categoria_productosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,9 +36,13 @@ Route::middleware([
     Route::get('/categoria-prima',[CategoriaPrimaController::class,'index'])->name('categoria-prima.index');
     Route::get('/categoria-prima/create',[CategoriaPrimaController::class,'create'])->name('categoria-prima.create');
     Route::get('/categoria-prima/edit/{id}',[CategoriaPrimaController::class,'edit'])->name('categoria-prima.edit');
+    
 
     Route::resource('sistema-unidad', SistemaUnidadController::class);
     Route::resource('clientes', ClienteController::class);
+
+
+    Route::resource('Categoria_productos', ClienteController::class);
 
 
     // Route Product
