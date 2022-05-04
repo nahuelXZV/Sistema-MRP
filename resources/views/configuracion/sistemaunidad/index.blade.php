@@ -5,7 +5,7 @@
 @endsection
 
 @section('action')
-    <a href="{{route('sistema-unidad.index')}}" class="hover:underline ">Unidades</a>
+    <a href="{{route('sistema-unidad.index')}}"  class="hover:underline ">Unidades</a>
 @endsection
 
 @section('content')

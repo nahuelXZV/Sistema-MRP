@@ -10,9 +10,7 @@ class SistemaUnidadController extends Controller
 {
   
     public function index()
-    {
-        // $unidades = SistemaUnidad::all();
-        // return view('configuracion.sistemaunidad.index', compact('unidades'));
+    {        
         return view('configuracion.sistemaunidad.index');
     }
 
