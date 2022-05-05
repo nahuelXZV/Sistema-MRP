@@ -23,32 +23,30 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-    
+
     Route::get('/', function () {
         return view('welcome');
     });
 
-    Route::get('/categoria-prima',[CategoriaPrimaController::class,'index'])->name('categoria-prima.index');
-    Route::get('/categoria-prima/create',[CategoriaPrimaController::class,'create'])->name('categoria-prima.create');
-    Route::get('/categoria-prima/edit/{id}',[CategoriaPrimaController::class,'edit'])->name('categoria-prima.edit');
-
+    // Route Sistema de unidades
     Route::resource('sistema-unidad', SistemaUnidadController::class);
+
+    // Route clientes
     Route::resource('clientes', ClienteController::class);
 
+    // Route Categoria de materia prima
+    Route::get('/categoria-prima', [CategoriaPrimaController::class, 'index'])->name('categoria-prima.index');
+    Route::get('/categoria-prima/create', [CategoriaPrimaController::class, 'create'])->name('categoria-prima.create');
+    Route::get('/categoria-prima/edit/{id}', [CategoriaPrimaController::class, 'edit'])->name('categoria-prima.edit');
 
     // Route Product
-    Route::get('/productos',[ProductoController::class,'index'])->name('productos.index');
-    Route::get('/productos/create',[ProductoController::class,'create'])->name('productos.create');
-    Route::get('/productos/edit/{id}',[ProductoController::class,'edit'])->name('productos.edit');
-    Route::get('/productos/show/{id}',[ProductoController::class,'show'])->name('productos.show');
+    Route::get('/productos', [ProductoController::class, 'index'])->name('productos.index');
+    Route::get('/productos/create', [ProductoController::class, 'create'])->name('productos.create');
+    Route::get('/productos/edit/{id}', [ProductoController::class, 'edit'])->name('productos.edit');
+    Route::get('/productos/show/{id}', [ProductoController::class, 'show'])->name('productos.show');
 
-
-    Route::get('/materia-prima',[MateriaPrimaController::class,'index'])->name('materia-prima.index');
-    Route::get('/materia-prima/create',[MateriaPrimaController::class,'create'])->name('materia-prima.create');
-    Route::get('/materia-prima/edit/{id}',[MateriaPrimaController::class,'edit'])->name('materia-prima.edit');
-
+    // Route Materia Prima
+    Route::get('/materia-prima', [MateriaPrimaController::class, 'index'])->name('materia-prima.index');
+    Route::get('/materia-prima/create', [MateriaPrimaController::class, 'create'])->name('materia-prima.create');
+    Route::get('/materia-prima/edit/{id}', [MateriaPrimaController::class, 'edit'])->name('materia-prima.edit');
 });
