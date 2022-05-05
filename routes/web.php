@@ -35,8 +35,8 @@ Route::middleware([
     // Route clientes
     Route::resource('clientes', ClienteController::class);
 
-    // Route categoria prima
-    Route::resource('Categoria_productos',ClienteController::class);
+    // Route categoria producto
+    Route::resource('Categoria_productos', ClienteController::class);
 
     // Route Categoria de materia prima
     Route::get('/categoria-prima', [CategoriaPrimaController::class, 'index'])->name('categoria-prima.index');
