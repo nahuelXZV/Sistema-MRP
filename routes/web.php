@@ -6,6 +6,7 @@ use App\Http\Controllers\Inventario\MateriaPrimaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\Inventario\ProductoController;
+use App\Http\Controllers\Inventario\Categoria_productosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +34,9 @@ Route::middleware([
 
     // Route clientes
     Route::resource('clientes', ClienteController::class);
+
+    // Route categoria prima
+    Route::resource('Categoria_productos',ClienteController::class);
 
     // Route Categoria de materia prima
     Route::get('/categoria-prima', [CategoriaPrimaController::class, 'index'])->name('categoria-prima.index');
