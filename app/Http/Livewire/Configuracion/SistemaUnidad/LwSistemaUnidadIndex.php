@@ -26,7 +26,7 @@ class LwSistemaUnidadIndex extends Component
 
     public function render()
     {
-        $unidades = SistemaUnidad::all();
+        // $unidades = SistemaUnidad::all();
         // $categorias = CategoriaMateriaPrima::all();
         // return view('livewire.configuracion.categoria-prima.lw-categoria-prima-index', compact('categorias'));
         

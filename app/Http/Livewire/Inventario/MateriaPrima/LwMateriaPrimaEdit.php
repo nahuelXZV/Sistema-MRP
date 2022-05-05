@@ -37,7 +37,7 @@ class LwMateriaPrimaEdit extends Component
     }
 
     $materia->save();
-    return redirect()->route('materias-prima.index');
+    return redirect()->route('materia-prima.index');
     }
 
     public function render()

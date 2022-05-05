@@ -3,8 +3,9 @@
 @section('title')
     Unidad
 @endsection
+
 @section('action')
-    <a href="/sistema-unidad" class="hover:underline ">Unidades</a>
+    <a href="{{route('sistema-unidad.index')}}"  class="hover:underline ">Unidades</a>
 @endsection
 
 @section('content')
