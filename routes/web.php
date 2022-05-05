@@ -6,7 +6,7 @@ use App\Http\Controllers\Inventario\MateriaPrimaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\Inventario\ProductoController;
-use App\Http\Controllers\Inventario\Categoria_productosController;
+use App\Http\Controllers\CategoriaProductoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,7 +43,7 @@ Route::middleware([
     Route::resource('clientes', ClienteController::class);
 
 
-    Route::resource('Categoria_productos',ClienteController::class);
+    Route::resource('categoria_productos',CategoriaProductoController::class);
 
 
     // Route Product
