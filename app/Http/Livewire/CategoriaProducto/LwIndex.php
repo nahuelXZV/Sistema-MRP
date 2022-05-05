@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Livewire\Cliente;
+namespace App\Http\Livewire\CategoriaProducto;
 
 use Livewire\Component;
-use App\Models\Categoria_Producto;
+use App\Models\CategoriaProducto;
 use Livewire\WithPagination;
 
 class LwIndex extends Component
@@ -40,14 +40,14 @@ class LwIndex extends Component
 
     public function delete($id)
     {
-        $Categoria_Producto = Categoria_Producto::find($id);
+        $Categoria_Producto = CategoriaProducto::find($id);
         $Categoria_Producto->delete();
     }
     public function render()
     {
         switch ($this->type) {
             case 'nombre':
-                $Categoria_Producto = Categoria_Producto::where('nombre', 'like', '%' . $this->attribute . '%')
+                $categoria_productos = CategoriaProducto::where('nombre', 'like', '%' . $this->attribute . '%')
                     ->orderBy($this->sort, $this->direction)
                     ->paginate($this->pagination);
                 break;
@@ -63,11 +63,11 @@ class LwIndex extends Component
                     ->paginate($this->pagination);
                 break; */
             default:
-                $Categoria_Producto = Categoria_Producto::where('id', 'like', '%' . $this->attribute . '%')
+                $categoria_productos = CategoriaProducto::where('id', 'like', '%' . $this->attribute . '%')
                     ->orderBy($this->sort, $this->direction)
                     ->paginate($this->pagination);
                 break;
         }
-        return view('livewire.Categoria_producto.lw-index', compact('Categoria_Producto'));
+        return view('livewire.categoria-producto.lw-index', compact('categoria_productos'));
     }
 }

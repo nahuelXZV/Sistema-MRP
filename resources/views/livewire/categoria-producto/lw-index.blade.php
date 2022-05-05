@@ -66,7 +66,7 @@
                                 class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600  mt-1 align-top  mr-2"
                                 type="radio" name="flexRadioDefault" id="flexRadioDefault1">
                             <label class="form-check-label inline-block text-gray-800" for="flexRadioDefault1">
-                                Categoria
+                                Categoria Productos
                             </label>
                         </div>
                     </li>
@@ -74,7 +74,7 @@
         </div>
         <div class="container-fluid flex">
             <div class="m-1 flex flex-row text-right">
-                <a type="button" href="{{ route('clientes.create') }}"
+                <a type="button" href="{{ route('categoria_productos.create') }}"
                     class="mr-2 inline-block px-6 py-2.5 bg-blue-600 text-white font-bold text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
                     Nuevo
                 </a>
@@ -122,39 +122,41 @@
 
     <x-table>
         <table class="min-w-full">
-            @if ($Categoria_producto->count())
+            @if ($categoria_productos->count())
                 <thead class="border-b bg-gray-800 ">
-                    <tr> 
+                    <tr>
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
                             Codigo
                             <x-signo-table :type='$type' :direction='$direction' etiqueta='id'> </x-signo-table>
                         </th>
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
-                            Categoria
+                            Nombre
                             <x-signo-table :type='$type' :direction='$direction' etiqueta='nombre'> </x-signo-table>
                         </th>
-                       
+                        <th scope="col" class="text-sm font-bold text-white px-6 py-4">
+                            descripcion
+                            <x-signo-table :type='$type' :direction='$direction' etiqueta='estado'> </x-signo-table>
+                        </th>
+                        
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
                             Acciones
                         </th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($Categoria_producto as $Categoria_producto)
+                    @foreach ($categoria_productos as $categoria_producto)
                         <tr class="bg-white border-b">
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                {{ $Categoria_producto->id }}</td>
+                                {{ $categoria_producto->id }}</td>
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                {{ $Categoria_producto->nombre }}</td>
+                                {{ $categoria_producto->nombre }}</td>
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                {{ $Categoria_producto->telefono }}</td>
-                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                {{ $Categoria_producto->direccion }}
-                            </td>
+                                {{ $categoria_producto->descripcion }}</td>
+                           
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                 <div class="flex items-center justify-center">
                                     <div class="inline-flex" role="group">
-                                        <a href="{{ route('Categoria_producto.show', $Categoria_producto->id) }}"
+                                        <a href="{{ route('categoria_productos.show', $categoria_producto->id) }}"
                                             class="m-1 inline-block px-4 py-1.5 bg-blue-600 text-white font-bold text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
                                                 viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -164,7 +166,7 @@
                                                     d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                                             </svg>
                                         </a>
-                                        <button type="button" wire:click='delete({{ $Categoria_producto ->id }} )'
+                                        <button type="button" wire:click='delete({{ $categoria_producto->id }} )'
                                             class="m-1 inline-block px-4 py-1.5 bg-red-600 text-white font-bold text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out">
                                             <x-delete> </x-delete>
                                         </button>
@@ -178,6 +180,7 @@
                 <span>No hay resultados...</span>
             @endif
         </table>
-        <x-pagination :modelo='$Categoria_producto'> </x-pagination>
+        <x-pagination :modelo='$categoria_productos'> </x-pagination>
     </x-table>
 </div>
+
