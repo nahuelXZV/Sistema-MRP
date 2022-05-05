@@ -39,10 +39,11 @@ Route::middleware([
     
 
     Route::resource('sistema-unidad', SistemaUnidadController::class);
+    
     Route::resource('clientes', ClienteController::class);
 
 
-    Route::resource('Categoria_productos', ClienteController::class);
+    Route::resource('Categoria_productos',ClienteController::class);
 
 
     // Route Product
