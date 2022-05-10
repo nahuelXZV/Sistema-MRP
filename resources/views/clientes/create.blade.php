@@ -5,9 +5,9 @@
 @endsection
 
 @section('action')
-    <a href="{{ route('clientes.index') }}" class="hover:underline ">Clientes</a>
+    <a href="{{ route('clientes.index') }}" class="hover:underline ">Cliente</a>
 @endsection
 
 @section('content')
-    @livewire('cliente.lw-index')
+@livewire('cliente.lw-create')
 @endsection

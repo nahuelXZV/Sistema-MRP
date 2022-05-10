@@ -14,7 +14,7 @@ class CategoriaProductoController extends Controller
      */
     public function index()
     {
-        //
+        return view('Categoria_productos.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class CategoriaProductoController extends Controller
      */
     public function create()
     {
-        //
+        return view('Categoria_productos.create');
     }
 
     /**
@@ -46,7 +46,8 @@ class CategoriaProductoController extends Controller
      */
     public function show(CategoriaProducto $categoriaProducto)
     {
-        //
+        $id=$categoriaProducto->id;
+        return view('Categoria_productos.show',compact('id'));
     }
 
     /**
