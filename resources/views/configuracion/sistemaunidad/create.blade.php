@@ -4,7 +4,7 @@
     Unidad
 @endsection
 @section('action')
-    <a href="/" class="hover:underline ">Home</a>
+    <a href="{{route('sistema-unidad.index')}}" class="hover:underline ">Home</a>
 @endsection
 
 @section('content')

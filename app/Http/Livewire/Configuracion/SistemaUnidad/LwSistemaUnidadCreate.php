@@ -24,6 +24,7 @@ class LwSistemaUnidadCreate extends Component
             'nombre'=> $this->nombre,
             'abreviatura' => $this->abreviatura
         ]);
-        return redirect()->route('sistema-unidad');
+        return "se creo";
+        return redirect()->route('sistema-unidad.index');
     }
 }
