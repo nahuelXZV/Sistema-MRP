@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Administracion\BitacoraController;
 use App\Http\Controllers\Configuracion\CategoriaPrimaController;
 use App\Http\Controllers\Configuracion\SistemaUnidadController;
 use App\Http\Controllers\Inventario\MateriaPrimaController;
@@ -7,7 +8,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\Inventario\ProductoController;
 use App\Http\Controllers\CategoriaProductoController;
-
+use App\Http\Controllers\Reportes\ExcelController;
+use App\Http\Controllers\Reportes\PDFController;
+use App\Http\Controllers\Reportes\PruebaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,7 +38,7 @@ Route::middleware([
     // Route clientes
     Route::resource('clientes', ClienteController::class);
 
-    // Route categoria prima
+    // Route categoria productos
     Route::resource('categoria_productos', CategoriaProductoController::class);
 
     // Route Categoria de materia prima
@@ -53,4 +56,16 @@ Route::middleware([
     Route::get('/materia-prima', [MateriaPrimaController::class, 'index'])->name('materia-prima.index');
     Route::get('/materia-prima/create', [MateriaPrimaController::class, 'create'])->name('materia-prima.create');
     Route::get('/materia-prima/edit/{id}', [MateriaPrimaController::class, 'edit'])->name('materia-prima.edit');
+
+
+
+    // Route Bitacora
+    Route::get('/bitacora', [BitacoraController::class, 'index'])->name('bitacora.index');
+    Route::get('/bitacora/autenticacion', [BitacoraController::class, 'autenticacion'])->name('bitacora.autenticacion');
+
+
+    // Route reporte
+    Route::get('/reporte', [PruebaController::class, 'index'])->name('reporte.index');
+    Route::get('/reporte/excel', [ExcelController::class, 'excel'])->name('reporte.excel');
+    Route::get('/reporte/pdf', [PDFController::class, 'pdf'])->name('reporte.pdf');
 });
