@@ -26,29 +26,10 @@ class LwSistemaUnidadIndex extends Component
 
     public function render()
     {
-        // $unidades = SistemaUnidad::all();
-        // $categorias = CategoriaMateriaPrima::all();
-        // return view('livewire.configuracion.categoria-prima.lw-categoria-prima-index', compact('categorias'));
-        
-        // switch ($this->type) {
-        //     case 'descripcion':
-        //         $categorias = SistemaUnidad::where('descripcion', 'like', '%' . $this->attribute . '%')
-        //         ->orderBy($this->sort, $this->direction)
-        //         ->paginate($this->pagination);
-        //         break;
-        //         default:
-        //         $categorias = SistemaUnidad::where('nombre', 'like', '%' . $this->attribute . '%')
-        //         ->orderBy($this->sort, $this->direction)
-        //             ->paginate($this->pagination);
-        //         }
                 $unidades = SistemaUnidad::where('nombre', 'like', '%' . $this->attribute . '%')
                 ->orderBy($this->sort, $this->direction)
                 ->paginate($this->pagination);       
-
         return view('livewire.configuracion.sistema-unidad.lw-sistema-unidad-index', compact('unidades'));
-        // return $categorias;
-        // return view('livewire.configuracion.categoria-prima.lw-categoria-prima-index', compact('categorias'));
-
     }
 
     public function delete($id){
