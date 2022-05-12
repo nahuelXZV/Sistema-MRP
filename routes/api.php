@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\TokenAuthController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\Login\UserController;
 
 
 use App\Models\User;
@@ -22,14 +22,15 @@ use Illuminate\Validation\ValidationException;
 |
 */
 
-/*Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});*/
-
-
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+//------------------------------------------------------ USERS ----------------------------------------------------------------------------------//
+Route::get('users', [UserController::class, 'index'])->name('users');
+//-----------------------------------------------------------------------------------------------------------------------------------------------//
+
 
 Route::post('/sanctum/token', function (Request $request) {
     $request->validate([
