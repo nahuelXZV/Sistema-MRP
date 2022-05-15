@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\Inventario\ProductoApiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -56,3 +57,6 @@ Route::middleware(['auth:sanctum'])->get('/user/revoke', function (Request $requ
     $user->tokens()->delete();
     return "The tokens has been deleted";
 })->name('login.revoke');
+
+
+Route::apiResource('productos', ProductoApiController::class)->names('api.productos');
