@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\Inventario\ProductoController;
 use App\Http\Controllers\CategoriaProductoController;
+use App\Http\Controllers\Login\UserController;
 use App\Http\Controllers\Reportes\ExcelController;
 use App\Http\Controllers\Reportes\PDFController;
 use App\Http\Controllers\Reportes\PruebaController;
@@ -68,4 +69,9 @@ Route::middleware([
     Route::get('/reporte', [PruebaController::class, 'index'])->name('reporte.index');
     Route::get('/reporte/excel', [ExcelController::class, 'excel'])->name('reporte.excel');
     Route::get('/reporte/pdf', [PDFController::class, 'pdf'])->name('reporte.pdf');
+
+    //Route Usuarios
+    Route::get('/usuarios',[UserController::class,'indexx'])->name('usuarios.index');
+    Route::get('/usuarios/create',[UserController::class,'createe'])->name('usuarios.create');
+    Route::get('/usuarios/edit/{id}',[UserController::class,'editt'])->name('usuarios.edit');
 });

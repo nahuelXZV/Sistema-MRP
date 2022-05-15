@@ -49,4 +49,15 @@ class UserController extends Controller
             ]);
         }
     }
+
+    public function indexx(){
+        return view('administracion.user.user');
+    }
+
+    public function editt($id){
+        return view('administracion.user.edit',compact('id'));
+    }
+    public function createe(){
+        return view('administracion.user.create');
+    }
 }
