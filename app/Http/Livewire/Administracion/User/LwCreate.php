@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Administracion\User;
 
+use App\Models\Bitacora;
 use App\Models\User;
 use Livewire\Component;
 
@@ -18,11 +19,12 @@ class LwCreate extends Component
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:6'
         ]);
-        User::create([
+        $user = User::create([
             'name' => $this->name,
             'email' => $this->email,
             'password' => bcrypt($this->password)
         ]);
+        Bitacora::Bitacora('C', 'Usuario', $user->id);
         return redirect()->route('usuarios.index');
     }
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Administracion\User;
 
+use App\Models\Bitacora;
 use App\Models\User;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -46,16 +47,17 @@ class LwIndex extends Component
                 break;
             default:
                 $usuarios = User::where('name', 'like', '%' . $this->attribute . '%')
-                ->orderBy($this->sort, $this->direction)
-                ->paginate($this->pagination);
+                    ->orderBy($this->sort, $this->direction)
+                    ->paginate($this->pagination);
                 break;
         }
-        return view('livewire.administracion.user.lw-index',compact('usuarios'));
+        return view('livewire.administracion.user.lw-index', compact('usuarios'));
     }
 
     public function delete($id)
     {
         $nombre = User::find($id);
         $nombre->delete();
+        Bitacora::Bitacora('D', 'Usuario', $id);
     }
 }

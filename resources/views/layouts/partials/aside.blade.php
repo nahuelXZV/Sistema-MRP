@@ -21,6 +21,17 @@
                             <span class="ml-4">Inicio</span>
                         </a>
                     </li>
+                    <li class="relative px-2 py-1 ">
+                        <a class="inline-flex items-center w-full text-sm font-semibold text-white transition-colors duration-150 cursor-pointer hover:text-green-500"
+                            href="{{ route('reporte.index') }}">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                            <span class="ml-4">Reportes</span>
+                        </a>
+                    </li>
                     <li class="relative px-2 py-1" x-data="{ Open: false }">
                         <div class="inline-flex items-center justify-between w-full text-base font-semibold transition-colors duration-150 text-gray-500  hover:text-yellow-400 cursor-pointer"
                             x-on:click="Open = !Open">
@@ -77,7 +88,8 @@
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                     d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
                                             </svg>
-                                            <a href="{{route('usuarios.index')}}" class="w-full ml-2  text-sm font-semibold text-white ">Usuarios</a>
+                                            <a href="{{ route('usuarios.index') }}"
+                                                class="w-full ml-2  text-sm font-semibold text-white ">Usuarios</a>
                                         </div>
                                     </div>
                                 </li>
@@ -194,20 +206,6 @@
                                             <a href="{{ route('productos.index') }}"
                                                 class="w-full ml-2  text-sm font-semibold text-white">
                                                 Productos</a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="px-2 py-1 text-white transition-colors duration-150">
-                                    <div class="px-1 rounded-md">
-                                        <div class="flex items-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                    d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-                                            </svg>
-                                            <a href="{{ route('categoria_productos.index') }}"
-                                                class="w-full ml-2  text-sm font-semibold text-white">
-                                                Categoria Productos</a>
                                         </div>
                                     </div>
                                 </li>
@@ -365,7 +363,8 @@
                                                 <path stroke-linecap="round" stroke-linejoin="round"
                                                     d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
                                             </svg>
-                                            <a href="#" class="w-full ml-2  text-sm font-semibold text-white">
+                                            <a href="{{ route('categoria_productos.index') }}"
+                                                class="w-full ml-2  text-sm font-semibold text-white">
                                                 Categoria de productos
                                             </a>
                                         </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Administracion\User;
 
+use App\Models\Bitacora;
 use App\Models\User;
 use Livewire\Component;
 
@@ -31,6 +32,7 @@ class LwEdit extends Component
         $this->usuario->password = bcrypt($this->password);
 
         $this->usuario->save();
+        Bitacora::Bitacora('U', 'Usuario', $this->usuario->id);
         return redirect()->route('usuarios.index');
     }
 

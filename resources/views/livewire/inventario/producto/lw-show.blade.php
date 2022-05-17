@@ -67,7 +67,7 @@
                 <label for="exampleInputEmail2" class="form-label inline-block mb-2 text-gray-700">Categoria</label>
                 <input type="text" wire:model.defer="producto.categoria_producto" name='categoria_producto' readonly
                     class="form-control block  w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300  rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                    placeholder="Costo Producción">
+                    placeholder="Categoria">
             </div>
         </div>
         <div class="grid grid-cols-1 gap-4">
@@ -80,7 +80,7 @@
             <div class="form-group mb-6">
                 <label for="exampleInputEmail2"
                     class="form-label inline-block mb-2 text-gray-700">Especificaciones</label>
-                <textarea name="especificaciones" id="" cols="30" rows="5" wire:model.defer="producto.especificaciones" readonly
+                <textarea name="especificacion" id="" cols="30" rows="5" wire:model.defer="producto.especificacion" readonly
                     class="form-control block  w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300  rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"></textarea>
             </div>
         </div>

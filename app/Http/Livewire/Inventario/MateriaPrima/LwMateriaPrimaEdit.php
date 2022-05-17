@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Inventario\MateriaPrima;
 
+use App\Models\Bitacora;
 use App\Models\Configuracion\CategoriaMateriaPrima;
 use App\Models\Inventario\MateriaPrima;
 use Livewire\Component;
@@ -37,6 +38,7 @@ class LwMateriaPrimaEdit extends Component
     }
 
     $materia->save();
+    Bitacora::Bitacora('U', 'Materia Prima', $materia->id);
     return redirect()->route('materia-prima.index');
     }
 

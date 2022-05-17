@@ -2,9 +2,11 @@
 
 namespace App\Http\Livewire\Administracion\Bitacora;
 
+use App\Models\Bitacora;
 use Livewire\Component;
 use Livewire\WithPagination;
 use OwenIt\Auditing\Models\Audit;
+use Illuminate\Http\Request;
 
 class LwShow extends Component
 {
@@ -14,6 +16,7 @@ class LwShow extends Component
     public $type = 'id';
     public $sort = 'id';
     public $direction = 'asc';
+
 
     //Metodo de reinicio de buscador
     public function updatingAttribute()
@@ -41,23 +44,23 @@ class LwShow extends Component
     {
         switch ($this->type) {
             case 'nombre':
-                $bitacoras = Audit::join('users', 'users.id', 'audits.user_id')
+                $bitacoras = Bitacora::join('users', 'users.id', 'bitacoras.id_usuario')
                     ->where('users.name', 'like', '%' . $this->attribute . '%')
-                    ->orderBy('audits.' . $this->sort, $this->direction)
+                    ->orderBy('bitacoras.' . $this->sort, $this->direction)
                     ->paginate($this->pagination);
                 break;
             case 'fechayhora':
-                $bitacoras = Audit::where('created_at', 'like', '%' . $this->attribute . '%')
+                $bitacoras = Bitacora::where('created_at', 'like', '%' . $this->attribute . '%')
                     ->orderBy($this->sort, $this->direction)
                     ->paginate($this->pagination);
                 break;
             case 'ip':
-                $bitacoras = Audit::where('ip_address', 'like', '%' . $this->attribute . '%')
+                $bitacoras = Bitacora::where('ip', 'like', '%' . $this->attribute . '%')
                     ->orderBy($this->sort, $this->direction)
                     ->paginate($this->pagination);
                 break;
             default:
-                $bitacoras = Audit::all();
+                $bitacoras = Bitacora::all();
                 break;
         }
 

@@ -2,7 +2,9 @@
 
 namespace App\Http\Livewire\Configuracion\SistemaUnidad;
 
+use App\Models\Bitacora;
 use App\Models\configuracion\SistemaUnidad;
+use Faker\Provider\Biased;
 use Livewire\Component;
 
 class LwSistemaUnidadCreate extends Component
@@ -15,15 +17,17 @@ class LwSistemaUnidadCreate extends Component
         return view('livewire.configuracion.sistema-unidad.lw-sistema-unidad-create');
     }
 
-    public function store(){
+    public function store()
+    {
         $this->validate([
-            'nombre'=>'required',
+            'nombre' => 'required',
             'abreviatura' => 'required'
         ]);
-        SistemaUnidad::create([
-            'nombre'=> $this->nombre,
+        $sistema = SistemaUnidad::create([
+            'nombre' => $this->nombre,
             'abreviatura' => $this->abreviatura
         ]);
+        Bitacora::Bitacora('C', 'Sistema de unidades', $sistema->id);
         return "se creo";
         return redirect()->route('sistema-unidad.index');
     }

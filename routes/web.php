@@ -8,10 +8,14 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\Inventario\ProductoController;
 use App\Http\Controllers\CategoriaProductoController;
+use App\Http\Controllers\Inventario\BOMController as InventarioBOMController;
 use App\Http\Controllers\Login\UserController;
 use App\Http\Controllers\Reportes\ExcelController;
 use App\Http\Controllers\Reportes\PDFController;
 use App\Http\Controllers\Reportes\PruebaController;
+use App\Http\Controllers\Reportes\ReporteController;
+use Illuminate\Http\Request;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -63,15 +67,21 @@ Route::middleware([
     // Route Bitacora
     Route::get('/bitacora', [BitacoraController::class, 'index'])->name('bitacora.index');
     Route::get('/bitacora/autenticacion', [BitacoraController::class, 'autenticacion'])->name('bitacora.autenticacion');
-
+    Route::get('/ip', function (Request $request) {
+        return $request->ip();
+    });
 
     // Route reporte
-    Route::get('/reporte', [PruebaController::class, 'index'])->name('reporte.index');
+    Route::get('/reporte', [ReporteController::class, 'index'])->name('reporte.index');
     Route::get('/reporte/excel', [ExcelController::class, 'excel'])->name('reporte.excel');
     Route::get('/reporte/pdf', [PDFController::class, 'pdf'])->name('reporte.pdf');
 
     //Route Usuarios
-    Route::get('/usuarios',[UserController::class,'indexx'])->name('usuarios.index');
-    Route::get('/usuarios/create',[UserController::class,'createe'])->name('usuarios.create');
-    Route::get('/usuarios/edit/{id}',[UserController::class,'editt'])->name('usuarios.edit');
+    Route::get('/usuarios', [UserController::class, 'indexx'])->name('usuarios.index');
+    Route::get('/usuarios/create', [UserController::class, 'createe'])->name('usuarios.create');
+    Route::get('/usuarios/edit/{id}', [UserController::class, 'editt'])->name('usuarios.edit');
+
+    // Route BOM
+    Route::get('/productos/show/{id}/bom/create', [InventarioBOMController::class, 'create'])->name('bom.create');
+    Route::get('/productos/show/{id}/bom/edit/{idbom}', [InventarioBOMController::class, 'edit'])->name('bom.edit');
 });

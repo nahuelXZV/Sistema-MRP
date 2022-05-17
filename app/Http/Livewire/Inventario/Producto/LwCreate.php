@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Inventario\Producto;
 
+use App\Models\Bitacora;
 use App\Models\CategoriaProducto;
 use App\Models\configuracion\SistemaUnidad;
 use App\Models\Inventario\Producto;
@@ -22,7 +23,8 @@ class LwCreate extends Component
             'producto.costo_produccion' => 'required',
             'producto.cantidad' => 'required',
         ]);
-        Producto::create($this->producto);
+        $producto = Producto::create($this->producto);
+        Bitacora::Bitacora('C', 'Producto', $producto->id);
         return redirect()->route('productos.index');
     }
 

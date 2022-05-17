@@ -26,4 +26,6 @@ class MateriaPrima extends Model implements Auditable
     {
         return $this->belongsTo(CategoriaMateriaPrima::class);
     }
+
+    
 }
