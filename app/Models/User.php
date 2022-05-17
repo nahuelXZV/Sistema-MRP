@@ -60,6 +60,11 @@ class User extends Authenticatable implements Auditable
     protected $appends = [
         'avatar',
     ];
+    //reportes
+    static public $atributos = ['id', 'name', 'email', 'created_at'];
+    static public $default = ['id', 'name', 'email'];
+    static public $tabla = 'users';
+
 
     public function getAvatarAttribute()
     {

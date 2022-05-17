@@ -37,6 +37,12 @@ class Producto extends Model implements Auditable
         'categoria_producto',
     ];
 
+    //reportes
+    static public $atributos = ['id', 'nombre', 'descripcion', 'color', 'tamaño', 'estado', 'peso', 'especificacion', 'costo_produccion', 'cantidad'];
+    static public $default = ['nombre', 'descripcion', 'estado', 'costo_produccion', 'cantidad'];
+    static public $tabla = 'productos';
+
+
     //para la api, por el cual se va poder filtrar
     //NOMBRES DE LAS RELACIONES
     protected $allowIncluded = ['categoria_producto'];

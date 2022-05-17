@@ -22,10 +22,13 @@ class MateriaPrima extends Model implements Auditable
         'idCategoriaMP'
     ];
 
+    //reportes
+    static public $atributos = ['id', 'nombre', 'tipo', 'descripcion', 'tamaño', 'peso', 'color'];
+    static public $default = ['nombre', 'tipo', 'descripcion'];
+    static public $tabla = 'materia_primas';
+
     public function idcategoriaMP()
     {
         return $this->belongsTo(CategoriaMateriaPrima::class);
     }
-
-    
 }

@@ -71,11 +71,6 @@ Route::middleware([
         return $request->ip();
     });
 
-    // Route reporte
-    Route::get('/reporte', [ReporteController::class, 'index'])->name('reporte.index');
-    Route::get('/reporte/excel', [ExcelController::class, 'excel'])->name('reporte.excel');
-    Route::get('/reporte/pdf', [PDFController::class, 'pdf'])->name('reporte.pdf');
-
     //Route Usuarios
     Route::get('/usuarios', [UserController::class, 'indexx'])->name('usuarios.index');
     Route::get('/usuarios/create', [UserController::class, 'createe'])->name('usuarios.create');
@@ -84,4 +79,28 @@ Route::middleware([
     // Route BOM
     Route::get('/productos/show/{id}/bom/create', [InventarioBOMController::class, 'create'])->name('bom.create');
     Route::get('/productos/show/{id}/bom/edit/{idbom}', [InventarioBOMController::class, 'edit'])->name('bom.edit');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // Route reporte
+    Route::get('/reporte', [ReporteController::class, 'index'])->name('reporte.index');
+    Route::post('/reporte', [ReporteController::class, 'validar'])->name('reporte.validar');
+    Route::post('/reporte/pdf', [PDFController::class, 'pdf'])->name('reporte.pdf');
+    Route::get('/reporte/excel', [ExcelController::class, 'excel'])->name('reporte.excel');
 });

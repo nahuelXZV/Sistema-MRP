@@ -20,6 +20,7 @@ class CreateEmpresasTable extends Migration
             $table->string('direccion');
             $table->string('telefono');
             $table->string('email');
+            $table->string('ciudad');
             $table->text('descripcion')->nullable();
             $table->string('passwd_bitacora');
             $table->timestamps();

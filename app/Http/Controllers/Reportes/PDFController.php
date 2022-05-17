@@ -7,5 +7,8 @@ use Illuminate\Http\Request;
 
 class PDFController extends Controller
 {
-    //
+    public function pdf(Request $request)
+    {
+        return $request;
+    }
 }
