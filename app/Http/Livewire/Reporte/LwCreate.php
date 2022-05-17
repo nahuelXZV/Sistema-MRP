@@ -34,7 +34,7 @@ class LwCreate extends Component
                 "Modelo" =>  "Cliente"
             ],
             [
-                "id" => 'proveedores',
+                "id" => 'proveedors',
                 "Modelo" =>  "Proveedores"
             ],
             [
@@ -71,7 +71,7 @@ class LwCreate extends Component
             case 'clientes':
                 $this->atributosM = Cliente::$atributos;
                 break;
-            case 'proveedores':
+            case 'proveedors':
                 $this->atributosM = Proveedor::$atributos;
                 break;
             case 'productos':

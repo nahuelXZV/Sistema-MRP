@@ -38,8 +38,8 @@ class Producto extends Model implements Auditable
     ];
 
     //reportes
-    static public $atributos = ['id', 'nombre', 'descripcion', 'color', 'tamaño', 'estado', 'peso', 'especificacion', 'costo_produccion', 'cantidad'];
-    static public $default = ['nombre', 'descripcion', 'estado', 'costo_produccion', 'cantidad'];
+    static public $atributos = ['id', 'nombre', 'color', 'tamaño', 'estado', 'peso', 'especificacion', 'costo_produccion', 'cantidad'];
+    static public $default = ['nombre', 'estado', 'costo_produccion', 'cantidad'];
     static public $tabla = 'productos';
 
 

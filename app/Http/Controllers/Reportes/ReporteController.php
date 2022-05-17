@@ -3,7 +3,11 @@
 namespace App\Http\Controllers\Reportes;
 
 use App\Http\Controllers\Controller;
+use App\Models\Cliente;
+use App\Models\CompraDistribucion\Proveedor;
 use App\Models\Empresa;
+use App\Models\Inventario\MateriaPrima;
+use App\Models\Inventario\Producto;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Fpdf\Fpdf;
@@ -90,12 +94,12 @@ class ReporteController extends Controller
             $datos['atributos']  = $this->DefaultModel($datos['modelo']);
         }
         $separacion = 190 / count($datos['atributos']);
-        $this->fpdf->SetFont('Arial', 'B', 10);
+        $this->fpdf->SetFont('Arial', 'B', 9);
         $this->fpdf->SetFillColor(238, 238, 238);
         $this->fpdf->SetDrawColor(238, 238, 238);
         $this->fpdf->SetTextColor(0, 0, 0);
         foreach ($datos['atributos'] as $atributo) {
-            $this->fpdf->Cell($separacion, 10, utf8_decode($atributo), 1, 0, 'L', 1);
+            $this->fpdf->Cell($separacion, 10, utf8_decode(mb_strtoupper($atributo, "UTF-8")), 1, 0, 'L', 1);
         }
         $this->fpdf->Ln(10);
 
@@ -144,7 +148,18 @@ class ReporteController extends Controller
             case 'users':
                 return User::$default;
                 break;
-
+            case 'clientes':
+                return Cliente::$default;
+                break;
+            case 'proveedors':
+                return Proveedor::$default;
+                break;
+            case 'productos':
+                return Producto::$default;
+                break;
+            case 'materia_primas':
+                return MateriaPrima::$default;
+                break;
             default:
                 # code...
                 break;
