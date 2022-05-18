@@ -34,6 +34,21 @@
             </div>
         </div>
 
+        <div class="grid grid-cols-2 gap-4">
+            <div class="form-group mb-6">
+                <label for="exampleInputEmail2" class="form-label inline-block mb-2 text-gray-700">Rol</label>
+                <select wire:model.defer='rol' name='rol'
+                    class="form-select appearance-none   h-9   block    w-full    px-2    py-1    text-sm    font-normal    text-gray-700    bg-white bg-clip-padding bg-no-repeat    border border-solid border-gray-300    rounded    transition    ease-in-out    m-0    focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                    aria-label=".form-select-sm example">
+                    <option selected>Selecciona un rol</option>
+                    @foreach ($roles as $rol)
+                        <option value="{{ $rol->id }}">{{ $rol->name }}</option>
+                    @endforeach
+                </select>
+                <x-jet-input-error for="rol" />
+            </div>
+        </div>
+
 
         <div
             class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-start p-4 border-t border-gray-200 rounded-b-md">

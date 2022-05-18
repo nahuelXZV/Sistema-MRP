@@ -128,6 +128,9 @@
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
                             Email
                         </th>
+                        <th scope="col" class="text-sm font-bold text-white px-6 py-4">
+                            Rol
+                        </th>
                         </th>
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
                             Acciones
@@ -145,6 +148,9 @@
                             </td>
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                 {{ $usuario->email }}
+                            </td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                {{ $usuario->getRoleNames()[0] }}
                             </td>
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                 <div class="flex items-center justify-center">
