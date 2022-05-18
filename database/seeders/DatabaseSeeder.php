@@ -4,7 +4,9 @@ namespace Database\Seeders;
 
 use App\Models\Configuracion\SistemaUnidad;
 use App\Models\Empresa;
+use App\Models\Inventario\Producto;
 use App\Models\User;
+use Database\Seeders\Inventario\ProductoSeeder;
 use Illuminate\Database\Seeder;
 // use Database\Seeders\configuracion\SistemaUnidadSeeder;
 class DatabaseSeeder extends Seeder
@@ -16,10 +18,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-        $this->call(UserSeeder::class);
-        $this->call(SistemaUnidadSeeder::class);
-        $this->call(ClienteSeeder::class);
+        //Debe ejecutar los seeders el comando de abajo
+        //php artisan migrate:refresh --seed
+        $this->call([
+            UserSeeder::class,
+            SistemaUnidadSeeder::class,
+            ClienteSeeder::class,
+            // ProductoSeeder::class
+        ]);
+        
+        //crea 20 registros de productos
+        Producto::factory(20)->create();
+
         Empresa::create([
             'nombre' => 'Empresa 1',
             'licencia' => '123456789',
