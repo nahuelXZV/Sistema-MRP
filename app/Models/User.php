@@ -12,6 +12,8 @@ use Laravel\Sanctum\HasApiTokens;
 use OwenIt\Auditing\Auditable as AuditingAuditable;
 use OwenIt\Auditing\Contracts\Auditable;
 
+use Spatie\Permission\Traits\HasRoles;
+
 class User extends Authenticatable implements Auditable
 {
     use HasApiTokens;
@@ -20,6 +22,8 @@ class User extends Authenticatable implements Auditable
     use Notifiable;
     use TwoFactorAuthenticatable;
     use AuditingAuditable;
+    use HasRoles;
+    
     /**
      * The attributes that are mass assignable.
      *

@@ -18,17 +18,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        //Debe ejecutar los seeders el comando de abajo
-        //php artisan migrate:refresh --seed
-        $this->call([
-            UserSeeder::class,
-            SistemaUnidadSeeder::class,
-            ClienteSeeder::class,
-            // ProductoSeeder::class
-        ]);
-        
-        //crea 20 registros de productos
-        Producto::factory(20)->create();
+        // \App\Models\User::factory(10)->create();
+        $this->call(RoleSeeder::class);
+
+        $this->call(UserSeeder::class);
+        $this->call(SistemaUnidadSeeder::class);
+        $this->call(ClienteSeeder::class);
 
         Empresa::create([
             'nombre' => 'Empresa 1',
@@ -41,5 +36,9 @@ class DatabaseSeeder extends Seeder
             'passwd_bitacora' => '123456789',
             'ciudad' => 'Santa cruz',
         ]);
+
+
+        //crea 20 registros de productos
+        Producto::factory(20)->create();
     }
 }
