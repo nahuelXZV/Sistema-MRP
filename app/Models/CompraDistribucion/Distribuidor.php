@@ -25,6 +25,14 @@ class Distribuidor extends Model
         'tipo',
         'medio_transporte', 'created_at'
     ];
+    static public $interface = [
+        'Nombre',
+        'Dirección',
+        'Teléfono',
+        'Correo',
+        'Tipo',
+        'Medio de transporte', 'Creado'
+    ];
     static public $default = ['nombre', 'direccion', 'telefono', 'email', 'medio_transporte'];
     static public $tabla = 'distribuidors';
 }

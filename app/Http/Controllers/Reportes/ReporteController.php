@@ -46,7 +46,7 @@ class ReporteController extends Controller
         ]);
         switch ($request->extension) {
             case 'pdf':
-                return $this->pdf($request);
+                return $this->pdf2($request);
                 break;
             default:
                 return $this->otros($request);
@@ -79,6 +79,15 @@ class ReporteController extends Controller
         $this->fpdf->Cell(60, 10, utf8_decode('Creado: ' . now()), 0, 0, 'R');
         // Salto de línea
         $this->fpdf->Ln(15);
+    }
+    function Footer()
+    {
+        // Go to 1.5 cm from bottom
+        $this->SetY(-15);
+        // Select Arial italic 8
+        $this->SetFont('Arial', 'I', 8);
+        // Print centered page number
+        $this->Cell(0, 10, 'Page ' . $this->PageNo(), 0, 0, 'C');
     }
 
     public function pdf($datos)
@@ -146,6 +155,75 @@ class ReporteController extends Controller
         $this->fpdf->Output("I", $datos['nombre'] . ".pdf", true);
     }
 
+    public function pdf2($datos)
+    {
+        $empresa = Empresa::first();
+        $this->fpdf->AddPage();
+        $this->fpdf->SetMargins(10, 10, 10);
+        $this->fpdf->SetAutoPageBreak(true, 20);
+        $this->Header($empresa);
+
+        $this->fpdf->SetFont('Arial', 'B', 13);
+        $this->fpdf->Cell(190, 10, utf8_decode($datos['nombre']), 0, 0, 'C');
+        $this->fpdf->Ln(15);
+
+        //Encabezado de la tabla
+        if ($datos['atributos'] == null) {
+            $datos['atributos']  = $this->DefaultModel($datos['modelo']);
+        }
+
+        $this->fpdf->SetFont('Arial', 'B', 9);
+        $this->fpdf->SetFillColor(238, 238, 238);
+        $this->fpdf->SetDrawColor(238, 238, 238);
+        $this->fpdf->SetTextColor(0, 0, 0);
+        //Consulta
+        if ($datos['filtro'] != null && $datos['buscar'] != null && $datos['order'] != null && $datos['orderBy'] != null && $datos['cantidad'] != null) {
+
+            if ($datos['cantidad'] == 'all') {
+                $query = DB::table($datos['modelo'])->where($datos['filtro'], 'like', '%' . $datos['buscar'] . '%')
+                    ->orderBy($datos['orderBy'], $datos['order'])
+                    ->get();
+            } else {
+                $query = DB::table($datos['modelo'])->where($datos['filtro'], 'like', '%' . $datos['buscar'] . '%')
+                    ->orderBy($datos['orderBy'], $datos['order'])
+                    ->paginate($datos['cantidad']);
+            }
+        } else if ($datos['order'] != null && $datos['orderBy'] != null && $datos['cantidad'] != null) {
+            if ($datos['cantidad'] == 'all') {
+                $query = DB::table($datos['modelo'])
+                    ->orderBy($datos['orderBy'], $datos['order'])
+                    ->get();
+            } else {
+                $query = DB::table($datos['modelo'])
+                    ->orderBy($datos['orderBy'], $datos['order'])
+                    ->paginate($datos['cantidad']);
+            }
+        } else {
+            $query = DB::table($datos['modelo'])->get();
+        }
+
+        $this->fpdf->SetFont('Arial', 'B', 9);
+        $this->fpdf->SetFillColor(238, 238, 238);
+        $this->fpdf->SetDrawColor(238, 238, 238);
+        $this->fpdf->SetTextColor(0, 0, 0);
+        $this->fpdf->Cell(190, 10, utf8_decode(mb_strtoupper('Contenido:', "UTF-8")), 1, 0, 'L', 1);
+        $this->fpdf->Ln(15);
+        // Datos de la tabla
+        $header = $this->HeaderModel($datos['modelo'], $datos['atributos']);
+        foreach ($query as $tupla) {
+            foreach ($datos['atributos'] as $key => $atributo) {
+                $this->fpdf->SetFont('Arial', 'B', 9);
+                $this->fpdf->Cell(40, 10, utf8_decode(mb_strtoupper($header[$key], "UTF-8") . " :"), 0, 0, 'L', 0);
+                $this->fpdf->SetFont('Arial', 'I', 9);
+                $this->fpdf->MultiCell(150, 10, utf8_decode($tupla->$atributo), 0, 'L', 0);
+            }
+            $this->fpdf->SetDrawColor(130, 139, 139);
+            $this->fpdf->Line(10, $this->fpdf->GetY() + 5, 200, $this->fpdf->GetY() + 5);
+            $this->fpdf->Ln(10);
+        }
+        $this->fpdf->Output("I", $datos['nombre'] . ".pdf", true);
+    }
+
     public function DefaultModel($modelo)
     {
         switch ($modelo) {
@@ -174,6 +252,75 @@ class ReporteController extends Controller
                 # code...
                 break;
         }
+    }
+    public function InterfaceModel($modelo)
+    {
+        switch ($modelo) {
+            case 'users':
+                return User::$interface;
+                break;
+            case 'clientes':
+                return Cliente::$interface;
+                break;
+            case 'proveedors':
+                return Proveedor::$interface;
+                break;
+            case 'productos':
+                return Producto::$interface;
+                break;
+            case 'materia_primas':
+                return MateriaPrima::$interface;
+                break;
+            case 'maquinarias':
+                return Maquinaria::$interface;
+                break;
+            case 'distribuidors':
+                return Distribuidor::$interface;
+                break;
+            default:
+                # code...
+                break;
+        }
+    }
+    public function AtributteModel($modelo)
+    {
+        switch ($modelo) {
+            case 'users':
+                return User::$atributos;
+                break;
+            case 'clientes':
+                return Cliente::$atributos;
+                break;
+            case 'proveedors':
+                return Proveedor::$atributos;
+                break;
+            case 'productos':
+                return Producto::$atributos;
+                break;
+            case 'materia_primas':
+                return MateriaPrima::$atributos;
+                break;
+            case 'maquinarias':
+                return Maquinaria::$atributos;
+                break;
+            case 'distribuidors':
+                return Distribuidor::$atributos;
+                break;
+            default:
+                # code...
+                break;
+        }
+    }
+    public function HeaderModel($modelo, $atributo)
+    {
+        $default = $this->AtributteModel($modelo);
+        $interface = $this->InterfaceModel($modelo);
+        foreach ($atributo as $key => $value) {
+            //verifica si el value esta en default y devuelve la posicion del array
+            $posicion = array_search($value, $default);
+            $array[$key] = $interface[$posicion];
+        }
+        return $array;
     }
     //EXCEL----------------------------------------------------------------------------
     public function otros($datos)

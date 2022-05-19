@@ -15,6 +15,7 @@ class Maquinaria extends Model
     ];
     //reportes
     static public $atributos = ['id', 'nombre', 'marca', 'descripcion', 'created_at'];
+    static public $interface = ['Código', 'Nombre', 'Marca', 'Descripción', 'Creado'];
     static public $default = ['nombre', 'marca', 'descripcion', 'created_at'];
     static public $tabla = 'maquinarias';
 }

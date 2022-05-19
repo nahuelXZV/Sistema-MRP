@@ -23,7 +23,7 @@ class User extends Authenticatable implements Auditable
     use TwoFactorAuthenticatable;
     use AuditingAuditable;
     use HasRoles;
-    
+
     /**
      * The attributes that are mass assignable.
      *
@@ -66,6 +66,7 @@ class User extends Authenticatable implements Auditable
     ];
     //reportes
     static public $atributos = ['id', 'name', 'email', 'created_at'];
+    static public $interface = ['Código', 'Nombre', 'Correo', 'Creado'];
     static public $default = ['id', 'name', 'email'];
     static public $tabla = 'users';
 

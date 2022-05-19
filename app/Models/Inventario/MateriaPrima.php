@@ -23,7 +23,8 @@ class MateriaPrima extends Model implements Auditable
     ];
 
     //reportes
-    static public $atributos = ['id', 'nombre', 'tipo', 'tamaño', 'peso', 'color'];
+    static public $atributos = ['id', 'nombre', 'descripcion', 'tipo', 'tamaño', 'peso', 'color'];
+    static public $interface = ['Código', 'Nombre', 'Descripción', 'Tipo', 'Tamaño', 'Peso', 'Color'];
     static public $default = ['nombre', 'tipo', 'tamaño', 'peso', 'color'];
     static public $tabla = 'materia_primas';
 

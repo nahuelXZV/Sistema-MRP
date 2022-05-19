@@ -16,6 +16,7 @@ class Cliente extends Model implements Auditable
 
     //reportes
     static public $atributos = ['id', 'nombre', 'telefono', 'direccion'];
+    static public $interface = ['Código', 'Nombre', 'Telefono', 'Dirección'];
     static public $default = ['nombre', 'telefono', 'direccion'];
     static public $tabla = 'clientes';
 }
