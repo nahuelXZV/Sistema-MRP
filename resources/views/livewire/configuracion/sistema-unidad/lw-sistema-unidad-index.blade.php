@@ -1,8 +1,8 @@
 <div>
     {{-- Care about people's approval and you will be their prisoner. --}}
 
-     <!--begin table-->
-     <div class="m-1">
+    <!--begin table-->
+    <div class="m-1">
         <x-header-table>
             <div class="container-fluid flex flex-wrap">
                 <div class="m-1">
@@ -57,10 +57,10 @@
                     </ul>
                 </div>
             </div>
-            
+
             <div class="container-fluid flex">
                 <div class="m-1 flex flex-row text-right">
-                    <a type="button" href="{{route('sistema-unidad.create')}}"
+                    <a type="button" href="{{ route('sistema-unidad.create') }}"
                         class="mr-2 inline-block px-6 py-2.5 bg-blue-600 text-white font-bold text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
                         Nuevo
                     </a>
@@ -77,25 +77,14 @@
                             py-2 list-none text-left rounded-lg shadow-lg mt-1 m-0 bg-clip-padding
                             border-none "
                         aria-labelledby="dropdownMenuButton1">
-                        <li>
-                            <a class="dropdown-item text-sm py-2 px-4 font-normal block w-full
-                                whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100 "
-                                href="#">Descargar PDF</a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item text-sm py-2 px-4 font-normal block w-full
-                                whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100 "
-                                href="#">Descargar EXCEL</a>
-                        </li>
-                        <hr class="h-0 my-2 border border-solid border-t-0 border-gray-700 opacity-25" />
                         <h6
                             class="text-gray-500 font-semibold text-sm py-2 px-4 block w-full whitespace-nowrap
                           bg-transparent ">
                             ORDENAR POR
                         </h6>
                         <li>
-                            <p
-                                wire:click="order('nombre')" class="dropdown-item flex text-sm py-2 px-4 font-normal w-full
+                            <p wire:click="order('nombre')"
+                                class="dropdown-item flex text-sm py-2 px-4 font-normal w-full
                                 whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100 ">
                                 Nombre
                                 <x-signo-table :type='$type' :direction='$direction' etiqueta='nombre'> </x-signo-table>
@@ -125,30 +114,30 @@
                 </thead>
                 <tbody>
                     @foreach ($unidades as $unidad)
-                    <tr class="bg-white border-b">
-                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                            {{$unidad->nombre}}
-                        </td>
-                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                            {{$unidad->abreviatura}}</td>
-                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                            <div class="flex items-center justify-center">
-                                <div class="inline-flex" role="group">
-                                    <a href="{{route('sistema-unidad.edit',$unidad->id)}}"
-                                        class="m-1 inline-block px-4 py-1.5 bg-blue-600 text-white font-bold text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
-                                        <x-edit> </x-edit>
-                                    </a>
-                                    
-                                    <button type="button" wire:click='delete({{$unidad->id}})'
-                                        class="m-1 inline-block px-4 py-1.5 bg-red-600 text-white font-bold text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out">
-                                        <x-delete> </x-delete>
-                                    </button>
+                        <tr class="bg-white border-b">
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                {{ $unidad->nombre }}
+                            </td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                {{ $unidad->abreviatura }}</td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                <div class="flex items-center justify-center">
+                                    <div class="inline-flex" role="group">
+                                        <a href="{{ route('sistema-unidad.edit', $unidad->id) }}"
+                                            class="m-1 inline-block px-4 py-1.5 bg-blue-600 text-white font-bold text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
+                                            <x-edit> </x-edit>
+                                        </a>
+
+                                        <button type="button" wire:click='delete({{ $unidad->id }})'
+                                            class="m-1 inline-block px-4 py-1.5 bg-red-600 text-white font-bold text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out">
+                                            <x-delete> </x-delete>
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
-                        </td>
-                    </tr>
+                            </td>
+                        </tr>
                     @endforeach
-                    
+
                 </tbody>
 
             </table>
@@ -159,4 +148,3 @@
     </div>
     <!--- end table -->
 </div>
-

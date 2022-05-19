@@ -91,17 +91,6 @@
                         py-2 list-none text-left rounded-lg shadow-lg mt-1 m-0 bg-clip-padding
                         border-none "
                     aria-labelledby="dropdownMenuButton1">
-                    <li>
-                        <a class="dropdown-item text-sm py-2 px-4 font-normal block w-full
-                            whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100 "
-                            href="#">Descargar PDF</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item text-sm py-2 px-4 font-normal block w-full
-                            whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100 "
-                            href="#">Descargar EXCEL</a>
-                    </li>
-                    <hr class="h-0 my-2 border border-solid border-t-0 border-gray-700 opacity-25" />
                     <h6
                         class="text-gray-500 font-semibold text-sm py-2 px-4 block w-full whitespace-nowrap
                       bg-transparent ">
@@ -114,7 +103,7 @@
                             <x-signo-table :type='$type' :direction='$direction' etiqueta='nombre'> </x-signo-table>
                         </p>
                     </li>
-                    
+
                 </ul>
             </div>
         </div>
@@ -137,7 +126,7 @@
                             descripcion
                             <x-signo-table :type='$type' :direction='$direction' etiqueta='estado'> </x-signo-table>
                         </th>
-                        
+
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
                             Acciones
                         </th>
@@ -152,7 +141,7 @@
                                 {{ $categoria_producto->nombre }}</td>
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                 {{ $categoria_producto->descripcion }}</td>
-                           
+
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                 <div class="flex items-center justify-center">
                                     <div class="inline-flex" role="group">
@@ -183,4 +172,3 @@
         <x-pagination :modelo='$categoria_productos'> </x-pagination>
     </x-table>
 </div>
-

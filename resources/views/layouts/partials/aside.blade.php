@@ -1,4 +1,4 @@
-<aside class="z-20 flex-shrink-0 hidden w-60 pl-2 overflow-y-auto bg-gray-800 md:block">
+<aside class=" z-20 flex-shrink-0 hidden w-60 pl-2 overflow-y-auto bg-gray-800 md:block">
     <div>
         <div class="text-white">
             <div class="flex p-2 bg-gray-800">

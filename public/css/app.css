@@ -1190,6 +1190,9 @@ select {
 .min-h-screen {
   min-height: 100vh;
 }
+.min-h-full {
+  min-height: 100%;
+}
 .w-5 {
   width: 1.25rem;
 }
@@ -1246,6 +1249,11 @@ select {
 }
 .w-64 {
   width: 16rem;
+}
+.w-min {
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
 }
 .min-w-0 {
   min-width: 0px;
@@ -1330,6 +1338,9 @@ select {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+}
+.resize {
+  resize: both;
 }
 .list-inside {
   list-style-position: inside;
