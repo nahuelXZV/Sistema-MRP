@@ -22,7 +22,7 @@ class CreateProductosTable extends Migration
             $table->string('estado');
             $table->string('peso');
             $table->text('especificacion')->nullable();
-            $table->text('costo_produccion');
+            $table->string('costo_produccion');
             $table->string('cantidad');
             $table->unsignedBigInteger('categoria_producto')->nullable();
             $table->foreign('categoria_producto')->references('id')->on('categoria_productos');

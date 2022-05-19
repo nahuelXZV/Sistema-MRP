@@ -17,7 +17,7 @@ class CreateMaquinariasTable extends Migration
             $table->id();
             $table->string('nombre')->nullable();
             $table->string('marca')->nullable();
-            $table->string('descripcion')->nullable();
+            $table->text('descripcion')->nullable();
             $table->timestamps();
         });
     }

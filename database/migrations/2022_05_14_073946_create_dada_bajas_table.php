@@ -15,8 +15,8 @@ class CreateDadaBajasTable extends Migration
     {
         Schema::create('dada_bajas', function (Blueprint $table) {
             $table->id();
-            $table->string('motivo');     
-            $table->string('descripcion');
+            $table->text('motivo');     
+            $table->text('descripcion');
             $table->date('fecha')->nullable();
             $table->time('hora')->nullable();
             $table->timestamps();

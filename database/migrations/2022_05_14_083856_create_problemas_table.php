@@ -17,7 +17,7 @@ class CreateProblemasTable extends Migration
             $table->id();
             $table->unsignedBigInteger('estado_id')->nullable();
             $table->string('tipo_problema');
-            $table->string('descripcion');
+            $table->text('descripcion');
             $table->dateTime('fecha');
             $table->foreign('estado_id')->references('id')->on('estados')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();

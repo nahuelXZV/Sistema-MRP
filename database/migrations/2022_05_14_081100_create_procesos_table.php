@@ -17,7 +17,7 @@ class CreateProcesosTable extends Migration
             $table->id();
             $table->unsignedBigInteger('maquinaria_id')->nullable(); 
             $table->string('nombre')->nullable();
-            $table->string('descripcion')->nullable();
+            $table->text('descripcion')->nullable();
             $table->foreign('maquinaria_id')->references('id')->on('maquinarias')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });

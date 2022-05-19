@@ -17,7 +17,7 @@ class CreateMateriaPrimasTable extends Migration
             $table->id();
             $table->string('nombre');
             $table->string('tipo');
-            $table->string('descripcion')->nullable();
+            $table->text('descripcion')->nullable();
             $table->string('tamaño');
             $table->string('peso');
             $table->string('color');

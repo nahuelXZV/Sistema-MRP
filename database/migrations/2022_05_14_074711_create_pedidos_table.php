@@ -18,7 +18,7 @@ class CreatePedidosTable extends Migration
             $table->unsignedBigInteger('cliente_id')->nullable(); 
             $table->unsignedBigInteger('distribuidor_id')->nullable(); 
             $table->unsignedBigInteger('pedido_cancelado_id')->nullable(); 
-            $table->string('descripcion');
+            $table->text('descripcion');
             $table->string('estado');
             $table->date('fecha')->nullable();
             $table->time('hora')->nullable();
