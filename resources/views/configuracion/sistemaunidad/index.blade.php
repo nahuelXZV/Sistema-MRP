@@ -5,9 +5,9 @@
 @endsection
 
 @section('action')
-    <a href="{{route('sistema-unidad.index')}}"  class="hover:underline ">Unidades</a>
+    <a href="{{ route('sistema-unidad.index') }}" class="hover:underline ">Unidades</a>
 @endsection
 
 @section('content')
- @livewire('configuracion.sistema-unidad.lw-sistema-unidad-index')
+    @livewire('configuracion.sistema-unidad.lw-sistema-unidad-index')
 @endsection
