@@ -80,15 +80,6 @@ class ReporteController extends Controller
         // Salto de línea
         $this->fpdf->Ln(15);
     }
-    function Footer()
-    {
-        // Go to 1.5 cm from bottom
-        $this->SetY(-15);
-        // Select Arial italic 8
-        $this->SetFont('Arial', 'I', 8);
-        // Print centered page number
-        $this->Cell(0, 10, 'Page ' . $this->PageNo(), 0, 0, 'C');
-    }
 
     public function pdf($datos)
     {
@@ -198,16 +189,22 @@ class ReporteController extends Controller
                     ->orderBy($datos['orderBy'], $datos['order'])
                     ->paginate($datos['cantidad']);
             }
+        } else if ($datos['filtro'] != null && $datos['buscar'] != null) {
+            $query = DB::table($datos['modelo'])->where($datos['filtro'], 'like', '%' . $datos['buscar'] . '%')
+                ->orderBy('id', 'asc')
+                ->get();
         } else {
             $query = DB::table($datos['modelo'])->get();
         }
 
+        //header del contenido
         $this->fpdf->SetFont('Arial', 'B', 9);
         $this->fpdf->SetFillColor(238, 238, 238);
         $this->fpdf->SetDrawColor(238, 238, 238);
         $this->fpdf->SetTextColor(0, 0, 0);
         $this->fpdf->Cell(190, 10, utf8_decode(mb_strtoupper('Contenido:', "UTF-8")), 1, 0, 'L', 1);
         $this->fpdf->Ln(15);
+
         // Datos de la tabla
         $header = $this->HeaderModel($datos['modelo'], $datos['atributos']);
         foreach ($query as $tupla) {
