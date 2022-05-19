@@ -15,25 +15,29 @@ class ClienteSeeder extends Seeder
     public function run()
     {
         Cliente::create([
-            'nombre'=>"Nahuel Zalazar",
-            'direccion'=>"nahuel@gmail.com"
+            'nombre' => "Nahuel Zalazar",
+            'telefono' => '45455115151',
+            'direccion' => "nahuelc@gmail.com"
         ]);
         Cliente::create([
-            'nombre'=>"Darwin Mamani",     
-            'direccion'=>"darwin@gmail.com"
+            'nombre' => "Darwin Mamani",
+            'telefono' => '45455115151',
+            'direccion' => "darwinc@gmail.com"
         ]);
         Cliente::create([
-            'nombre'=>"Daniela Carrasco",
-            'direccion'=>"daniela@gmail.com"
+            'nombre' => "Daniela Carrasco",
+            'telefono' => '45455115151',
+            'direccion' => "danielac@gmail.com"
         ]);
         Cliente::create([
-            'nombre'=>"Diego Hurtado",
-            'direccion'=>"diego@gmail.com"
+            'nombre' => "Diego Hurtado",
+            'telefono' => '45455115151',
+            'direccion' => "diegoc@gmail.com"
         ]);
         Cliente::create([
-            'nombre'=>"David Mamani",
-            'direccion'=>"david@gmail.com"
-            
+            'nombre' => "David Mamani",
+            'telefono' => '45455115151',
+            'direccion' => "davidc@gmail.com"
         ]);
     }
 }
