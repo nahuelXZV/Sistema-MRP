@@ -39,6 +39,6 @@ class DatabaseSeeder extends Seeder
 
 
         //crea 20 registros de productos
-        Producto::factory(20)->create();
+        //Producto::factory(20)->create();
     }
 }
