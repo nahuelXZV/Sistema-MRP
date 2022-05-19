@@ -2,13 +2,12 @@
 
 namespace App\Exports;
 
-use App\Models\Inventario\Producto as InventarioProducto;
-use App\Models\Producto;
-use Illuminate\Support\Facades\DB;
+use App\Models\Cliente;
 use Maatwebsite\Excel\Concerns\FromCollection;
+use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 
-class ProductosExport implements FromCollection, WithHeadings
+class ClientesExport implements FromCollection, WithHeadings
 {
     protected $query;
     protected $encabezado;

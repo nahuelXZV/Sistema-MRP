@@ -2,16 +2,26 @@
 
 namespace App\Http\Controllers\Reportes;
 
+use App\Exports\ClientesExport;
+use App\Exports\DistribuidorExport;
+use App\Exports\MaquinariaExport;
+use App\Exports\MateriaPrimaExport;
+use App\Exports\ProductosExport;
+use App\Exports\ProveedorExport;
+use App\Exports\UsersExport;
 use App\Http\Controllers\Controller;
 use App\Models\Cliente;
+use App\Models\CompraDistribucion\Distribuidor;
 use App\Models\CompraDistribucion\Proveedor;
 use App\Models\Empresa;
 use App\Models\Inventario\MateriaPrima;
 use App\Models\Inventario\Producto;
+use App\Models\Produccion\Maquinaria;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Fpdf\Fpdf;
 use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ReporteController extends Controller
 {
@@ -35,17 +45,11 @@ class ReporteController extends Controller
             'extension' => 'required',
         ]);
         switch ($request->extension) {
-            case 'excel':
-                # code...
-                break;
             case 'pdf':
-                //return $request;
                 return $this->pdf($request);
                 break;
-            case 'csv':
-                # code...
-                break;
             default:
+                return $this->otros($request);
                 break;
         }
     }
@@ -139,7 +143,7 @@ class ReporteController extends Controller
             }
             $this->fpdf->Ln(10);
         }
-        $this->fpdf->Output();
+        $this->fpdf->Output("I", $datos['nombre'] . ".pdf", true);
     }
 
     public function DefaultModel($modelo)
@@ -159,6 +163,45 @@ class ReporteController extends Controller
                 break;
             case 'materia_primas':
                 return MateriaPrima::$default;
+                break;
+            case 'maquinarias':
+                return Maquinaria::$default;
+                break;
+            case 'distribuidors':
+                return Distribuidor::$default;
+                break;
+            default:
+                # code...
+                break;
+        }
+    }
+    //EXCEL----------------------------------------------------------------------------
+    public function otros($datos)
+    {
+        if ($datos['atributos'] == null) {
+            $datos['atributos']  = $this->DefaultModel($datos['modelo']);
+        }
+        switch ($datos['modelo']) {
+            case 'users':
+                return Excel::download(new UsersExport($datos), $datos['nombre'] . '.' . $datos['extension']);
+                break;
+            case 'clientes':
+                return Excel::download(new ClientesExport($datos), $datos['nombre'] . '.' . $datos['extension']);
+                break;
+            case 'proveedors':
+                return Excel::download(new ProveedorExport($datos), $datos['nombre'] . '.' . $datos['extension']);
+                break;
+            case 'productos':
+                return Excel::download(new ProductosExport($datos), $datos['nombre'] . '.' . $datos['extension']);
+                break;
+            case 'materia_primas':
+                return Excel::download(new MateriaPrimaExport($datos), $datos['nombre'] . '.' . $datos['extension']);
+                break;
+            case 'maquinarias':
+                return Excel::download(new MaquinariaExport($datos), $datos['nombre'] . '.' . $datos['extension']);
+                break;
+            case 'distribuidors':
+                return Excel::download(new DistribuidorExport($datos), $datos['nombre'] . '.' . $datos['extension']);
                 break;
             default:
                 # code...
