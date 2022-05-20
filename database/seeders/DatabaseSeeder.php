@@ -18,15 +18,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-        $this->call(RoleSeeder::class);
 
+        $this->call(RoleSeeder::class);
         $this->call(UserSeeder::class);
         $this->call(SistemaUnidadSeeder::class);
         $this->call(ClienteSeeder::class);
 
         Empresa::create([
-            'nombre' => 'Empresa 1',
+            'nombre' => 'Nombre Empresa',
             'licencia' => '123456789',
             'direccion' => 'Calle 1',
             'telefono' => '123456789',
@@ -37,8 +36,7 @@ class DatabaseSeeder extends Seeder
             'ciudad' => 'Santa cruz',
         ]);
 
-
         //crea 20 registros de productos
-        Producto::factory(20)->create();
+        //Producto::factory(20)->create();
     }
 }

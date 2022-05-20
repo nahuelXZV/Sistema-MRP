@@ -18,7 +18,7 @@ class CreateEstadosTable extends Migration
             $table->unsignedBigInteger('manufactura_id')->nullable();
             $table->unsignedInteger('productos_terminados')->nullable();
             $table->unsignedInteger('productos_faltantes')->nullable();
-            $table->string('descripcion')->nullable();
+            $table->text('descripcion')->nullable();
             $table->string('tiempo')->nullable();
             $table->foreign('manufactura_id')->references('id')->on('manufacturas')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();

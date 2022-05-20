@@ -3,9 +3,11 @@
 namespace App\Http\Livewire\Reporte;
 
 use App\Models\Cliente;
+use App\Models\CompraDistribucion\Distribuidor;
 use App\Models\CompraDistribucion\Proveedor;
 use App\Models\Inventario\MateriaPrima;
 use App\Models\Inventario\Producto;
+use App\Models\Produccion\Maquinaria;
 use App\Models\User;
 use Livewire\Component;
 
@@ -45,7 +47,14 @@ class LwCreate extends Component
                 "id" => 'materia_primas',
                 "Modelo" =>  "Materia Prima"
             ],
-
+            [
+                "id" => 'distribuidors',
+                "Modelo" =>  "Distribuidoras"
+            ],
+            [
+                "id" => 'maquinarias',
+                "Modelo" =>  "Maquinaria"
+            ],
         ];
         $this->datos = [
             'nombre' => '',
@@ -79,6 +88,12 @@ class LwCreate extends Component
                 break;
             case 'materia_primas':
                 $this->atributosM = MateriaPrima::$atributos;
+                break;
+            case 'distribuidors':
+                $this->atributosM = Distribuidor::$atributos;
+                break;
+            case 'maquinarias':
+                $this->atributosM = Maquinaria::$atributos;
                 break;
             default:
                 $this->atributosM = [];

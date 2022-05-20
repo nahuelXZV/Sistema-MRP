@@ -74,17 +74,6 @@
                             py-2 list-none text-left rounded-lg shadow-lg mt-1 m-0 bg-clip-padding
                             border-none "
                     aria-labelledby="dropdownMenuButton1">
-                    <li>
-                        <a class="dropdown-item text-sm py-2 px-4 font-normal block w-full
-                                whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100 "
-                            href="#">Descargar PDF</a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item text-sm py-2 px-4 font-normal block w-full
-                                whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100 "
-                            href="#">Descargar EXCEL</a>
-                    </li>
-                    <hr class="h-0 my-2 border border-solid border-t-0 border-gray-700 opacity-25" />
                     <h6
                         class="text-gray-500 font-semibold text-sm py-2 px-4 block w-full whitespace-nowrap
                           bg-transparent ">

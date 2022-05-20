@@ -36,15 +36,17 @@
         <!-- Desktop sidebar -->
         @include('layouts.partials.aside')
         <div class="flex flex-col flex-1 w-full bg-white">
-            <!--- nav -->
+            <!--- nav-->
+            @include('layouts.partials.asidem')
+
             @include('layouts.partials.nav')
 
             <main class="overflow-y-auto overflow-x-hidden">
                 <div class="m-6 flex flex-col">
                     <div class="sm:-mx-6 lg:-mx-8">
                         <div class="py-4 inline-block min-w-full sm:px-6 lg:px-8">
-                            <div class="">
-                                <div class="mb-4 text-base font-bold flex items-center text-gray-600">
+                            <div class="overflow-x">
+                                <div class="mb-4 text-base font-bold flex items-center text-gray-700">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
                                         viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

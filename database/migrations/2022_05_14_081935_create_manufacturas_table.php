@@ -19,7 +19,7 @@ class CreateManufacturasTable extends Migration
             $table->unsignedBigInteger('mps_id')->nullable();
             $table->unsignedInteger('cantidad');
             $table->dateTime('fecha_limite');
-            $table->string('descripcion');
+            $table->text('descripcion');
             $table->foreign('producto_id')->references('id')->on('productos')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('mps_id')->references('id')->on('mps')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();

@@ -17,7 +17,7 @@ class CreateProcesoProductosTable extends Migration
             $table->id();
             $table->unsignedBigInteger('producto_id')->nullable(); 
             $table->unsignedBigInteger('proceso_id')->nullable(); 
-            $table->string('descripcion')->nullable();            
+            $table->text('descripcion')->nullable();            
             $table->foreign('producto_id')->references('id')->on('productos')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('proceso_id')->references('id')->on('procesos')->onDelete('cascade')->onUpdate('cascade');            
             $table->timestamps();
