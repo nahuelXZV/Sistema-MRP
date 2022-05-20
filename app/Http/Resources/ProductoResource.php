@@ -11,17 +11,18 @@ class ProductoResource extends JsonResource
     {
         return[
             'id' => $this->id,
-            'nombre' => $this->evento_id ,
-            'descripcion' => $this->nombre , 
-            'color' => $this->direccion ,
-            'tamaño' => $this->telefono,
-            'estado' => $this->capacidad ,
+            'nombre' => $this->nombre ,
+            'descripcion' => $this->descripcion , 
+            'color' => $this->color ,
+            'tamaño' => $this->tamaño,
+            'estado' => $this->estado ,
             'peso' => $this->peso ,
             'especificacion' => $this->especificacion,
-            'costo_produccion' => $this->costo_produccion,
+            'costoProduccion' => $this->costo_produccion,
+            'cantidad' => $this->cantidad,
+            'idCategoria' => $this->categoria_producto,
             //es para que nos retorne las relaciones.
-            // 'evento' => EventoResource::make($this->whenLoaded('evento')),
-            //  'procesosA' => ProcesoResource::collection($this->whenLoaded('procesosA')),            
+            // 'categoria_producto' => EventoResource::make($this->whenLoaded('categoria_producto')),        
         ];
     }
 }

@@ -37,7 +37,7 @@ Route::post('/sanctum/token', function (Request $request) {
         'email' => 'required|email',
         'password' => 'required',
         'device_name' => 'required',
-    ]);
+    ]); 
 
     $user = User::where('email', $request->email)->first();
 
