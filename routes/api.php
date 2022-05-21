@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\MateriaPrimaController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -57,3 +58,9 @@ Route::middleware(['auth:sanctum'])->get('/user/revoke', function (Request $requ
     $user->tokens()->delete();
     return "The tokens has been deleted";
 })->name('login.revoke');
+
+//------------------------------------------------------ MATERIA PRIMA ----------------------------------------------------------------------------------//
+Route::get('materia-prima-api', [MateriaPrimaController::class, 'index'])->name('materia-prima-api');
+Route::post('materia-prima-api/delete/{materia}', [MateriaPrimaController::class, 'delete'])->name('materia-prima-api.delete');
+Route::post('create/materia-prima-api', [MateriaPrimaController::class, 'create'])->name('materia-prima-api.create');
+Route::post('update/materia-prima-api/{materia}', [MateriaPrimaController::class, 'update'])->name('materia-prima-api.update');

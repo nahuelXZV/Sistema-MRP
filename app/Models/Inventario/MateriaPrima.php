@@ -12,7 +12,7 @@ class MateriaPrima extends Model implements Auditable
 {
     use HasFactory;
     use AuditingAuditable;
-    protected $fillable = [
+    protected $fillable = ['id',
         'nombre',
         'tipo',
         'descripcion',
