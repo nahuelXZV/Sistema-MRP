@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Administracion\Bitacora;
 
+use App\Models\Empresa;
 use Livewire\Component;
 
 class LwIndex extends Component
@@ -15,7 +16,7 @@ class LwIndex extends Component
         $this->validate([
             'password' => 'required|min:6',
         ]);
-        $contra = '123456';
+        $contra = Empresa::first()->passwd_bitacora;
         if ($contra == $this->password) {
             $this->autenticado = true;
         } else {

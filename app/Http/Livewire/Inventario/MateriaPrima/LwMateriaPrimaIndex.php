@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Inventario\MateriaPrima;
 
+use App\Models\Bitacora;
 use App\Models\Inventario\MateriaPrima;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -62,6 +63,7 @@ class LwMateriaPrimaIndex extends Component
     public function delete($id)
     {
         $nombre = MateriaPrima::find($id);
+        Bitacora::Bitacora('D', 'Materia Prima', $nombre->id);
         $nombre->delete();
     }
 }

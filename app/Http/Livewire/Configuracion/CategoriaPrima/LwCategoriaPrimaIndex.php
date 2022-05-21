@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Configuracion\CategoriaPrima;
 
 use App\Http\Controllers\Configuracion\CategoriaPrimaController;
+use App\Models\Bitacora;
 use App\Models\Configuracion\CategoriaMateriaPrima;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -55,8 +56,10 @@ class LwCategoriaPrimaIndex extends Component
         return view('livewire.configuracion.categoria-prima.lw-categoria-prima-index', compact('categorias'));
     }
 
-    public function delete($id){
+    public function delete($id)
+    {
         $nombre = CategoriaMateriaPrima::find($id);
         $nombre->delete();
+        Bitacora::Bitacora('D', 'Categoria Materia Prima', $id);
     }
 }

@@ -16,7 +16,7 @@ class CreateCategoriaMateriaPrimasTable extends Migration
         Schema::create('categoria_materia_primas', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->string('descripcion');
+            $table->text('descripcion');
             $table->timestamps();
         });
     }

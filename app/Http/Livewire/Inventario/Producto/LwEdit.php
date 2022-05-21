@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Inventario\Producto;
 
+use App\Models\Bitacora;
 use App\Models\CategoriaProducto;
 use App\Models\Inventario\Producto;
 use Livewire\Component;
@@ -46,6 +47,7 @@ class LwEdit extends Component
             $producto->especificacion = $this->producto['especificacion'];
         }
         $producto->save();
+        Bitacora::Bitacora('U', 'Producto', $producto->id);
         return redirect()->route('productos.index');
     }
 

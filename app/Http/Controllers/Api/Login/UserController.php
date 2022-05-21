@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Login;
+namespace App\Http\Controllers\Api\Login;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+
 
 class UserController extends Controller
 {
@@ -48,5 +49,16 @@ class UserController extends Controller
                 'success' => false,
             ]);
         }
+    }
+
+    public function indexx(){
+        return view('administracion.user.user');
+    }
+
+    public function editt($id){
+        return view('administracion.user.edit',compact('id'));
+    }
+    public function createe(){
+        return view('administracion.user.create');
     }
 }

@@ -97,7 +97,7 @@
                                 Fecha y hora
                             </th>
                             <th scope="col" class="text-sm font-bold text-white px-6 py-4">
-                                Accion
+                                ID y Modelo
                             </th>
                         </tr>
                     </thead>
@@ -105,27 +105,17 @@
                         @foreach ($bitacoras as $bitacora)
                             <tr class="bg-white border-b">
                                 <td class=" text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                    {{ $bitacora->user->name }}</td>
+                                    {{ $bitacora->usuario->name }}</td>
                                 <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                    @if ($bitacora->event == 'created')
-                                        Añadió
-                                    @endif
-                                    @if ($bitacora->event == 'updated')
-                                        Actualizó
-                                    @endif
-                                    @if ($bitacora->event == 'deleted')
-                                        Eliminó
-                                    @endif
-                                </td>
+                                    {{ $bitacora->evento }}</td>
                                 <td class="text-sm text-gray-900 font-light px-6 py-4">
-                                    {{ $bitacora->ip_address }}
+                                    {{ $bitacora->ip }}
                                 </td>
                                 <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                     {{ $bitacora->created_at }}</td>
                                 <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                    @foreach ($bitacora->new_values as $value)
-                                        {{ $value }} <br>
-                                    @endforeach
+                                    {{ $bitacora->id_registro }} -
+                                    {{ $bitacora->tabla }}
                                 </td>
                             </tr>
                         @endforeach

@@ -12,6 +12,8 @@ use Laravel\Sanctum\HasApiTokens;
 use OwenIt\Auditing\Auditable as AuditingAuditable;
 use OwenIt\Auditing\Contracts\Auditable;
 
+use Spatie\Permission\Traits\HasRoles;
+
 class User extends Authenticatable implements Auditable
 {
     use HasApiTokens;
@@ -20,6 +22,8 @@ class User extends Authenticatable implements Auditable
     use Notifiable;
     use TwoFactorAuthenticatable;
     use AuditingAuditable;
+    use HasRoles;
+    
     /**
      * The attributes that are mass assignable.
      *
@@ -60,6 +64,11 @@ class User extends Authenticatable implements Auditable
     protected $appends = [
         'avatar',
     ];
+    //reportes
+    static public $atributos = ['id', 'name', 'email', 'created_at'];
+    static public $default = ['id', 'name', 'email'];
+    static public $tabla = 'users';
+
 
     public function getAvatarAttribute()
     {

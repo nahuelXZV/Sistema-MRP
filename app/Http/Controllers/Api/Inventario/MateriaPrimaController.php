@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Api\Inventario;
 
 use App\Http\Controllers\Controller;
-use App\Models\Inventario\MateriaPrima;
 use Illuminate\Http\Request;
+use App\Http\Resources\MateriaPrimaResource;
+use App\Models\Inventario\MateriaPrima;
 
 class MateriaPrimaController extends Controller
 {
@@ -60,4 +61,5 @@ class MateriaPrimaController extends Controller
             ]);
         }
     }
+
 }
