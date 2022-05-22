@@ -17,7 +17,7 @@ class LwCreate extends Component
     public $modelos = [];
     public $atributosM = [];
     public $tipo = 'defecto';
-
+    public $IU = [];
     //Controller
     public $datos = [];
     public $atributos = [];
@@ -71,8 +71,69 @@ class LwCreate extends Component
         $this->atributos = [];
     }
 
+    public function InterfaceModel($modelo)
+    {
+        switch ($modelo) {
+            case 'users':
+                return User::$interface;
+                break;
+            case 'clientes':
+                return Cliente::$interface;
+                break;
+            case 'proveedors':
+                return Proveedor::$interface;
+                break;
+            case 'productos':
+                return Producto::$interface;
+                break;
+            case 'materia_primas':
+                return MateriaPrima::$interface;
+                break;
+            case 'maquinarias':
+                return Maquinaria::$interface;
+                break;
+            case 'distribuidors':
+                return Distribuidor::$interface;
+                break;
+            default:
+                # code...
+                break;
+        }
+    }
+    public function AtributteModel($modelo)
+    {
+        switch ($modelo) {
+            case 'users':
+                return User::$atributos;
+                break;
+            case 'clientes':
+                return Cliente::$atributos;
+                break;
+            case 'proveedors':
+                return Proveedor::$atributos;
+                break;
+            case 'productos':
+                return Producto::$atributos;
+                break;
+            case 'materia_primas':
+                return MateriaPrima::$atributos;
+                break;
+            case 'maquinarias':
+                return Maquinaria::$atributos;
+                break;
+            case 'distribuidors':
+                return Distribuidor::$atributos;
+                break;
+            default:
+                # code...
+                break;
+        }
+    }
+
     public function render()
     {
+        $default = $this->AtributteModel($this->datos['modelo']);
+        $interface = $this->InterfaceModel($this->datos['modelo']);
         switch ($this->datos['modelo']) {
             case 'users':
                 $this->atributosM = User::$atributos;
@@ -98,6 +159,11 @@ class LwCreate extends Component
             default:
                 $this->atributosM = [];
                 break;
+        }
+        foreach ($this->atributosM as $key => $value) {
+            //verifica si el value esta en default y devuelve la posicion del array
+            $posicion = array_search($value, $default);
+            $this->IU[$key] = $interface[$posicion];
         }
         return view('livewire.reporte.lw-create');
     }

@@ -25,7 +25,8 @@ class MateriaPrima extends Model implements Auditable
     ];
 
 
-    protected $fillable = ['id',
+    protected $fillable = [
+        'id',
         'nombre',
         'tipo',
         'descripcion',
@@ -44,7 +45,8 @@ class MateriaPrima extends Model implements Auditable
     protected $allowSort = ['nombre', 'descripcion', 'color', 'tamaño', 'estado', 'peso', 'descripcion', 'idCategoriaMP'];
 
     //reportes
-    static public $atributos = ['id', 'nombre', 'tipo', 'tamaño', 'peso', 'color'];
+    static public $atributos = ['nombre', 'descripcion', 'tipo', 'tamaño', 'peso', 'color'];
+    static public $interface = ['Nombre', 'Descripción', 'Tipo', 'Tamaño', 'Peso', 'Color'];
     static public $default = ['nombre', 'tipo', 'tamaño', 'peso', 'color'];
     static public $tabla = 'materia_primas';
 

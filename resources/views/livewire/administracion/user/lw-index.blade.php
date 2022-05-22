@@ -121,7 +121,6 @@
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
                             Rol
                         </th>
-                        </th>
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
                             Acciones
                         </th>

@@ -22,13 +22,13 @@ class RoleSeeder extends Seeder
         $trabajador = Role::create(['name' => 'Trabajador']);
 
         //Permisos
-        Permission::create(['name' => 'sistema-unidad.index'])->syncRoles($admin, $trabajador);
-        Permission::create(['name' => 'clientes.index'])->syncRoles($admin, $trabajador);
-        Permission::create(['name' => 'categoria_productos.index'])->syncRoles($admin, $trabajador);
-        Permission::create(['name' => 'categoria-prima.index'])->syncRoles($admin, $trabajador);
-        Permission::create(['name' => 'productos.index'])->syncRoles($admin, $trabajador);
-        Permission::create(['name' => 'materia-prima.index'])->syncRoles($admin, $trabajador);
-        Permission::create(['name' => 'bitacora.index'])->syncRoles($admin);
-        Permission::create(['name' => 'usuarios.index'])->syncRoles($admin);
+        Permission::create(['name' => 'sistema-unidad.index','descripcion'=>'Gestionar sistema de unidades'])->syncRoles($admin, $trabajador);
+        Permission::create(['name' => 'clientes.index','descripcion'=>'Gestionar clientes'])->syncRoles($admin, $trabajador);
+        Permission::create(['name' => 'categoria_productos.index','descripcion'=>'Gestionar productos'])->syncRoles($admin, $trabajador);
+        Permission::create(['name' => 'categoria-prima.index','descripcion'=>'Gestionar categoria materia prima'])->syncRoles($admin, $trabajador);
+        Permission::create(['name' => 'productos.index','descripcion'=>'Gestionar productos'])->syncRoles($admin, $trabajador);
+        Permission::create(['name' => 'materia-prima.index','descripcion'=>'Gestionar materia prima'])->syncRoles($admin, $trabajador);
+        Permission::create(['name' => 'bitacora.index','descripcion'=>'Gestionar bitacora'])->syncRoles($admin);
+        Permission::create(['name' => 'usuarios.index','descripcion'=>'Gestionar usuarios'])->syncRoles($admin);
     }
 }

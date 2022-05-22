@@ -51,15 +51,14 @@
                             </label>
                         </div>
                     </li>
-
                 </ul>
             </div>
         </div>
         <div class="container-fluid flex">
             <div class="m-1 flex flex-row text-right">
-                <a type="button" href="{{ route('categoria-prima.create') }}"
+                <a type="button" href="{{ route('roles.create') }}"
                     class="mr-2 inline-block px-6 py-2.5 bg-blue-600 text-white font-bold text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
-                    Nuevo
+                    Crear
                 </a>
                 <button
                     class="w-12 inline-block px-3 py-1.5 border-2 border-gray-700 text-black font-medium text-xs leading-normal uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
@@ -74,6 +73,7 @@
                             py-2 list-none text-left rounded-lg shadow-lg mt-1 m-0 bg-clip-padding
                             border-none "
                     aria-labelledby="dropdownMenuButton1">
+                    <hr class="h-0 my-2 border border-solid border-t-0 border-gray-700 opacity-25" />
                     <h6
                         class="text-gray-500 font-semibold text-sm py-2 px-4 block w-full whitespace-nowrap
                           bg-transparent ">
@@ -82,7 +82,7 @@
                     <li>
                         <p class="dropdown-item flex text-sm py-2 px-4 font-normal w-full
                                 whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100 "
-                            wire:click="order('nombre')">
+                            wire:click="order('name')">
                             Nombre
                             <x-signo-table :type='$type' :direction='$direction' etiqueta='nombre'> </x-signo-table>
                         </p>
@@ -94,15 +94,15 @@
 
     <x-table>
         <table class="min-w-full h-full">
-            @if ($categorias->count())
+            @if ($roles->count())
                 <thead class="border-b bg-gray-800 ">
                     <tr>
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
-                            Nombre
+                            Id
                             <x-signo-table :type='$type' :direction='$direction' etiqueta='nombre'> </x-signo-table>
                         </th>
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
-                            Descripcion
+                            Nombre
                         </th>
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
                             Acciones
@@ -110,22 +110,23 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($categorias as $categoria)
+                    @foreach ($roles as $rol)
                         <tr class="bg-white border-b">
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                {{ $categoria->nombre }}
+                                {{ $rol->id }}
                             </td>
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                {{ substr($categoria->descripcion, 0, 110) }}..</td>
+                                {{ $rol->name }}
+                            </td>
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                 <div class="flex items-center justify-center">
                                     <div class="inline-flex" role="group">
-                                        <a href="{{ route('categoria-prima.edit', $categoria->id) }}"
+                                        <a href="{{ route('roles.edit', $rol->id) }}"
                                             class="m-1 inline-block px-4 py-1.5 bg-blue-600 text-white font-bold text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
                                             <x-edit> </x-edit>
                                         </a>
 
-                                        <button type="button" wire:click='delete({{ $categoria->id }})'
+                                        <button type="button" wire:click='delete({{ $rol->id }})'
                                             class="m-1 inline-block px-4 py-1.5 bg-red-600 text-white font-bold text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out">
                                             <x-delete> </x-delete>
                                         </button>
@@ -140,6 +141,6 @@
                 <span>No hay resultados...</span>
             @endif
         </table>
-        <x-pagination :modelo='$categorias'> </x-pagination>
+        <x-pagination :modelo='$roles'> </x-pagination>
     </x-table>
 </div>
