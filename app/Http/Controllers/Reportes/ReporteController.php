@@ -10,6 +10,7 @@ use App\Exports\ProductosExport;
 use App\Exports\ProveedorExport;
 use App\Exports\UsersExport;
 use App\Http\Controllers\Controller;
+use App\Models\Bitacora;
 use App\Models\Cliente;
 use App\Models\CompraDistribucion\Distribuidor;
 use App\Models\CompraDistribucion\Proveedor;
@@ -44,6 +45,7 @@ class ReporteController extends Controller
             'modelo' => 'required',
             'extension' => 'required',
         ]);
+        Bitacora::Bitacora('R', 'Reporte', '');
         switch ($request->extension) {
             case 'pdf':
                 return $this->pdf2($request);
@@ -319,33 +321,35 @@ class ReporteController extends Controller
         }
         return $array;
     }
-    //EXCEL----------------------------------------------------------------------------
+
+    //Otros----------------------------------------------------------------------------
     public function otros($datos)
     {
         if ($datos['atributos'] == null) {
             $datos['atributos']  = $this->DefaultModel($datos['modelo']);
         }
+        $interface = $this->HeaderModel($datos['modelo'], $datos['atributos']);
         switch ($datos['modelo']) {
             case 'users':
-                return Excel::download(new UsersExport($datos), $datos['nombre'] . '.' . $datos['extension']);
+                return Excel::download(new UsersExport($datos, $interface), $datos['nombre'] . '.' . $datos['extension']);
                 break;
             case 'clientes':
-                return Excel::download(new ClientesExport($datos), $datos['nombre'] . '.' . $datos['extension']);
+                return Excel::download(new ClientesExport($datos, $interface), $datos['nombre'] . '.' . $datos['extension']);
                 break;
             case 'proveedors':
-                return Excel::download(new ProveedorExport($datos), $datos['nombre'] . '.' . $datos['extension']);
+                return Excel::download(new ProveedorExport($datos, $interface), $datos['nombre'] . '.' . $datos['extension']);
                 break;
             case 'productos':
-                return Excel::download(new ProductosExport($datos), $datos['nombre'] . '.' . $datos['extension']);
+                return Excel::download(new ProductosExport($datos, $interface), $datos['nombre'] . '.' . $datos['extension']);
                 break;
             case 'materia_primas':
-                return Excel::download(new MateriaPrimaExport($datos), $datos['nombre'] . '.' . $datos['extension']);
+                return Excel::download(new MateriaPrimaExport($datos, $interface), $datos['nombre'] . '.' . $datos['extension']);
                 break;
             case 'maquinarias':
-                return Excel::download(new MaquinariaExport($datos), $datos['nombre'] . '.' . $datos['extension']);
+                return Excel::download(new MaquinariaExport($datos, $interface), $datos['nombre'] . '.' . $datos['extension']);
                 break;
             case 'distribuidors':
-                return Excel::download(new DistribuidorExport($datos), $datos['nombre'] . '.' . $datos['extension']);
+                return Excel::download(new DistribuidorExport($datos, $interface), $datos['nombre'] . '.' . $datos['extension']);
                 break;
             default:
                 # code...

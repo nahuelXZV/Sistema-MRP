@@ -15,7 +15,7 @@ class LwShow extends Component
     public $attribute = '';
     public $type = 'id';
     public $sort = 'id';
-    public $direction = 'asc';
+    public $direction = 'desc';
 
 
     //Metodo de reinicio de buscador
@@ -60,7 +60,7 @@ class LwShow extends Component
                     ->paginate($this->pagination);
                 break;
             default:
-                $bitacoras = Bitacora::all();
+                $bitacoras = Bitacora::orderBy($this->sort, $this->direction)->get();
                 break;
         }
 

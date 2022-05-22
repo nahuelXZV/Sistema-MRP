@@ -65,9 +65,9 @@ class User extends Authenticatable implements Auditable
         'avatar',
     ];
     //reportes
-    static public $atributos = ['id', 'name', 'email', 'created_at'];
-    static public $interface = ['Código', 'Nombre', 'Correo', 'Creado'];
-    static public $default = ['id', 'name', 'email'];
+    static public $atributos = ['name', 'email', 'created_at'];
+    static public $interface = ['Nombre', 'Correo', 'Creado'];
+    static public $default = ['name', 'email'];
     static public $tabla = 'users';
 
 

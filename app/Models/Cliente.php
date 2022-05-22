@@ -15,8 +15,8 @@ class Cliente extends Model implements Auditable
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
     //reportes
-    static public $atributos = ['id', 'nombre', 'telefono', 'direccion'];
-    static public $interface = ['Código', 'Nombre', 'Telefono', 'Dirección'];
+    static public $atributos = ['nombre', 'telefono', 'direccion'];
+    static public $interface = ['Nombre', 'Telefono', 'Dirección'];
     static public $default = ['nombre', 'telefono', 'direccion'];
     static public $tabla = 'clientes';
 }

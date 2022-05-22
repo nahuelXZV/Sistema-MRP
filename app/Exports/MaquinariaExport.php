@@ -17,9 +17,9 @@ class MaquinariaExport implements FromCollection, WithHeadings
         return $this->encabezado;
     }
 
-    public function __construct($datos)
+    public function __construct($datos, $encabezado)
     {
-        $this->encabezado = $datos['atributos'];
+        $this->encabezado = $encabezado;
         //$this->query = $invoices;
         if ($datos['filtro'] != null && $datos['buscar'] != null && $datos['order'] != null && $datos['orderBy'] != null && $datos['cantidad'] != null) {
 
