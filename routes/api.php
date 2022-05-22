@@ -58,7 +58,7 @@ Route::post('/sanctum/token', function (Request $request) {
 Route::middleware(['auth:sanctum'])->get('/user/revoke', function (Request $request) {
     $user = $request->user();
     $user->tokens()->delete();
-    return "The tokens has been deleted";
+    return "The tokens have been deleted";
 })->name('login.revoke');
 
 //------------------------------------------------------ MATERIA PRIMA API----------------------------------------------------------------------------------//
