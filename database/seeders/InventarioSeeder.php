@@ -21,7 +21,7 @@ class InventarioSeeder extends Seeder
      ]);
      CategoriaMateriaPrima::create([
         'nombre' => 'Metal',
-        'descripcion' => 'Material sólido en condiciones ambientales normales, suelen ser opacos y brillantes, tener alta densidad, ser dúctiles y maleables, tener un punto de fusión alto, ser duros, y ser buenos conductores del calor y la electricidad.',
+        'descripcion' => 'Material sólido en condiciones ambientales normales, suelen ser opacos y brillantes.',
      ]);
 
 

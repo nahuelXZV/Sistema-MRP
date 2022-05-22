@@ -51,23 +51,12 @@
                             </label>
                         </div>
                     </li>
-                    <li>
-                        <div class="form-check ml-2 mr-6">
-                            <input value='email' wire:model.defer="type"
-                                class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600  mt-1 align-top  mr-2"
-                                type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                            <label class="form-check-label inline-block text-gray-800" for="flexRadioDefault1">
-                                Email
-                            </label>
-                        </div>
-                    </li>
-
                 </ul>
             </div>
         </div>
         <div class="container-fluid flex">
             <div class="m-1 flex flex-row text-right">
-                <a type="button" href="{{ route('usuarios.create') }}"
+                <a type="button" href="{{ route('roles.create') }}"
                     class="mr-2 inline-block px-6 py-2.5 bg-blue-600 text-white font-bold text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
                     Crear
                 </a>
@@ -105,7 +94,7 @@
 
     <x-table>
         <table class="min-w-full h-full">
-            @if ($usuarios->count())
+            @if ($roles->count())
                 <thead class="border-b bg-gray-800 ">
                     <tr>
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
@@ -116,40 +105,28 @@
                             Nombre
                         </th>
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
-                            Email
-                        </th>
-                        <th scope="col" class="text-sm font-bold text-white px-6 py-4">
-                            Rol
-                        </th>
-                        <th scope="col" class="text-sm font-bold text-white px-6 py-4">
                             Acciones
                         </th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($usuarios as $usuario)
+                    @foreach ($roles as $rol)
                         <tr class="bg-white border-b">
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                {{ $usuario->id }}
+                                {{ $rol->id }}
                             </td>
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                {{ $usuario->name }}
-                            </td>
-                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                {{ $usuario->email }}
-                            </td>
-                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                {{ $usuario->getRoleNames()[0] }}
+                                {{ $rol->name }}
                             </td>
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                 <div class="flex items-center justify-center">
                                     <div class="inline-flex" role="group">
-                                        <a href="{{ route('usuarios.edit', $usuario->id) }}"
+                                        <a href="{{ route('roles.edit', $rol->id) }}"
                                             class="m-1 inline-block px-4 py-1.5 bg-blue-600 text-white font-bold text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
                                             <x-edit> </x-edit>
                                         </a>
 
-                                        <button type="button" wire:click='delete({{ $usuario->id }})'
+                                        <button type="button" wire:click='delete({{ $rol->id }})'
                                             class="m-1 inline-block px-4 py-1.5 bg-red-600 text-white font-bold text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out">
                                             <x-delete> </x-delete>
                                         </button>
@@ -164,6 +141,6 @@
                 <span>No hay resultados...</span>
             @endif
         </table>
-        <x-pagination :modelo='$usuarios'> </x-pagination>
+        <x-pagination :modelo='$roles'> </x-pagination>
     </x-table>
 </div>
