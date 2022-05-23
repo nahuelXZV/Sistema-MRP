@@ -4,7 +4,6 @@ namespace App\Http\Livewire\Configuracion\SistemaUnidad;
 
 use App\Models\Bitacora;
 use App\Models\configuracion\SistemaUnidad;
-use Faker\Provider\Biased;
 use Livewire\Component;
 
 class LwSistemaUnidadCreate extends Component
@@ -28,7 +27,7 @@ class LwSistemaUnidadCreate extends Component
             'abreviatura' => $this->abreviatura
         ]);
         Bitacora::Bitacora('C', 'Sistema de unidades', $sistema->id);
-        return "se creo";
+        // return "se creo";
         return redirect()->route('sistema-unidad.index');
     }
 }

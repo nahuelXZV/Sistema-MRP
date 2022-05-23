@@ -23,7 +23,7 @@ class LwSistemaUnidadEdit extends Component
         $this->abreviatura = $this->objUnidad->abreviatura;
     }
 
-    public function store()
+    public function edit()
     {
         $this->validate([
             'nombre' => 'required',
