@@ -11,7 +11,7 @@ class SistemaUnidadController extends Controller
   
     public function index()
     {        
-        return view('configuracion.sistemaunidad.index');
+        return view('configuracion.sistemaunidad.sistemaUnidad');
     }
 
     public function create()
