@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\Inventario\ProductoController;
 use App\Http\Controllers\CategoriaProductoController;
+use App\Http\Controllers\CompraDistribucion\NotaCompraController;
 use App\Http\Controllers\Configuracion\EmpresaController;
 use App\Http\Controllers\Configuracion\SistemaUnidadController;
 use App\Http\Controllers\Inventario\BOMController as InventarioBOMController;
@@ -86,4 +87,9 @@ Route::middleware([
 
     // Route categoria productos
     Route::resource('empresas', EmpresaController::class);
+
+    //Route nota compra
+    Route::get('/nota-compra', [NotaCompraController::class, 'index'])->name('nota-compra.index');
+    Route::get('/nota-compra/create', [NotaCompraController::class, 'create'])->name('nota-compra.create');
+    Route::get('/nota-compra/{id}', [NotaCompraController::class, 'edit'])->name('nota-compra.edit');
 });
