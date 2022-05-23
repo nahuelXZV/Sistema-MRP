@@ -3,12 +3,10 @@
 namespace App\Http\Controllers\Configuracion;
 
 use App\Http\Controllers\Controller;
-use App\Models\configuracion\SistemaUnidad;
 use Illuminate\Http\Request;
 
 class SistemaUnidadController extends Controller
 {
-  
     public function index()
     {        
         return view('configuracion.sistemaunidad.sistemaUnidad');

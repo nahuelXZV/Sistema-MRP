@@ -4,16 +4,17 @@ use App\Http\Controllers\Administracion\BitacoraController;
 use App\Http\Controllers\Administracion\RoleController;
 use App\Http\Controllers\Api\Login\UserController as LoginUserController;
 use App\Http\Controllers\Configuracion\CategoriaPrimaController;
-use App\Http\Controllers\Configuracion\SistemaUnidadController;
 use App\Http\Controllers\Inventario\MateriaPrimaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\Inventario\ProductoController;
 use App\Http\Controllers\CategoriaProductoController;
 use App\Http\Controllers\Configuracion\EmpresaController;
+use App\Http\Controllers\Configuracion\SistemaUnidadController;
 use App\Http\Controllers\Inventario\BOMController as InventarioBOMController;
 //use App\Http\Controllers\Login\UserController;
 use App\Http\Controllers\Reportes\ReporteController;
+use App\Models\Empresa;
 use Illuminate\Http\Request;
 
 /*
