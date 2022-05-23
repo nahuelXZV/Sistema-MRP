@@ -3,14 +3,14 @@
 namespace App\Http\Livewire\Configuracion\SistemaUnidad;
 
 use App\Models\Bitacora;
-use App\Models\configuracion\SistemaUnidad;
+use App\Models\Configuracion\SistemaUnidad;
 use Livewire\Component;
 
 class LwCreate extends Component
 {
     public $nombre;
     public $abreviatura;
-    
+
     public function render()
     {
         return view('livewire.configuracion.sistema-unidad.lw-create');

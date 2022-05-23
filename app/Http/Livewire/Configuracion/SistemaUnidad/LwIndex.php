@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\Configuracion\SistemaUnidad;
 
 use App\Models\Bitacora;
-use App\Models\configuracion\SistemaUnidad;
+use App\Models\Configuracion\SistemaUnidad;
 use Livewire\Component;
 use Livewire\WithPagination;
 
