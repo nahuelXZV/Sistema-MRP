@@ -84,7 +84,7 @@
                                     <label class="w-72 uppercase font-normal text-sm">
                                         <input wire:model='atributos' id="atributos" type="checkbox"
                                             value="{{ $atributo }}" name="atributos[]">
-                                        {{ $atributo }}
+                                        {{ $IU[$key] }}
                                     </label>
                                 @endforeach
                                 <x-jet-input-error for="atributos" />
@@ -101,8 +101,8 @@
                                 class="form-select appearance-none h-9 block w-full px-2 py-1 text-sm    font-normal    text-gray-700    bg-white bg-clip-padding bg-no-repeat    border border-solid border-gray-300    rounded    transition    ease-in-out    m-0    focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                                 aria-label=".form-select-sm example">
                                 <option selected value="">Selecciona una modelo de reporte</option>
-                                @foreach ($atributos as $atributo)
-                                    <option value="{{ $atributo }}">{{ $atributo }}</option>
+                                @foreach ($atributos as $key => $atributo)
+                                    <option value="{{ $atributo }}">{{ $IU[$key] }}</option>
                                 @endforeach
                             </select>
                             <x-jet-input-error for="filtro" />
@@ -136,8 +136,8 @@
                                 class="form-select appearance-none h-9 block w-full px-2 py-1 text-sm    font-normal    text-gray-700    bg-white bg-clip-padding bg-no-repeat    border border-solid border-gray-300    rounded    transition    ease-in-out    m-0    focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                                 aria-label=".form-select-sm example">
                                 <option selected value="">Selecciona un atributo</option>
-                                @foreach ($atributos as $atributo)
-                                    <option value="{{ $atributo }}">{{ $atributo }}</option>
+                                @foreach ($atributos as $key => $atributo)
+                                    <option value="{{ $atributo }}"> {{ $IU[$key] }}</option>
                                 @endforeach
                             </select>
                             <x-jet-input-error for="orderBy" />

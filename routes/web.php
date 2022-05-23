@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Administracion\BitacoraController;
+use App\Http\Controllers\Administracion\RoleController;
+use App\Http\Controllers\Api\Login\UserController as LoginUserController;
 use App\Http\Controllers\Configuracion\CategoriaPrimaController;
 use App\Http\Controllers\Configuracion\SistemaUnidadController;
 use App\Http\Controllers\Inventario\MateriaPrimaController;
@@ -9,7 +11,7 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\Inventario\ProductoController;
 use App\Http\Controllers\CategoriaProductoController;
 use App\Http\Controllers\Inventario\BOMController as InventarioBOMController;
-use App\Http\Controllers\Login\UserController;
+//use App\Http\Controllers\Login\UserController;
 use App\Http\Controllers\Reportes\ReporteController;
 use Illuminate\Http\Request;
 
@@ -63,9 +65,9 @@ Route::middleware([
     Route::get('/bitacora', [BitacoraController::class, 'index'])->name('bitacora.index');
 
     //Route Usuarios
-    Route::get('/usuarios', [UserController::class, 'indexx'])->name('usuarios.index');
-    Route::get('/usuarios/create', [UserController::class, 'createe'])->name('usuarios.create');
-    Route::get('/usuarios/edit/{id}', [UserController::class, 'editt'])->name('usuarios.edit');
+    Route::get('/usuarios', [LoginUserController::class, 'indexx'])->middleware('can:usuarios.index')->name('usuarios.index');
+    Route::get('/usuarios/create', [LoginUserController::class, 'createe'])->middleware('can:usuarios.index')->name('usuarios.create');
+    Route::get('/usuarios/edit/{id}', [LoginUserController::class, 'editt'])->middleware('can:usuarios.index')->name('usuarios.edit');
 
     // Route BOM
     Route::get('/productos/show/{id}/bom/create', [InventarioBOMController::class, 'create'])->name('bom.create');
@@ -74,4 +76,10 @@ Route::middleware([
     // Route reporte
     Route::get('/reporte', [ReporteController::class, 'index'])->name('reporte.index');
     Route::post('/reporte', [ReporteController::class, 'validar'])->name('reporte.validar');
+
+    //Route Rol
+    Route::get('/roles', [RoleController::class, 'index'])->name('roles.index');
+    Route::get('/roles/create', [RoleController::class, 'create'])->name('roles.create');
+    Route::get('/roles/edit/{id}', [RoleController::class, 'edit'])->name('roles.edit');
+
 });

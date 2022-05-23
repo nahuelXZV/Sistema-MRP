@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Login;
+namespace App\Http\Controllers\Api\Login;
 
-use App\Http\Resources\UserResource;
-use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Resources\UserResource;
+use App\Models\User;
 
 class TokenAuthController extends Controller
 {

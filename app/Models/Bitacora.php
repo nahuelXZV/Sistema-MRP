@@ -30,6 +30,9 @@ class Bitacora extends Model
             case 'D':
                 $event = 'Eliminar';
                 break;
+            case 'R':
+                $event = 'Descargó';
+                break;
             default:
                 $event = 'Sin definir';
                 break;
