@@ -138,3 +138,4 @@
         <x-pagination :modelo='$unidades'> </x-pagination>
     </x-table>
 </div>
+
