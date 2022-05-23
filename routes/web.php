@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\Inventario\ProductoController;
 use App\Http\Controllers\CategoriaProductoController;
+use App\Http\Controllers\Configuracion\EmpresaController;
 use App\Http\Controllers\Inventario\BOMController as InventarioBOMController;
 //use App\Http\Controllers\Login\UserController;
 use App\Http\Controllers\Reportes\ReporteController;
@@ -82,4 +83,6 @@ Route::middleware([
     Route::get('/roles/create', [RoleController::class, 'create'])->name('roles.create');
     Route::get('/roles/edit/{id}', [RoleController::class, 'edit'])->name('roles.edit');
 
+    // Route categoria productos
+    Route::resource('empresas', EmpresaController::class);
 });

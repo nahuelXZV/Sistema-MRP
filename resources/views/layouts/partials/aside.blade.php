@@ -354,7 +354,7 @@
                                                 <path stroke-linecap="round" stroke-linejoin="round"
                                                     d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                                             </svg>
-                                            <a href="#" class="w-full ml-2  text-sm font-semibold text-white ">
+                                            <a href="{{ route('empresas.index') }}" class="w-full ml-2  text-sm font-semibold text-white ">
                                                 Perfil Empresa</a>
                                         </div>
                                     </div>
