@@ -8,5 +8,5 @@
 @endsection
 
 @section('content')
-    @livewire('configuracion.sistema-unidad.lw-sistema-unidad-edit',["id"=>$id])
+    @livewire('configuracion.sistema-unidad.lw-edit',["id"=>$id])
 @endsection
