@@ -116,7 +116,7 @@
                                 {{ $categoria->nombre }}
                             </td>
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                {{ substr($categoria->descripcion, 0, 110) }}..</td>
+                                {{ substr($categoria->descripcion, 0, 80) }}..</td>
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                 <div class="flex items-center justify-center">
                                     <div class="inline-flex" role="group">
