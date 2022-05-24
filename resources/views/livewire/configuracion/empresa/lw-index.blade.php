@@ -75,10 +75,7 @@
 
         <div class="container-fluid flex">
             <div class="m-1 flex flex-row text-right">
-                <a type="button" href="{{ route('empresas.create') }}"
-                    class="mr-2 inline-block px-6 py-2.5 bg-blue-600 text-white font-bold text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
-                    Nuevo
-                </a>
+
                 <button
                     class="w-12 inline-block px-3 py-1.5 border-2 border-gray-700 text-black font-medium text-xs leading-normal uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
                     type="button" id="dropdownMenuButton9" data-bs-toggle="dropdown" aria-expanded="false">
@@ -172,7 +169,7 @@
 
                                 <div class="flex items-center justify-center">
                                     <div class="inline-flex" role="group">
-                                       
+
                                         <a href="{{ route('empresas.edit', $empresa->id) }}"
                                             class="m-1 inline-block px-4 py-1.5 bg-blue-600 text-white font-bold text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
@@ -183,10 +180,6 @@
                                                     d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                                             </svg>
                                         </a>
-                                        <button type="button" wire:click='delete({{ $empresa->id }} )'
-                                            class="m-1 inline-block px-4 py-1.5 bg-red-600 text-white font-bold text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out">
-                                            <x-delete> </x-delete>
-                                        </button>
 
                                     </div>
                                 </div>
@@ -202,4 +195,3 @@
         <x-pagination :modelo='$empresas'> </x-pagination>
     </x-table>
 </div>
-

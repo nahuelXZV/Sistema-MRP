@@ -123,7 +123,7 @@
                                 {{ $materia->tipo }}
                             </td>
                             <td class="px-6 py-4 text-sm font-light text-gray-900 whitespace-nowrap">
-                                {{ $materia->tamaño }}
+                                {{ substr($materia->tamaño, 0, 50) }}
                             </td>
                             <td class="px-6 py-4 text-sm font-light text-gray-900 whitespace-nowrap">
                                 {{ $materia->peso }}
