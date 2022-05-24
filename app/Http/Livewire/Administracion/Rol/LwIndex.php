@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Administracion\Rol;
 
+use App\Models\Bitacora;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Spatie\Permission\Models\Role;
@@ -52,12 +53,13 @@ class LwIndex extends Component
                     ->paginate($this->pagination);
                 break;
         }
-        return view('livewire.administracion.rol.lw-index',compact('roles'));
+        return view('livewire.administracion.rol.lw-index', compact('roles'));
     }
 
     public function delete($id)
     {
         $rol = Role::find($id);
         $rol->delete();
+        Bitacora::Bitacora('D', 'Roles', 'Eliminación de Rol: ' . $rol->name);
     }
 }
