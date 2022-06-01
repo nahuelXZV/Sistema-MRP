@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Api\CompraDistribucion\DistribuidorController;
+use App\Http\Controllers\Api\CompraDistribucion\ProveedorController;
 use App\Http\Controllers\Api\Inventario\MateriaPrimaController;
 use App\Http\Controllers\Api\Inventario\MateriaPrimaApiController;
 use App\Http\Controllers\Api\Inventario\ProductoApiController;
@@ -67,7 +69,19 @@ Route::post('materia-prima-api/delete/{materia}', [MateriaPrimaController::class
 Route::post('create/materia-prima-api', [MateriaPrimaController::class, 'create'])->name('materia-prima-api.create');
 Route::post('update/materia-prima-api/{materia}', [MateriaPrimaController::class, 'update'])->name('materia-prima-api.update');
 //------------------------------------------------------ MATERIA PRIMA API RESOURCES----------------------------------------------------------------------------------//
-Route::apiResource('materia-prima-api2', MateriaPrimaApiController::class)->names('api.materia-prima');
+//Route::apiResource('materia-prima-api2', MateriaPrimaApiController::class)->names('api.materia-prima');
+
+//------------------------------------------------------ DISTRIBUIDOR API----------------------------------------------------------------------------------//
+Route::get('distribuidor-api', [DistribuidorController::class, 'index'])->name('distribuidor-api');
+Route::post('ditribuidor-api/delete/{distribuidor}', [DistribuidorController::class, 'delete'])->name('distribuidor-api.delete');
+Route::post('create/distribuidor-api', [DistribuidorController::class, 'create'])->name('distribuidor-api.create');
+Route::post('update/distribuidor-api/{distribuidor}', [DistribuidorController::class, 'update'])->name('distribuidor-api.update');
+
+//------------------------------------------------------ PROVEEDOR API----------------------------------------------------------------------------------//
+Route::get('proveedor-api', [ProveedorController::class, 'index'])->name('proveedor-api');
+Route::post('proveedor-api/delete/{proveedor}', [ProveedorController::class, 'delete'])->name('proveedor-api.delete');
+Route::post('create/proveedor-api', [ProveedorController::class, 'create'])->name('proveedor-api.create');
+Route::post('update/proveedor-api/{proveedor}', [ProveedorController::class, 'update'])->name('proveedor-api.update');
 
 
 Route::apiResource('productos', ProductoApiController::class)->names('api.productos');
