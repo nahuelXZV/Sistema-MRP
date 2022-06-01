@@ -33,6 +33,12 @@ class Bitacora extends Model
             case 'R':
                 $event = 'Descargó';
                 break;
+            case 'I':
+                $event = 'Inició sesión';
+                break;
+            case 'L':
+                $event = 'Cerró Sesión';
+                break;
             default:
                 $event = 'Sin definir';
                 break;

@@ -42,11 +42,22 @@
                     aria-labelledby="dropdownMenuButton1">
                     <li>
                         <div class="form-check ml-2 mr-6">
-                            <input value='name' wire:model.defer="type"
+                            <input wire:model.defer='type' value='nombre'
                                 class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600  mt-1 align-top  mr-2"
                                 type="radio" name="flexRadioDefault" id="flexRadioDefault1">
                             <label class="form-check-label inline-block text-gray-800" for="flexRadioDefault1">
                                 Nombre
+                            </label>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="form-check ml-2 mr-6">
+                            <input wire:model.defer='type' value='abreviatura'
+                                class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600  mt-1 align-top  mr-2"
+                                type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                            <label class="form-check-label inline-block text-gray-800" for="flexRadioDefault1">
+                                abreviatura
                             </label>
                         </div>
                     </li>
@@ -83,6 +94,16 @@
                             class="dropdown-item flex text-sm py-2 px-4 font-normal w-full
                                 whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100 ">
                             Nombre
+                            <x-signo-table :type='$type' :direction='$direction' etiqueta='nombre'> </x-signo-table>
+
+                        </p>
+                    </li>
+                    <li>
+                        <p class="dropdown-item flex text-sm py-2 px-4 font-normal w-full
+                        whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100 "
+                            wire:click='order("abreviatura")'>abreviatura
+                            <x-signo-table :type='$type' :direction='$direction' etiqueta='abreviatura'> </x-signo-table>
+
                         </p>
                     </li>
                 </ul>
@@ -96,10 +117,16 @@
             <thead class="border-b bg-gray-800 ">
                 <tr>
                     <th scope="col" class="text-sm font-bold text-white px-6 py-4">
+                        Codigo
+                        <x-signo-table :type='$type' :direction='$direction' etiqueta='id'> </x-signo-table>
+                    </th>
+                    <th scope="col" class="text-sm font-bold text-white px-6 py-4">
                         Nombre
+                        <x-signo-table :type='$type' :direction='$direction' etiqueta='nombre'> </x-signo-table>
                     </th>
                     <th scope="col" class="text-sm font-bold text-white px-6 py-4">
                         Abreviatura
+                        <x-signo-table :type='$type' :direction='$direction' etiqueta='abreviatura'> </x-signo-table>
                     </th>
                     <th scope="col" class="text-sm font-bold text-white px-6 py-4">
                         Acciones
@@ -110,6 +137,8 @@
                 @foreach ($unidades as $unidad)
                     <tr class="bg-white border-b">
                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                            {{ $unidad->id }}</td>
+                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                             {{ $unidad->nombre }}
                         </td>
                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
@@ -117,6 +146,7 @@
                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                             <div class="flex items-center justify-center">
                                 <div class="inline-flex" role="group">
+                                    
                                     <a href="{{ route('sistema-unidad.edit', $unidad->id) }}"
                                         class="m-1 inline-block px-4 py-1.5 bg-blue-600 text-white font-bold text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
                                         <x-edit> </x-edit>
@@ -138,3 +168,4 @@
         <x-pagination :modelo='$unidades'> </x-pagination>
     </x-table>
 </div>
+

@@ -3,17 +3,17 @@
 namespace App\Http\Livewire\Configuracion\SistemaUnidad;
 
 use App\Models\Bitacora;
-use App\Models\configuracion\SistemaUnidad;
+use App\Models\Configuracion\SistemaUnidad;
 use Livewire\Component;
 
-class LwSistemaUnidadEdit extends Component
+class LwEdit extends Component
 {
     public $nombre;
     public $abreviatura;
     public $objUnidad;
     public function render()
     {
-        return view('livewire.configuracion.sistema-unidad.lw-sistema-unidad-edit');
+        return view('livewire.configuracion.sistema-unidad.lw-edit');
     }
 
     public function mount($id)
@@ -23,7 +23,7 @@ class LwSistemaUnidadEdit extends Component
         $this->abreviatura = $this->objUnidad->abreviatura;
     }
 
-    public function store()
+    public function edit()
     {
         $this->validate([
             'nombre' => 'required',

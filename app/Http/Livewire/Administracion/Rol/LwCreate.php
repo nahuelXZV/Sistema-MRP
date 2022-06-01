@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Administracion\Rol;
 
+use App\Models\Bitacora;
 use Livewire\Component;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
@@ -23,6 +24,7 @@ class LwCreate extends Component
         foreach ($this->permission as $permi) {
             $rol->givePermissionTo($permi);
         }
+        Bitacora::Bitacora('C','Roles','Registro de Rol: '.$this->name);
         return redirect()->route('roles.index');
     }
 

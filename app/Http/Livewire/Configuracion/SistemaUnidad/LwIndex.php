@@ -1,16 +1,17 @@
 <?php
 
-namespace App\Http\Livewire\Administracion\Rol;
+namespace App\Http\Livewire\Configuracion\SistemaUnidad;
 
 use App\Models\Bitacora;
+use App\Models\Configuracion\SistemaUnidad;
 use Livewire\Component;
 use Livewire\WithPagination;
-use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
 
 class LwIndex extends Component
 {
     use WithPagination;
+    public $nombre;
+    public $abreviatura;
 
     public $pagination = 10;
     public $attribute = '';
@@ -27,39 +28,32 @@ class LwIndex extends Component
     public function order($type)
     {
         if ($this->type == $type) {
-            if ($this->direction == 'desc') {
-                $this->direction = 'asc';
-            } else {
-                $this->direction = 'desc';
-            }
+            $this->direction = ($this->direction == 'desc')? ('asc') : ('desc');
         } else {
             $this->type = $type;
             $this->direction = 'asc';
         }
     }
-
-
     public function render()
     {
         switch ($this->type) {
-            case 'name':
-                $roles = Role::where('name', 'like', '%' . $this->attribute . '%')
+            case 'abreviatura':
+                $unidades = SistemaUnidad::where('abreviatura', 'like', '%' . $this->attribute . '%')
                     ->orderBy($this->sort, $this->direction)
                     ->paginate($this->pagination);
                 break;
             default:
-                $roles = Role::where('name', 'like', '%' . $this->attribute . '%')
+                $unidades = SistemaUnidad::where('nombre', 'like', '%' . $this->attribute . '%')
                     ->orderBy($this->sort, $this->direction)
                     ->paginate($this->pagination);
-                break;
         }
-        return view('livewire.administracion.rol.lw-index', compact('roles'));
+        return view('livewire.configuracion.sistema-unidad.lw-index', compact('unidades'));
     }
-
+    
     public function delete($id)
     {
-        $rol = Role::find($id);
-        $rol->delete();
-        Bitacora::Bitacora('D', 'Roles', 'Eliminación de Rol: ' . $rol->name);
+        $unidad = SistemaUnidad::find($id);
+        $unidad->delete();
+        Bitacora::Bitacora('D', 'Sistema de unidades', $id);
     }
 }

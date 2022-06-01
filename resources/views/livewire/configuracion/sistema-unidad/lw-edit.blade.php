@@ -19,9 +19,9 @@
                 <x-jet-input-error for="abreviatura" />
             </div>
             <div>
-                <button wire:click='store'  class="bg-gray-800  text-white font-bold px-6 py-4 rounded-lg text-sm ">
-                    Guardar
-                </button>
+                <button type="button" wire:click="edit()" wire:loading.attr="disabled"
+                class="inline-block px-6 py-2.5 bg-gray-800  text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ml-1">
+                Guardar</button>
             </div>
         </form>
     </div>

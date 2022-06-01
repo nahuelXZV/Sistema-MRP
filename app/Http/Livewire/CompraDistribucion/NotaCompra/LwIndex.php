@@ -1,12 +1,10 @@
 <?php
 
-namespace App\Http\Livewire\Administracion\Rol;
+namespace App\Http\Livewire\CompraDistribucion\NotaCompra;
 
-use App\Models\Bitacora;
+use App\Models\CompraDistribucion\NotaCompra;
 use Livewire\Component;
 use Livewire\WithPagination;
-use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
 
 class LwIndex extends Component
 {
@@ -42,24 +40,23 @@ class LwIndex extends Component
     public function render()
     {
         switch ($this->type) {
-            case 'name':
-                $roles = Role::where('name', 'like', '%' . $this->attribute . '%')
+            case 'fecha':
+                $notas = NotaCompra::where('fecha', 'like', '%' . $this->attribute . '%')
                     ->orderBy($this->sort, $this->direction)
                     ->paginate($this->pagination);
                 break;
             default:
-                $roles = Role::where('name', 'like', '%' . $this->attribute . '%')
+                $notas = NotaCompra::where('fecha', 'like', '%' . $this->attribute . '%')
                     ->orderBy($this->sort, $this->direction)
                     ->paginate($this->pagination);
                 break;
         }
-        return view('livewire.administracion.rol.lw-index', compact('roles'));
+        return view('livewire.compra-distribucion.nota-compra.lw-index',compact('notas'));
     }
 
     public function delete($id)
     {
-        $rol = Role::find($id);
-        $rol->delete();
-        Bitacora::Bitacora('D', 'Roles', 'Eliminación de Rol: ' . $rol->name);
+        $nombre = NotaCompra::find($id);
+        $nombre->delete();
     }
 }

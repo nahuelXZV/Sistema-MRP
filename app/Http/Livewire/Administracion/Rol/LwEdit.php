@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Administracion\Rol;
 
+use App\Models\Bitacora;
 use Livewire\Component;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
@@ -12,7 +13,7 @@ class LwEdit extends Component
     public $name;
     public $selectPermissions;
     public $permisosR = [];
-    public $permission=[];
+    public $permission = [];
 
     public function mount($id)
     {
@@ -20,7 +21,7 @@ class LwEdit extends Component
         $this->name = $this->rol->name;
         $this->selectPermissions = $this->rol->getAllPermissions()->pluck('id')->toArray();
         foreach ($this->selectPermissions as $permiso) {
-            $this->permisosR[$permiso]=$permiso;
+            $this->permisosR[$permiso] = $permiso;
         }
     }
 
@@ -37,6 +38,7 @@ class LwEdit extends Component
             $this->rol->givePermissionTo($permiso);
         }
         $this->rol->save();
+        Bitacora::Bitacora('U', 'Roles', 'Actualización de Rol: ' . $this->name);
         return redirect()->route('roles.index');
     }
 
@@ -48,6 +50,6 @@ class LwEdit extends Component
     public function render()
     {
         $permissions = Permission::all();
-        return view('livewire.administracion.rol.lw-edit',compact('permissions'));
+        return view('livewire.administracion.rol.lw-edit', compact('permissions'));
     }
 }

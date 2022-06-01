@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Traits;
-use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Builder;  //
 
 trait ApiTrait{
 
@@ -13,7 +13,7 @@ trait ApiTrait{
             return;
         }
 
-        $relations = explode(',', request('included')); //['posts','relacion2']
+        $relations = explode(',', request('included')); //['posts','relacion2', 'relacion3']
         $allowIncluded = collect($this->allowIncluded);
 
         foreach ($relations as $key => $relationship) {

@@ -4,15 +4,18 @@ use App\Http\Controllers\Administracion\BitacoraController;
 use App\Http\Controllers\Administracion\RoleController;
 use App\Http\Controllers\Api\Login\UserController as LoginUserController;
 use App\Http\Controllers\Configuracion\CategoriaPrimaController;
-use App\Http\Controllers\Configuracion\SistemaUnidadController;
 use App\Http\Controllers\Inventario\MateriaPrimaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\Inventario\ProductoController;
 use App\Http\Controllers\CategoriaProductoController;
+use App\Http\Controllers\CompraDistribucion\NotaCompraController;
+use App\Http\Controllers\Configuracion\EmpresaController;
+use App\Http\Controllers\Configuracion\SistemaUnidadController;
 use App\Http\Controllers\Inventario\BOMController as InventarioBOMController;
 //use App\Http\Controllers\Login\UserController;
 use App\Http\Controllers\Reportes\ReporteController;
+use App\Models\Empresa;
 use Illuminate\Http\Request;
 
 /*
@@ -82,4 +85,11 @@ Route::middleware([
     Route::get('/roles/create', [RoleController::class, 'create'])->name('roles.create');
     Route::get('/roles/edit/{id}', [RoleController::class, 'edit'])->name('roles.edit');
 
+    // Route categoria productos
+    Route::resource('empresas', EmpresaController::class);
+
+    //Route nota compra
+    Route::get('/nota-compra', [NotaCompraController::class, 'index'])->name('nota-compra.index');
+    Route::get('/nota-compra/create', [NotaCompraController::class, 'create'])->name('nota-compra.create');
+    Route::get('/nota-compra/{id}', [NotaCompraController::class, 'edit'])->name('nota-compra.edit');
 });

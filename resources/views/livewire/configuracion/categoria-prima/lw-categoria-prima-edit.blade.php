@@ -4,6 +4,7 @@
             Editar categoria de materias primas
         </h6>
     </x-header-multi>
+
     <div class="modal-body relative p-8 bg-gray-100 rounded-xl shadow-lg mt-8 ">
 
         <div>
