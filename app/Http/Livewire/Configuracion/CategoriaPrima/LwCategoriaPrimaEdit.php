@@ -24,6 +24,12 @@ class LwCategoriaPrimaEdit extends Component
         $this->descripcion = $this->categoria->descripcion;
     }
 
+    public function limpiar()
+    {
+        $this->nombre = '';
+        $this->descripcion = '';
+    }
+
     public function guardar()
     {
         $this->validate(['nombre' => 'required', 'descripcion' => 'required']);
