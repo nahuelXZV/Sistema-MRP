@@ -12,7 +12,6 @@ class LwEdit extends Component
     public $usuario;
     public $name;
     public $email;
-    public $password;
     public $rol;
 
     public function mount($id)
@@ -28,12 +27,10 @@ class LwEdit extends Component
         $this->validate([
             'name' => 'required',
             'email' => 'required|email',
-            'password' => 'required|min:6',
             'rol'=>'required'
         ]);
         $this->usuario->name = $this->name;
         $this->usuario->email = $this->email;
-        $this->usuario->password = bcrypt($this->password);
         $this->usuario->syncRoles($this->rol);
 
         $this->usuario->save();
@@ -45,7 +42,6 @@ class LwEdit extends Component
     {
         $this->name = '';
         $this->email = '';
-        $this->password = '';
     }
 
     public function render()
