@@ -10,7 +10,7 @@ class CreatePedidosTable extends Migration
      * Run the migrations.
      *
      * @return void
-     */
+     */  
     public function up()
     {
         Schema::create('pedidos', function (Blueprint $table) {

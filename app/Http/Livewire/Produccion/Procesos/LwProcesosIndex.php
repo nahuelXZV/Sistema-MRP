@@ -1,21 +1,20 @@
 <?php
 
-namespace App\Http\Livewire\Inventario\Producto;
+namespace App\Http\Livewire\Produccion\Procesos;
 
 use App\Models\Bitacora;
-use App\Models\Inventario\Producto;
+use App\Models\Produccion\Proceso;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class LwIndex extends Component
-{ 
+class LwProcesosIndex extends Component
+{
     use WithPagination;
     public $pagination = 10;
     public $attribute = '';
     public $type = 'id';
     public $sort = 'id';
     public $direction = 'asc';
-
 
     //Metodo de reinicio de buscador
     public function updatingAttribute()
@@ -41,35 +40,30 @@ class LwIndex extends Component
 
     public function delete($id)
     {
-        $productos = Producto::find($id);
-        Bitacora::Bitacora('D', 'Producto', $productos->id);
-        $productos->delete();
+        $proceso = Proceso::find($id);
+        Bitacora::Bitacora('D', 'Proceso de producción', $proceso->id);
+        $proceso->delete();
     }
+
     public function render()
     {
         switch ($this->type) {
             case 'nombre':
-                $productos = Producto::where('nombre', 'like', '%' . $this->attribute . '%')
+                $procesos = Proceso::where('nombre', 'like', '%' . $this->attribute . '%')
                     ->orderBy($this->sort, $this->direction)
                     ->paginate($this->pagination);
                 break;
-            case 'estado':
-                $productos = Producto::where('estado', 'like', '%' . $this->attribute . '%')
-                    ->orderBy($this->sort, $this->direction)
-                    ->paginate($this->pagination);
-                break;
-            case 'categoria':
-                $productos = Producto::join('categoria_productos', 'productos.categoria_producto', 'categoria_productos.id')
-                    ->where('categoria_productos.nombre', 'like', '%' . $this->attribute . '%')
+            case 'descripcion':
+                $procesos = Proceso::where('descripcion', 'like', '%' . $this->attribute . '%')
                     ->orderBy($this->sort, $this->direction)
                     ->paginate($this->pagination);
                 break;
             default:
-                $productos = Producto::where('id', 'like', '%' . $this->attribute . '%')
+                $procesos = Proceso::where('id', 'like', '%' . $this->attribute . '%')
                     ->orderBy($this->sort, $this->direction)
                     ->paginate($this->pagination);
                 break;
         }
-        return view('livewire.inventario.producto.lw-index', compact('productos'));
+        return view('livewire.produccion.procesos.lw-procesos-index', compact('procesos'));
     }
 }

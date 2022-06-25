@@ -13,6 +13,9 @@ use App\Http\Controllers\CompraDistribucion\NotaCompraController;
 use App\Http\Controllers\Configuracion\EmpresaController;
 use App\Http\Controllers\Configuracion\SistemaUnidadController;
 use App\Http\Controllers\Inventario\BOMController as InventarioBOMController;
+use App\Http\Controllers\PedidosCompras\PedidoController;
+use App\Http\Controllers\Produccion\MpsController;
+use App\Http\Controllers\Produccion\ProcesosController;
 //use App\Http\Controllers\Login\UserController;
 use App\Http\Controllers\Reportes\ReporteController;
 use App\Models\Empresa;
@@ -92,4 +95,30 @@ Route::middleware([
     Route::get('/nota-compra', [NotaCompraController::class, 'index'])->name('nota-compra.index');
     Route::get('/nota-compra/create', [NotaCompraController::class, 'create'])->name('nota-compra.create');
     Route::get('/nota-compra/{id}', [NotaCompraController::class, 'edit'])->name('nota-compra.edit');
+
+
+
+
+    //Route procesos
+    Route::get('/procesos', [ProcesosController::class, 'index'])->name('procesos.index');
+    Route::get('/procesos/create', [ProcesosController::class, 'create'])->name('procesos.create');
+    Route::get('/procesos/edit/{id}', [ProcesosController::class, 'edit'])->name('procesos.edit');
+    Route::get('/procesos/productos/{id}', [ProcesosController::class, 'productos'])->name('procesos.productos');
+
+    //Route pedidos
+    Route::get('/pedidos', [PedidoController::class, 'index'])->name('pedidos.index');
+    Route::get('/pedidos/create', [PedidoController::class, 'create'])->name('pedidos.create');
+    Route::get('/pedidos/edit/{id}', [PedidoController::class, 'edit'])->name('pedidos.edit');
+    Route::get('/pedidos/add/{id}', [PedidoController::class, 'add'])->name('pedidos.add');
+
+    //Route detalles pedidos
+    Route::get('/detalles-pedidos/{id}', [PedidoController::class, 'details'])->name('pedidos.details');
+
+    //Route mps
+    Route::get('/mps', [MpsController::class, 'index'])->name('mps.index');
+    Route::get('/mps/create', [MpsCsontroller::class, 'create'])->name('mps.create');
+    Route::get('/mps/edit/{id}', [MpsController::class, 'edit'])->name('mps.edit');
+
+    //Route detalles mps
+    Route::get('/detalles-mps/{id}', [MpsController::class, 'details'])->name('mps.details');
 });

@@ -12,7 +12,7 @@ class CreateDetallePedidosTable extends Migration
      * @return void
      */
     public function up()
-    {
+    { 
         Schema::create('detalle_pedidos', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('pedido_id')->nullable();
