@@ -1,17 +1,20 @@
 <div>
-    <x-header-multi>
-        <h6 class="font-medium leading-tight text-base"></h6>
-        <div
-            class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-start border-t border-gray-200 rounded-b-md">
-            <button type="button" wire:click="continuar" wire:loading.attr="disabled"
-                class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ml-1">
-                Continuar</button>
-            <a type="button" href="{{ route('pedidos.edit', $pedido->id) }}"
-                class="inline-block px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out ml-1">
-                Editar</a>
-        </div>
-    </x-header-multi>
-
+    @if ($botton != 'Ocultar')
+        <x-header-multi>
+            <h6 class="font-medium leading-tight text-base"></h6>
+            <div
+                class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-start border-t border-gray-200 rounded-b-md">
+                @if ($botton != 'OcultarV')
+                    <button type="button" wire:click="continuar" wire:loading.attr="disabled"
+                        class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ml-1">
+                        {{ $botton }}</button>
+                @endif
+                <a type="button" href="{{ route('pedidos.edit', $pedido->id) }}"
+                    class="inline-block px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out ml-1">
+                    Editar</a>
+            </div>
+        </x-header-multi>
+    @endif
     <div class="modal-body relative p-4 ">
         <h6 class="leading-tight uppercase text-base font-bold text-black mb-4 mt-4">Detalles del pedido</h6>
         <div class="grid grid-cols-2 gap-4">
@@ -87,6 +90,9 @@
                             <th scope="col" class="text-sm font-bold text-white px-6 py-4">
                                 Cantidad
                             </th>
+                            <th scope="col" class="text-sm font-bold text-white px-6 py-4">
+                                Estado
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -102,6 +108,13 @@
                                     {{ $dproducto->producto->peso }}</td>
                                 <td class="text-center text-sm text-black font-light px-6 py-4 whitespace-nowrap">
                                     {{ $dproducto->cantidad }}</td>
+                                <td class="text-center text-sm text-black font-light px-6 py-4 whitespace-nowrap">
+                                    @if ($dproducto->estado)
+                                        {{ $dproducto->estado }}
+                                    @else
+                                        Sin estado
+                                    @endif
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>

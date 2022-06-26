@@ -7,18 +7,51 @@
                 <button type="button" wire:click="verificar" wire:loading.attr="disabled"
                     class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ml-1">
                     Verificar</button>
+                <a href="{{ route('pedidos.details', $pedido->id) }}"
+                    class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ml-1">
+                    Ver pedido</a>
 
             </div>
         </x-header-multi>
 
         @if ($error)
-            <div class="bg-red-100 border border-red-400 text-red-800 px-4 py-3 rounded relative mt-4" role="alert">
+            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mt-4" role="alert">
                 <strong class="font-bold">Error!</strong>
                 <span class="block sm:inline">{{ $mensaje }}</span>
             </div>
         @endif
 
         <div class="modal-body relative p-4 ">
+            <h6 class="leading-tight uppercase text-base font-bold text-black mb-4">Detalles pedido</h6>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="form-group mb-6">
+                    <label for="exampleInputEmail2" class="form-label inline-block mb-2 text-gray-700">Cliente</label>
+                    <input type="text" wire:model="datos.cliente" readonly
+                        class="form-control block  w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300  rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">
+                </div>
+
+                <div class="form-group mb-6">
+                    <label for="exampleInputEmail2" class="form-label inline-block mb-2 text-gray-700">Estado</label>
+                    <input type="text" wire:model="datos.estado" readonly
+                        class="form-control block  w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300  rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">
+                </div>
+            </div>
+            <!--    -->
+            <h6 class="leading-tight uppercase text-base font-bold text-black mb-4">Detalles de envio</h6>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="form-group mb-6">
+                    <label for="exampleInputEmail2"
+                        class="form-label inline-block mb-2 text-gray-700">Distribudiora</label>
+                    <input type="text" wire:model="datos.distribuidor" readonly
+                        class="form-control block  w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300  rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">
+                </div>
+                <div class="form-group mb-6">
+                    <label for="exampleInputEmail2" class="form-label inline-block mb-2 text-gray-700">Dirección</label>
+                    <input type="text" wire:model="datos.direccion" readonly
+                        class="form-control block  w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300  rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">
+                </div>
+            </div>
+
             <h6 class="leading-tight uppercase text-base font-bold text-black mb-4 mt-4">Detalles MPS</h6>
             <div class="grid grid-cols-2 gap-4">
                 <div class="form-group mb-6">
@@ -106,9 +139,8 @@
             </x-table>
         </div>
     @else
-        <div class="bg-red-100 border border-red-400 text-red-800 px-4 py-3 rounded relative mt-4" role="alert">
-            <strong class="font-bold">Error!</strong>
-            <span class="block sm:inline">Sin un MPS creado.</span>
+        <div class="alert alert-danger" role="alert">
+            <strong>MPS!</strong> No creado.
         </div>
     @endif
 </div>

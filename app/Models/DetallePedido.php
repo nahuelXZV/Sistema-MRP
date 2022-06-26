@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 class DetallePedido extends Model
 {
     use HasFactory;
-    protected $fillable = ['pedido_id', 'producto_id', 'estado_pedido_id', 'cantidad'];
+    protected $fillable = ['pedido_id', 'producto_id', 'cantidad', 'estado'];
 
     public function pedido()
     {
@@ -21,5 +21,4 @@ class DetallePedido extends Model
     {
         return $this->belongsTo(Producto::class);
     }
-
 }

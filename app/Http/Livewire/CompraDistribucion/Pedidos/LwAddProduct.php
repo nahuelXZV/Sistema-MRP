@@ -32,6 +32,7 @@ class LwAddProduct extends Component
             'producto.cantidad' => 'required|min:0',
         ]);
         $this->producto['pedido_id'] = $this->pedido->id;
+        $this->producto['estado'] = 'Pendiente';
         DetallePedido::create($this->producto);
         $this->producto = [];
         $this->render();

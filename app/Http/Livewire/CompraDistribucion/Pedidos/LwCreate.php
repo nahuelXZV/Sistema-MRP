@@ -18,6 +18,7 @@ class LwCreate extends Component
             'pedido.cliente_id' => 'required',
             'pedido.descripcion' => 'required',
             'pedido.fecha' => 'required',
+            'pedido.direccion' => 'required',
         ]);
         $this->pedido['estado'] = 'Pendiente';
         $this->pedido['hora'] = now();

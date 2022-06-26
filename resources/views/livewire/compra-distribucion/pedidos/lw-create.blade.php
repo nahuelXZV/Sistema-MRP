@@ -35,8 +35,15 @@
                 <label for="exampleInputEmail2" class="form-label inline-block mb-2 text-gray-700">Fecha*</label>
                 <input type="date" wire:model.defer="pedido.fecha" name='fecha'
                     class="form-control block  w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300  rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                    placeholder="Decha">
+                    placeholder="Fecha">
                 <x-jet-input-error for="pedido.fecha" />
+            </div>
+            <div class="form-group mb-6">
+                <label for="exampleInputEmail2" class="form-label inline-block mb-2 text-gray-700">Dirección*</label>
+                <input type="text" wire:model.defer="pedido.direccion" name='direccion'
+                    class="form-control block  w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300  rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                    placeholder="Direccion">
+                <x-jet-input-error for="pedido.direccion" />
             </div>
         </div>
         <div class="form-group mb-6">

@@ -19,6 +19,8 @@ use App\Http\Controllers\Produccion\ProcesosController;
 //use App\Http\Controllers\Login\UserController;
 use App\Http\Controllers\Reportes\ReporteController;
 use App\Models\Empresa;
+use App\Models\Inventario\MateriaPrima;
+use App\Models\Produccion\Mps;
 use Illuminate\Http\Request;
 
 /*
@@ -96,9 +98,6 @@ Route::middleware([
     Route::get('/nota-compra/create', [NotaCompraController::class, 'create'])->name('nota-compra.create');
     Route::get('/nota-compra/{id}', [NotaCompraController::class, 'edit'])->name('nota-compra.edit');
 
-
-
-
     //Route procesos
     Route::get('/procesos', [ProcesosController::class, 'index'])->name('procesos.index');
     Route::get('/procesos/create', [ProcesosController::class, 'create'])->name('procesos.create');
@@ -110,15 +109,17 @@ Route::middleware([
     Route::get('/pedidos/create', [PedidoController::class, 'create'])->name('pedidos.create');
     Route::get('/pedidos/edit/{id}', [PedidoController::class, 'edit'])->name('pedidos.edit');
     Route::get('/pedidos/add/{id}', [PedidoController::class, 'add'])->name('pedidos.add');
-
-    //Route detalles pedidos
     Route::get('/detalles-pedidos/{id}', [PedidoController::class, 'details'])->name('pedidos.details');
 
     //Route mps
     Route::get('/mps', [MpsController::class, 'index'])->name('mps.index');
-    Route::get('/mps/create', [MpsCsontroller::class, 'create'])->name('mps.create');
-    Route::get('/mps/edit/{id}', [MpsController::class, 'edit'])->name('mps.edit');
-
-    //Route detalles mps
     Route::get('/detalles-mps/{id}', [MpsController::class, 'details'])->name('mps.details');
+
+
+    Route::get('stock', function () {
+        return MateriaPrima::all();
+    });
+    Route::get('mps/stock', function () {
+        return Mps::all();
+    });
 });

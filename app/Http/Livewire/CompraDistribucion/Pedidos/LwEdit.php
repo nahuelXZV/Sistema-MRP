@@ -31,6 +31,7 @@ class LwEdit extends Component
         $this->validate([
             'pedido.fecha' => 'required',
             'pedido.descripcion' => 'required',
+            'pedido.direccion' => 'required',
         ]);
         if ($this->datos['distribuidor'] == '') {
             $this->pedido->distribuidor_id = $this->datos['distribuidor'];
@@ -40,7 +41,11 @@ class LwEdit extends Component
         $this->pedido->descripcion = $this->datos['descripcion'];
         $this->pedido->save();
         Bitacora::Bitacora('U', 'Pedido', $this->pedido->id);
-        return redirect()->route('pedidos.add', $this->pedido->id);
+        if ($this->pedido->estado == 'Pendiente') {
+            return redirect()->route('pedidos.add', $this->pedido->id);
+        } else {
+            return redirect()->route('pedidos.details', $this->pedido->id);
+        }
     }
 
     public function limpiar()

@@ -8,9 +8,8 @@ use App\Models\Produccion\EstadoPedido;
 use App\Models\Produccion\Mps;
 use Livewire\Component;
 
-class LwShow extends Component
+class LwDetails extends Component
 {
-
     public $pedido;
     public $mps;
     public $bandera = false;
@@ -58,6 +57,6 @@ class LwShow extends Component
         } else {
             $estados = [];
         }
-        return view('livewire.compra-distribucion.mps.lw-show', compact('estados'));
+        return view('livewire.compra-distribucion.mps.lw-details', compact('estados'));
     }
 }

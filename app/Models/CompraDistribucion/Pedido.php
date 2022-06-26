@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class Pedido extends Model
 {
     use HasFactory;
-    protected $fillable = ['cliente_id', 'distribuidor_id', 'pedido_cancelado_id', 'descripcion', 'estado', 'fecha', 'hora'];
+    protected $fillable = ['cliente_id', 'distribuidor_id', 'pedido_cancelado_id', 'direccion', 'descripcion', 'estado', 'fecha', 'hora'];
 
     public function cliente()
     {

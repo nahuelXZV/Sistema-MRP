@@ -157,12 +157,14 @@
                                 @endif
                             </td>
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                {{ $pedido->descripcion }}</td>
+                                {{ substr($pedido->descripcion, 0, 50) }}
+                            </td>
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                 {{ $pedido->estado }}</td>
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                 {{ $pedido->fecha }} - {{ $pedido->hora }}
                             </td>
+
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                 <div class="flex items-center justify-center">
                                     <div class="inline-flex" role="group">
@@ -176,10 +178,12 @@
                                                     d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                                             </svg>
                                         </a>
-                                        <button type="button" wire:click='delete({{ $pedido->id }} )'
-                                            class="m-1 inline-block px-4 py-1.5 bg-red-600 text-white font-bold text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out">
-                                            <x-delete> </x-delete>
-                                        </button>
+                                        @if ($pedido->estado != 'Finalizado')
+                                            <button type="button" wire:click='delete({{ $pedido->id }} )'
+                                                class="m-1 inline-block px-4 py-1.5 bg-red-600 text-white font-bold text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out">
+                                                <x-delete> </x-delete>
+                                            </button>
+                                        @endif
                                     </div>
                                 </div>
                             </td>
