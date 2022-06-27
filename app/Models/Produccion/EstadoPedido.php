@@ -11,13 +11,14 @@ class EstadoPedido extends Model
     use HasFactory;
     protected $fillable = ['mps_id', 'detallePedido_id', 'cantidad_total', 'cantidad_stock', 'estado'];
 
-    public function mps()
-    {
-        return $this->belongsTo(Mps::class);
-    }
 
     public function detallePedido()
     {
-        return $this->belongsTo(DetallePedido::class);
+        return $this->belongsTo(DetallePedido::class, 'detallePedido_id');
+    }
+
+    public function mps()
+    {
+        return $this->belongsTo(Mps::class, 'mps_id');
     }
 }

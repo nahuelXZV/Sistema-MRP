@@ -65,6 +65,7 @@
                                 <tr class="bg-white border-b">
                                     <td
                                         class="text-center text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                        {{ $estado->detallePedido->producto->nombre }}
                                     </td>
                                     <td
                                         class="text-center text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
