@@ -21,6 +21,7 @@ class CreateMateriaPrimasTable extends Migration
             $table->string('tamaño');
             $table->string('peso');
             $table->string('color');
+            $table->unsignedBigInteger('cantidad')->default(0);
             $table->unsignedBigInteger('idCategoriaMP')->nullable();
             $table->foreign('idCategoriaMP')->references('id')->on('categoria_materia_primas');
 

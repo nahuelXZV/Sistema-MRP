@@ -12,18 +12,16 @@
                     placeholder="Nombre">
                 <x-jet-input-error for="categoria_producto.nombre" />
             </div>
-            <div class="form-group mb-6">
-                <label for="exampleInputEmail2" class="form-label inline-block mb-2 text-gray-700">descripcion</label>
-                <input type="text" wire:model.defer="categoria_producto.descripcion" name='descripcion'
-                    class="form-control block  w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300  rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                    placeholder="telefono">
-                <x-jet-input-error for="categoria_producto.descripcion" />
-            </div>
-        </div>
-       
-       
-       
 
+        </div>
+
+        <div class="form-group mb-6">
+            <label for="exampleInputEmail2" class="form-label inline-block mb-2 text-gray-700">Descripción</label>
+            <textarea name="descripcion" id="" cols="30" rows="5" placeholder="Descripción"
+                wire:model.defer="categoria_producto.descripcion"
+                class="form-control block  w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300  rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"></textarea>
+            <x-jet-input-error for="categoria_producto.descripcion" />
+        </div>
 
 
 
@@ -40,4 +38,3 @@
         </div>
     </div>
 </div>
-
