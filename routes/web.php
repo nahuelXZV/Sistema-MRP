@@ -96,7 +96,9 @@ Route::middleware([
     //Route nota compra
     Route::get('/nota-compra', [NotaCompraController::class, 'index'])->name('nota-compra.index');
     Route::get('/nota-compra/create', [NotaCompraController::class, 'create'])->name('nota-compra.create');
-    Route::get('/nota-compra/{id}', [NotaCompraController::class, 'edit'])->name('nota-compra.edit');
+    Route::get('/nota-compra/edit/{id}', [NotaCompraController::class, 'edit'])->name('nota-compra.edit');
+    Route::get('/nota-compra/show/{id}', [NotaCompraController::class, 'show'])->name('nota-compra.show');
+    Route::get('/nota-compra/show/{id}/detalle', [NotaCompraController::class, 'add'])->name('nota-compra.add');
 
     //Route procesos
     Route::get('/procesos', [ProcesosController::class, 'index'])->name('procesos.index');

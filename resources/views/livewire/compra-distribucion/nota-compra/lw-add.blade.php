@@ -1,42 +1,36 @@
 <div>
     <x-header-multi>
-        <h6 class="font-medium leading-tight text-base">Editar Nota Compra</h6>
+        <h6 class="font-medium leading-tight text-base">Añadir Detalle</h6>
     </x-header-multi>
     <div class="modal-body relative p-4 ">
 
         <div class="grid grid-cols-2 gap-4">
             <div class="form-group mb-6">
-                <label for="exampleInputEmail2" class="form-label inline-block mb-2 text-gray-700">Fecha</label>
-                <input type="date" wire:model.defer="nota.fecha" name='fecha'
-                    class="form-control block  w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300  rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                    placeholder="Fecha">
-                <x-jet-input-error for="nota.fecha" />
-            </div>
-            <div class="form-group mb-6">
-                <label for="exampleInputEmail2" class="form-label inline-block mb-2 text-gray-700">Hora</label>
-                <input type="time" wire:model.defer="nota.hora" name='hora'
-                    class="form-control block  w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300  rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                    placeholder="Fecha">
-                <x-jet-input-error for="nota.hora" />
-            </div>
-            <div class="form-group mb-6">
-                <label for="exampleInputEmail2" class="form-label inline-block mb-2 text-gray-700">Costo total</label>
-                <input type="number" wire:model.defer="nota.costo_total" name='costo_total'
-                    class="form-control block  w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300  rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                    placeholder="Costo total">
-                <x-jet-input-error for="nota.costo_total" />
-            </div>
-            <div class="form-group mb-6">
-                <label for="exampleInputEmail2" class="form-label inline-block mb-2 text-gray-700">Proveedor</label>
-                <select wire:model.defer='nota.proveedor_id' name='proveedor_id'
+                <label for="exampleInputEmail2" class="form-label inline-block mb-2 text-gray-700">Materia Prima</label>
+                <select wire:model.defer='detalle.materia_primas_id' name='detalle.materia_primas_id'
                     class="form-select appearance-none   h-9   block    w-full    px-2    py-1    text-sm    font-normal    text-gray-700    bg-white bg-clip-padding bg-no-repeat    border border-solid border-gray-300    rounded    transition    ease-in-out    m-0    focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                     aria-label=".form-select-sm example">
-                    <option selected>Selecciona un proveedor</option>
-                    @foreach ($proveedores as $proveedor)
-                        <option value="{{ $proveedor->id }}">{{ $proveedor->nombre_empresa }}</option>
+                    <option selected>Selecciona una materia prima</option>
+                    @foreach ($materias as $materia)
+                        <option value="{{ $materia->id }}">{{ $materia->nombre }}</option>
                     @endforeach
                 </select>
-                <x-jet-input-error for="nota.proveedor_id" />
+                <x-jet-input-error for="detalle.materia_primas_id" />
+            </div>
+
+            <div class="form-group mb-6">
+                <label for="exampleInputEmail2" class="form-label inline-block mb-2 text-gray-700">Cantidad</label>
+                <input type="number" wire:model.defer="detalle.cantidad" name='detalle.cantidad'
+                    class="form-control block  w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300  rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                    placeholder="Cantidad">
+                <x-jet-input-error for="detalle.cantidad" />
+            </div>
+            <div class="form-group mb-6">
+                <label for="exampleInputEmail2" class="form-label inline-block mb-2 text-gray-700">Costo</label>
+                <input type="number" wire:model.defer="detalle.costo" name='detalle.costo'
+                    class="form-control block  w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300  rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                    placeholder="Costo">
+                <x-jet-input-error for="detalle.costo" />
             </div>
         </div>
 
@@ -52,5 +46,4 @@
                 Guardar</button>
         </div>
     </div>
-
 </div>

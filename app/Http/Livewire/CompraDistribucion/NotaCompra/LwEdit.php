@@ -4,6 +4,7 @@ namespace App\Http\Livewire\CompraDistribucion\NotaCompra;
 
 use App\Models\CompraDistribucion\NotaCompra;
 use App\Models\CompraDistribucion\Proveedor;
+use App\Models\DetalleCompra;
 use Livewire\Component;
 
 class LwEdit extends Component
@@ -40,7 +41,8 @@ class LwEdit extends Component
 
     public function render()
     {
+        $detalles = DetalleCompra::all();
         $proveedores = Proveedor::all();
-        return view('livewire.compra-distribucion.nota-compra.lw-edit',compact('proveedores'));
+        return view('livewire.compra-distribucion.nota-compra.lw-edit',compact('proveedores','detalles'));
     }
 }
