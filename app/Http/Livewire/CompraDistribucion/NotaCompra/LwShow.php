@@ -6,6 +6,7 @@ use App\Models\CompraDistribucion\NotaCompra;
 use App\Models\CompraDistribucion\Proveedor;
 use App\Models\DetalleCompra;
 use Livewire\Component;
+use phpDocumentor\Reflection\Location;
 
 class LwShow extends Component
 {
@@ -20,6 +21,15 @@ class LwShow extends Component
     {
         $detalle = DetalleCompra::find($id);
         $detalle->delete();
+
+        $detalles = DetalleCompra::where('nota_compras_id', $this->nota['id'])->get();
+        $total = 0;
+        foreach ($detalles as $detalle) {
+            $total = $total + intval($detalle->costo);
+        }
+        $nota = NotaCompra::find($this->nota['id']);
+        $nota->costo_total = strval($total);
+        $nota->save();
     }
 
     public function render()

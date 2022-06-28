@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\CompraDistribucion\NotaCompra;
 
 use App\Models\CompraDistribucion\NotaCompra;
+use App\Models\DetalleCompra;
 use Livewire\Component;
 use Livewire\WithPagination;
 

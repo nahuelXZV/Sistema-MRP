@@ -20,7 +20,9 @@ class LwCreate extends Component
             'pedido.hora' => 'required',
         ]);
         $pedido = PedidoCancelado::create($this->pedido);
-        
+        $p = Pedido::find($this->pedido['pedido_id']);
+        $p->estado = 'Cancelado';
+        $p->save();
         return redirect()->route('pedido-cancelado.index');
     }
 

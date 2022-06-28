@@ -15,8 +15,8 @@ class LwCreate extends Component
         $this->validate([
             'nota.fecha' => 'required',
             'nota.hora' => 'required',
-            'nota.costo_total' => 'required'
         ]);
+        $this->nota['costo_total'] = '0';
         $nota = NotaCompra::create($this->nota);
         return redirect()->route('nota-compra.index');
     }

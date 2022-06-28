@@ -26,7 +26,17 @@ class LwAdd extends Component
         ]);
         $this->detalle['nota_compras_id'] = $this->nota->id;
         DetalleCompra::create($this->detalle);
-        return redirect()->route('nota-compra.show',$this->nota);
+
+        $detalles = DetalleCompra::where('nota_compras_id', $this->nota->id)->get();
+        $total = 0;
+        foreach ($detalles as $detalle) {
+            $total = $total + intval($detalle->costo);
+        }
+        $nota = NotaCompra::find($this->nota->id);
+        $nota->costo_total = strval($total);
+        $nota->save();
+
+        return redirect()->route('nota-compra.show',$this->nota->id);
     }
 
     public function limpiar()
