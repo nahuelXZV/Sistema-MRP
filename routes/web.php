@@ -10,6 +10,7 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\Inventario\ProductoController;
 use App\Http\Controllers\CategoriaProductoController;
 use App\Http\Controllers\CompraDistribucion\NotaCompraController;
+use App\Http\Controllers\CompraDistribucion\PedidoCanceladoController;
 use App\Http\Controllers\Configuracion\EmpresaController;
 use App\Http\Controllers\Configuracion\SistemaUnidadController;
 use App\Http\Controllers\Inventario\BOMController as InventarioBOMController;
@@ -18,6 +19,7 @@ use App\Http\Controllers\Produccion\MpsController;
 use App\Http\Controllers\Produccion\ProcesosController;
 //use App\Http\Controllers\Login\UserController;
 use App\Http\Controllers\Reportes\ReporteController;
+use App\Models\CompraDistribucion\PedidoCancelado;
 use App\Models\Empresa;
 use App\Models\Inventario\MateriaPrima;
 use App\Models\Produccion\Mps;
@@ -124,4 +126,9 @@ Route::middleware([
     Route::get('mps/stock', function () {
         return Mps::all();
     });
+
+    //Route pedidos cancelados
+    Route::get('/pedidos-cancelados', [PedidoCanceladoController::class, 'index'])->name('pedido-cancelado.index');
+    Route::get('/pedidos-cancelados/create', [PedidoCanceladoController::class, 'create'])->name('pedido-cancelado.create');
+    Route::get('/pedidos-cancelados/edit/{id}', [PedidoCanceladoController::class, 'edit'])->name('pedido-cancelado.edit');
 });
