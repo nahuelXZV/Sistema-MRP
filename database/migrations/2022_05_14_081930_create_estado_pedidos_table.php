@@ -16,9 +16,12 @@ class CreateEstadoPedidosTable extends Migration
         Schema::create('estado_pedidos', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('mps_id')->nullable();
-            $table->string('cantidad_faltante')->nullable();
+            $table->unsignedBigInteger('detallePedido_id');
+            $table->string('cantidad_total')->nullable();
             $table->string('cantidad_stock')->nullable();
+            $table->string('estado')->nullable();
             $table->foreign('mps_id')->references('id')->on('mps')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('detallePedido_id')->references('id')->on('detalle_pedidos')->onDelete('cascade')->onUpdate('cascade');
 
             $table->timestamps();
         });

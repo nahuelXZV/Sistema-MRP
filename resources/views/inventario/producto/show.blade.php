@@ -31,7 +31,7 @@
                 class="nav-link block font-medium text-xs leading-tight uppercase rounded px-6 py-3 my-2 md:mr-2 focus:outline-none focus:ring-0 "
                 id="pills-contact-tab3" data-bs-toggle="pill" data-bs-target="#pills-contact3" role="tab"
                 aria-controls="pills-contact3" aria-selected="false">
-                Produccion
+                Procesos de producción
             </button>
         </li>
     </ul>
@@ -43,7 +43,7 @@
             @livewire('inventario.bom-producto.lw-index', ['id' => $id])
         </div>
         <div class="tab-pane fade" id="pills-contact3" role="tabpanel" aria-labelledby="pills-contact-tab3">
-            
+            @livewire('inventario.procesos.lw-index', ['id' => $id])
         </div>
     </div>
 @endsection

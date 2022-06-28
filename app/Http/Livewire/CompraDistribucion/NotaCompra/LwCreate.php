@@ -25,6 +25,7 @@ class LwCreate extends Component
     {
         $this->nota = [];
     }
+    
     public function render()
     {
         $proveedores = Proveedor::all();

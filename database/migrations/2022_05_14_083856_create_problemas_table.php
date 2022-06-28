@@ -15,11 +15,11 @@ class CreateProblemasTable extends Migration
     {
         Schema::create('problemas', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('estado_id')->nullable();
+            $table->unsignedBigInteger('manufactura_id')->nullable();
             $table->string('tipo_problema');
             $table->text('descripcion');
             $table->dateTime('fecha');
-            $table->foreign('estado_id')->references('id')->on('estados')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('manufactura_id')->references('id')->on('manufacturas')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

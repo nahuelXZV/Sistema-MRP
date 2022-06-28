@@ -123,7 +123,7 @@
                             <x-signo-table :type='$type' :direction='$direction' etiqueta='nombre'> </x-signo-table>
                         </th>
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
-                            descripcion
+                            Descripcion
                             <x-signo-table :type='$type' :direction='$direction' etiqueta='estado'> </x-signo-table>
                         </th>
 

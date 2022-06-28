@@ -16,8 +16,7 @@ class CreateProcesoProductosTable extends Migration
         Schema::create('proceso_productos', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('producto_id')->nullable(); 
-            $table->unsignedBigInteger('proceso_id')->nullable(); 
-            $table->text('descripcion')->nullable();            
+            $table->unsignedBigInteger('proceso_id')->nullable();          
             $table->foreign('producto_id')->references('id')->on('productos')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('proceso_id')->references('id')->on('procesos')->onDelete('cascade')->onUpdate('cascade');            
             $table->timestamps();
