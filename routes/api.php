@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\CompraDistribucion\ProveedorController;
 use App\Http\Controllers\Api\Inventario\MateriaPrimaController;
 use App\Http\Controllers\Api\Inventario\MateriaPrimaApiController;
 use App\Http\Controllers\Api\Inventario\ProductoApiController;
+use App\Http\Controllers\Api\Pedido\PedidoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -42,7 +43,7 @@ Route::post('/sanctum/token', function (Request $request) {
         'email' => 'required|email',
         'password' => 'required',
         'device_name' => 'required',
-    ]); 
+    ]);
 
     $user = User::where('email', $request->email)->first();
 
@@ -82,6 +83,11 @@ Route::get('proveedor-api', [ProveedorController::class, 'index'])->name('provee
 Route::post('proveedor-api/delete/{proveedor}', [ProveedorController::class, 'delete'])->name('proveedor-api.delete');
 Route::post('create/proveedor-api', [ProveedorController::class, 'create'])->name('proveedor-api.create');
 Route::post('update/proveedor-api/{proveedor}', [ProveedorController::class, 'update'])->name('proveedor-api.update');
+
+//------------------------------------------------------ PEDIDO API----------------------------------------------------------------------------------//
+Route::get('pedido-api', [PedidoController::class, 'index'])->name('pedido-api');
+Route::post('show/pedido-api/{pedido}', [PedidoController::class, 'show'])->name('pedido-api.show');
+Route::post('pedido-api/delete/{pedido}', [PedidoController::class, 'delete'])->name('pedido-api.delete');
 
 
 Route::apiResource('productos', ProductoApiController::class)->names('api.productos');

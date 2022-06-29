@@ -1,9 +1,9 @@
 <div>
     @if ($botton != 'Ocultar')
         <x-header-multi>
-            <h6 class="font-medium leading-tight text-base"></h6>
+            <h6 class="text-base font-medium leading-tight"></h6>
             <div
-                class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-start border-t border-gray-200 rounded-b-md">
+                class="flex flex-wrap items-center justify-start flex-shrink-0 border-t border-gray-200 modal-footer rounded-b-md">
                 @if ($botton != 'OcultarV')
                     <button type="button" wire:click="continuar" wire:loading.attr="disabled"
                         class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ml-1">
@@ -15,38 +15,38 @@
             </div>
         </x-header-multi>
     @endif
-    <div class="modal-body relative p-4 ">
-        <h6 class="leading-tight uppercase text-base font-bold text-black mb-4 mt-4">Detalles del pedido</h6>
+    <div class="relative p-4 modal-body ">
+        <h6 class="mt-4 mb-4 text-base font-bold leading-tight text-black uppercase">Detalles del pedido</h6>
         <div class="grid grid-cols-2 gap-4">
-            <div class="form-group mb-6">
-                <label for="exampleInputEmail2" class="form-label inline-block mb-2 text-gray-700">Cliente</label>
+            <div class="mb-6 form-group">
+                <label for="exampleInputEmail2" class="inline-block mb-2 text-gray-700 form-label">Cliente</label>
                 <input type="text" wire:model="datos.cliente" readonly
                     class="form-control block  w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300  rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">
             </div>
 
-            <div class="form-group mb-6">
-                <label for="exampleInputEmail2" class="form-label inline-block mb-2 text-gray-700">Estado</label>
+            <div class="mb-6 form-group">
+                <label for="exampleInputEmail2" class="inline-block mb-2 text-gray-700 form-label">Estado</label>
                 <input type="text" wire:model="datos.estado" readonly
                     class="form-control block  w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300  rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">
             </div>
         </div>
 
         <div class="grid grid-cols-2 gap-4">
-            <div class="form-group mb-6">
-                <label for="exampleInputEmail2" class="form-label inline-block mb-2 text-gray-700">Fecha</label>
+            <div class="mb-6 form-group">
+                <label for="exampleInputEmail2" class="inline-block mb-2 text-gray-700 form-label">Fecha</label>
                 <input type="date" wire:model="datos.fecha" name='fecha' readonly
                     class="form-control block  w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300  rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">
             </div>
-            <div class="form-group mb-6">
-                <div class="form-group mb-6">
-                    <label for="exampleInputEmail2" class="form-label inline-block mb-2 text-gray-700">Hora</label>
+            <div class="mb-6 form-group">
+                <div class="mb-6 form-group">
+                    <label for="exampleInputEmail2" class="inline-block mb-2 text-gray-700 form-label">Hora</label>
                     <input type="text" wire:model="datos.hora" name='fecha' readonly
                         class="form-control block  w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300  rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">
                 </div>
             </div>
         </div>
-        <div class="form-group mb-6">
-            <label for="exampleInputEmail2" class="form-label inline-block mb-2 text-gray-700">Descripcion</label>
+        <div class="mb-6 form-group">
+            <label for="exampleInputEmail2" class="inline-block mb-2 text-gray-700 form-label">Descripcion</label>
             <textarea name="datos.descripcion" id="" cols="30" rows="5" wire:model.defer="datos.descripcion"
                 placeholder="Descripción"
                 class="form-control block  w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300  rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"></textarea>
@@ -54,43 +54,43 @@
 
 
         <!--    -->
-        <h6 class="leading-tight uppercase text-base font-bold text-black mb-4">Detalles de envio</h6>
+        <h6 class="mb-4 text-base font-bold leading-tight text-black uppercase">Detalles de envio</h6>
         <div class="grid grid-cols-2 gap-4">
-            <div class="form-group mb-6">
-                <label for="exampleInputEmail2" class="form-label inline-block mb-2 text-gray-700">Distribudiora</label>
+            <div class="mb-6 form-group">
+                <label for="exampleInputEmail2" class="inline-block mb-2 text-gray-700 form-label">Distribudiora</label>
                 <input type="text" wire:model="datos.distribuidor" readonly
                     class="form-control block  w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300  rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">
             </div>
-            <div class="form-group mb-6">
-                <label for="exampleInputEmail2" class="form-label inline-block mb-2 text-gray-700">Dirección</label>
+            <div class="mb-6 form-group">
+                <label for="exampleInputEmail2" class="inline-block mb-2 text-gray-700 form-label">Dirección</label>
                 <input type="text" wire:model="datos.direccion" readonly
                     class="form-control block  w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300  rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">
             </div>
         </div>
 
 
-        <h6 class="leading-tight uppercase text-base font-bold text-black mb-4">Lista de productos</h6>
+        <h6 class="mb-4 text-base font-bold leading-tight text-black uppercase">Lista de productos</h6>
         <x-table>
             <table class="min-w-full">
                 @if ($dpedidos->count())
-                    <thead class="border-b bg-gray-800 ">
+                    <thead class="bg-gray-800 border-b ">
                         <tr class="">
-                            <th scope="col" class="text-sm font-bold text-white px-6 py-4">
+                            <th scope="col" class="px-6 py-4 text-sm font-bold text-white">
                                 Nombre
                             </th>
-                            <th scope="col" class="text-sm font-bold text-white px-6 py-4">
+                            <th scope="col" class="px-6 py-4 text-sm font-bold text-white">
                                 Color
                             </th>
-                            <th scope="col" class="text-sm font-bold text-white px-6 py-4">
+                            <th scope="col" class="px-6 py-4 text-sm font-bold text-white">
                                 Tamaño
                             </th>
-                            <th scope="col" class="text-sm font-bold text-white px-6 py-4">
+                            <th scope="col" class="px-6 py-4 text-sm font-bold text-white">
                                 Peso
                             </th>
-                            <th scope="col" class="text-sm font-bold text-white px-6 py-4">
+                            <th scope="col" class="px-6 py-4 text-sm font-bold text-white">
                                 Cantidad
                             </th>
-                            <th scope="col" class="text-sm font-bold text-white px-6 py-4">
+                            <th scope="col" class="px-6 py-4 text-sm font-bold text-white">
                                 Estado
                             </th>
                         </tr>
@@ -98,17 +98,17 @@
                     <tbody>
                         @foreach ($dpedidos as $dproducto)
                             <tr class="bg-white border-b">
-                                <td class="text-center text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                <td class="px-6 py-4 text-sm font-light text-center text-gray-900 whitespace-nowrap">
                                     {{ $dproducto->producto->nombre }}</td>
-                                <td class="text-center text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                <td class="px-6 py-4 text-sm font-light text-center text-gray-900 whitespace-nowrap">
                                     {{ $dproducto->producto->color }}</td>
-                                <td class="text-center text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                <td class="px-6 py-4 text-sm font-light text-center text-gray-900 whitespace-nowrap">
                                     {{ $dproducto->producto->tamaño }}</td>
-                                <td class="text-center text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                <td class="px-6 py-4 text-sm font-light text-center text-gray-900 whitespace-nowrap">
                                     {{ $dproducto->producto->peso }}</td>
-                                <td class="text-center text-sm text-black font-light px-6 py-4 whitespace-nowrap">
+                                <td class="px-6 py-4 text-sm font-light text-center text-black whitespace-nowrap">
                                     {{ $dproducto->cantidad }}</td>
-                                <td class="text-center text-sm text-black font-light px-6 py-4 whitespace-nowrap">
+                                <td class="px-6 py-4 text-sm font-light text-center text-black whitespace-nowrap">
                                     @if ($dproducto->estado)
                                         {{ $dproducto->estado }}
                                     @else
