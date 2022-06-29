@@ -50,6 +50,13 @@
             <x-jet-input-error for="materia.color" />
         </div>
         <div>
+            <label for="" class="text-sm font-bold">Cantidad</label>
+            <input type="number" placeholder="Cantidad" wire:model.defer='materia.cantidad'
+                class="form-control text-base ring-1 
+                ring-gray-100 w-full rounded-md outline-none focus:ring-2 focus:ring-blue-100 px-4 py-2">
+            <x-jet-input-error for="materia.cantidad" />
+        </div>
+        <div>
             <label for="" class="text-sm font-bold">Categoria</label>
             <select wire:model.defer='materia.idCategoriaMP' class="form-control text-base ring-1 
             ring-gray-100 w-full rounded-md outline-none focus:ring-2 focus:ring-blue-100 px-4 py-2">

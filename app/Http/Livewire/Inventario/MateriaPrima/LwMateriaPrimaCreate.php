@@ -26,6 +26,7 @@ class LwMateriaPrimaCreate extends Component
                         'materia.tamaño'=>'required',
                         'materia.peso'=>'required',
                         'materia.color'=>'required',
+                        'materia.cantidad'=>'required'
                     ]);
         $materia = MateriaPrima::create($this->materia);
         Bitacora::Bitacora('C', 'Materia Prima', $materia->id);
