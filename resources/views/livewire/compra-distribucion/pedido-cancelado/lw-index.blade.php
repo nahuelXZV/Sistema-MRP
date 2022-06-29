@@ -54,7 +54,7 @@
         </div>
         <div class="container-fluid flex">
             <div class="m-1 flex flex-row text-right">
-                <a type="button" href="{{ route('nota-compra.create') }}"
+                <a type="button" href="{{ route('pedido-cancelado.create') }}"
                     class="mr-2 inline-block px-6 py-2.5 bg-blue-600 text-white font-bold text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
                     Nuevo
                 </a>
@@ -90,12 +90,24 @@
 
     <x-table>
         <table class="min-w-full text-center">
-            @if ($notas->count())
+            @if ($pedidosc->count())
                 <thead class="border-b bg-gray-800 ">
                     <tr>
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
                             Codigo
                             <x-signo-table :type='$type' :direction='$direction' etiqueta='id'> </x-signo-table>
+                        </th>
+                        <th scope="col" class="text-sm font-bold text-white px-6 py-4">
+                            Id Pedido
+                            <x-signo-table :type='$type' :direction='$direction' etiqueta='pedido_id'> </x-signo-table>
+                        </th>
+                        <th scope="col" class="text-sm font-bold text-white px-6 py-4">
+                            Motivo
+                            <x-signo-table :type='$type' :direction='$direction' etiqueta='motivo'> </x-signo-table>
+                        </th>
+                        <th scope="col" class="text-sm font-bold text-white px-6 py-4">
+                            Descripcion
+                            <x-signo-table :type='$type' :direction='$direction' etiqueta='descripcion'> </x-signo-table>
                         </th>
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
                             Fecha
@@ -106,57 +118,33 @@
                             <x-signo-table :type='$type' :direction='$direction' etiqueta='hora'> </x-signo-table>
                         </th>
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
-                            Costo Total
-                            <x-signo-table :type='$type' :direction='$direction' etiqueta='costo_total'> </x-signo-table>
-                        </th>
-                        <th scope="col" class="text-sm font-bold text-white px-6 py-4">
-                            Proveedor
-                            <x-signo-table :type='$type' :direction='$direction' etiqueta='proveedor_id'>
-                            </x-signo-table>
-                        </th>
-                        <th scope="col" class="text-sm font-bold text-white px-6 py-4">
                             Acciones
                         </th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($notas as $nota)
+                    @foreach ($pedidosc as $pedidoc)
                         <tr class="bg-white border-b">
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                {{ $nota->id }}</td>
+                                {{ $pedidoc->id }}</td>
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                {{ $nota->fecha }}</td>
+                                {{ $pedidoc->pedido_id }}</td>
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                {{ $nota->hora }}</td>
+                                {{ $pedidoc->motivo }}</td>
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                {{ $nota->costo_total }}</td>
+                                {{ $pedidoc->descripcion }}</td>
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                @if ($nota->proveedor_id)
-                                    {{ $nota->proveedor_id->nombre }}
-                                @else
-                                    Sin nombre
-                                @endif
-                            </td>
+                                {{ $pedidoc->fecha }}</td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                {{ $pedidoc->hora }}</td>
                             <td class="px-6 py-4 text-sm font-light text-gray-900 whitespace-nowrap">
                                 <div class="flex items-center justify-center">
                                     <div class="inline-flex" role="group">
-                                        <a href="{{ route('nota-compra.edit', $nota->id) }}"
+                                        <a href="{{ route('pedido-cancelado.edit', $pedidoc->id) }}"
                                             class="m-1 inline-block px-4 py-1.5 bg-blue-600 text-white font-bold text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
                                             <x-edit> </x-edit>
                                         </a>
-
-                                        <a href="{{ route('nota-compra.show', $nota->id) }}"
-                                            class="m-1 inline-block px-4 py-1.5 bg-blue-600 text-white font-bold text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                            </svg>
-                                        </a>
-
-                                        <button type="button" wire:click='delete({{ $nota->id }})'
+                                        <button type="button" wire:click='delete({{ $pedidoc->id }})'
                                             class="m-1 inline-block px-4 py-1.5 bg-red-600 text-white font-bold text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out">
                                             <x-delete> </x-delete>
                                         </button>
@@ -170,6 +158,6 @@
                 <span>No hay resultados...</span>
             @endif
         </table>
-        <x-pagination :modelo='$notas'> </x-pagination>
+        <x-pagination :modelo='$pedidosc'> </x-pagination>
     </x-table>
 </div>

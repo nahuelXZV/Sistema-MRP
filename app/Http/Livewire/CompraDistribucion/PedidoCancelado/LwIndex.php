@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Livewire\CompraDistribucion\NotaCompra;
+namespace App\Http\Livewire\CompraDistribucion\PedidoCancelado;
 
-use App\Models\CompraDistribucion\NotaCompra;
-use App\Models\DetalleCompra;
+use App\Models\CompraDistribucion\Pedido;
+use App\Models\CompraDistribucion\PedidoCancelado;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -37,27 +37,27 @@ class LwIndex extends Component
         }
     }
 
+    public function delete($id)
+    {
+        $pedido = PedidoCancelado::find($id);
+        $pedido->delete();
+    }
 
     public function render()
     {
         switch ($this->type) {
             case 'fecha':
-                $notas = NotaCompra::where('fecha', 'like', '%' . $this->attribute . '%')
+                $pedidosc = PedidoCancelado::where('fecha', 'like', '%' . $this->attribute . '%')
                     ->orderBy($this->sort, $this->direction)
                     ->paginate($this->pagination);
                 break;
             default:
-                $notas = NotaCompra::where('fecha', 'like', '%' . $this->attribute . '%')
+                $pedidosc = PedidoCancelado::where('fecha', 'like', '%' . $this->attribute . '%')
                     ->orderBy($this->sort, $this->direction)
                     ->paginate($this->pagination);
                 break;
         }
-        return view('livewire.compra-distribucion.nota-compra.lw-index',compact('notas'));
-    }
-
-    public function delete($id)
-    {
-        $nombre = NotaCompra::find($id);
-        $nombre->delete();
+        $pedidos = Pedido::all();
+        return view('livewire.compra-distribucion.pedido-cancelado.lw-index',compact('pedidosc','pedidos'));
     }
 }

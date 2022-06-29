@@ -17,4 +17,12 @@ class NotaCompraController extends Controller
     public function create(){
         return view('compra-distribucion.notacompra.create');
     }
+    public function show($id)
+    {
+        return view('compra-distribucion.notacompra.show',compact('id'));
+    }
+    public function add($id)
+    {
+        return view('compra-distribucion.notacompra.add',compact('id'));
+    }
 }
