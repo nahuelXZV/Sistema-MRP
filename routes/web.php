@@ -13,6 +13,7 @@ use App\Http\Controllers\CompraDistribucion\NotaCompraController;
 use App\Http\Controllers\Configuracion\EmpresaController;
 use App\Http\Controllers\Configuracion\SistemaUnidadController;
 use App\Http\Controllers\Inventario\BOMController as InventarioBOMController;
+use App\Http\Controllers\Inventario\DadaBajaController;
 use App\Http\Controllers\PedidosCompras\PedidoController;
 use App\Http\Controllers\Produccion\MpsController;
 use App\Http\Controllers\Produccion\ProcesosController;
@@ -52,6 +53,9 @@ Route::middleware([
 
     // Route categoria productos
     Route::resource('categoria_productos', CategoriaProductoController::class);
+
+    // Route Dada de baja de productos 
+    Route::resource('/dada-baja', DadaBajaController::class);
 
     // Route Categoria de materia prima
     Route::get('/categoria-prima', [CategoriaPrimaController::class, 'index'])->name('categoria-prima.index');
