@@ -7,14 +7,9 @@
         <div class="grid grid-cols-2 gap-4">
             <div class="form-group mb-6">
                 <label for="exampleInputEmail2" class="form-label inline-block mb-2 text-gray-700">Pedido</label>
-                <select wire:model.defer='pedido.pedido_id' name='pedido.pedido_id'
-                    class="form-select appearance-none   h-9   block    w-full    px-2    py-1    text-sm    font-normal    text-gray-700    bg-white bg-clip-padding bg-no-repeat    border border-solid border-gray-300    rounded    transition    ease-in-out    m-0    focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                    aria-label=".form-select-sm example">
-                    <option selected>Selecciona un pedido</option>
-                    @foreach ($pedidos as $pedido)
-                        <option value="{{ $pedido->id }}">{{ $pedido->id }}</option>
-                    @endforeach
-                </select>
+                <input type="text" wire:model.defer="pedido.pedido_id" name='pedido.pedido_id' readonly
+                    class="form-control block  w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300  rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                    placeholder="Motivo">
                 <x-jet-input-error for="pedido.pedido_id" />
             </div>
             <div class="form-group mb-6">
