@@ -13,14 +13,7 @@ use App\Http\Controllers\Inventario\MaquinariaController;
 
 use App\Http\Controllers\CategoriaProductoController;
 use App\Http\Controllers\CompraDistribucion\NotaCompraController;
-<<<<<<< HEAD
-
-use App\Http\Controllers\CompraDistribucion\DistribuidorController;
-use App\Http\Controllers\CompraDistribucion\ProveedorController;
-
-=======
 use App\Http\Controllers\CompraDistribucion\PedidoCanceladoController;
->>>>>>> 3e82c86801f8b23c723a686921486e28c0cb5270
 use App\Http\Controllers\Configuracion\EmpresaController;
 use App\Http\Controllers\Configuracion\SistemaUnidadController;
 use App\Http\Controllers\Inventario\BOMController as InventarioBOMController;
@@ -108,14 +101,6 @@ Route::middleware([
     //Route nota compra
     Route::get('/nota-compra', [NotaCompraController::class, 'index'])->name('nota-compra.index');
     Route::get('/nota-compra/create', [NotaCompraController::class, 'create'])->name('nota-compra.create');
-<<<<<<< HEAD
-    Route::get('/nota-compra/{id}', [NotaCompraController::class, 'edit'])->name('nota-compra.edit');
-
-    Route::resource('proveedor', ProveedorController::class);
-    Route::resource('distribuidores', DistribuidorController::class);
-
-    Route::resource('maquinarias', MaquinariaController::class);
-=======
     Route::get('/nota-compra/edit/{id}', [NotaCompraController::class, 'edit'])->name('nota-compra.edit');
     Route::get('/nota-compra/show/{id}', [NotaCompraController::class, 'show'])->name('nota-compra.show');
     Route::get('/nota-compra/show/{id}/detalle', [NotaCompraController::class, 'add'])->name('nota-compra.add');
@@ -149,5 +134,4 @@ Route::middleware([
     Route::get('/pedidos-cancelados', [PedidoCanceladoController::class, 'index'])->name('pedido-cancelado.index');
     Route::get('/pedidos-cancelados/create', [PedidoCanceladoController::class, 'create'])->name('pedido-cancelado.create');
     Route::get('/pedidos-cancelados/edit/{id}', [PedidoCanceladoController::class, 'edit'])->name('pedido-cancelado.edit');
->>>>>>> 3e82c86801f8b23c723a686921486e28c0cb5270
 });
