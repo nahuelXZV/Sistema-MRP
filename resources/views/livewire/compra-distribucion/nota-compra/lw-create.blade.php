@@ -19,13 +19,7 @@
                     placeholder="Fecha">
                 <x-jet-input-error for="nota.hora" />
             </div>
-            <div class="form-group mb-6">
-                <label for="exampleInputEmail2" class="form-label inline-block mb-2 text-gray-700">Costo total</label>
-                <input type="number" wire:model.defer="nota.costo_total" name='costo_total'
-                    class="form-control block  w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300  rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                    placeholder="Costo total">
-                <x-jet-input-error for="nota.costo_total" />
-            </div>
+
             <div class="form-group mb-6">
                 <label for="exampleInputEmail2" class="form-label inline-block mb-2 text-gray-700">Proveedor</label>
                 <select wire:model.defer='nota.proveedor_id' name='proveedor_id'

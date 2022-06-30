@@ -21,7 +21,8 @@ class MateriaPrima extends Model implements Auditable
         'tipo' => 'required',
         'peso' => 'required',
         'tamaño' => 'required',
-        'descripcion' => 'required'
+        'descripcion' => 'required',
+        'cantidad' => 'required',
     ];
 
 
@@ -33,21 +34,22 @@ class MateriaPrima extends Model implements Auditable
         'tamaño',
         'peso',
         'color',
-        'idCategoriaMP'
+        'idCategoriaMP',
+        'cantidad',
     ];
 
     //para la api, por el cual se va poder filtrar
     //NOMBRES DE LAS RELACIONES
     protected $allowIncluded = ['idCategoriaMP'];
     //ATRIBUTO POR EL CUAL SE VA A BUSCAR
-    protected $allowFilter = ['nombre', 'descripcion', 'color', 'tamaño', 'estado', 'peso', 'descripcion', 'idCategoriaMP'];
+    protected $allowFilter = ['nombre', 'descripcion', 'color', 'tamaño', 'estado', 'peso', 'descripcion', 'idCategoriaMP', 'cantidad'];
     //ATRIBUTO POR LOS CUALES SE PUEDEN ORDENAR
-    protected $allowSort = ['nombre', 'descripcion', 'color', 'tamaño', 'estado', 'peso', 'descripcion', 'idCategoriaMP'];
+    protected $allowSort = ['nombre', 'descripcion', 'color', 'tamaño', 'estado', 'peso', 'descripcion', 'idCategoriaMP', 'cantidad'];
 
     //reportes
-    static public $atributos = ['nombre', 'descripcion', 'tipo', 'tamaño', 'peso', 'color'];
-    static public $interface = ['Nombre', 'Descripción', 'Tipo', 'Tamaño', 'Peso', 'Color'];
-    static public $default = ['nombre', 'tipo', 'tamaño', 'peso', 'color'];
+    static public $atributos = ['nombre', 'descripcion', 'tipo', 'tamaño', 'peso', 'color', 'cantidad'];
+    static public $interface = ['Nombre', 'Descripción', 'Tipo', 'Tamaño', 'Peso', 'Color', 'Cantidad'];
+    static public $default = ['nombre', 'tipo', 'tamaño', 'peso', 'color', 'cantidad'];
     static public $tabla = 'materia_primas';
 
     public function idcategoriaMP()

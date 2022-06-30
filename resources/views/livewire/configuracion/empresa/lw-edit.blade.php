@@ -20,7 +20,7 @@
                 <x-jet-input-error for="empresa.licencia" />
             </div>
         </div>
-        <div class="grid grid-cols-3 gap-4">
+        <div class="grid grid-cols-2 gap-4">
 
             <div class="form-group mb-6">
                 <label for="exampleInputEmail2" class="form-label inline-block mb-2 text-gray-700">Direccion</label>
@@ -36,13 +36,6 @@
                     placeholder="telefono">
                 <x-jet-input-error for="empresa.telefono" />
             </div>
-            <div class="form-group mb-6">
-                <label for="exampleInputEmail2" class="form-label inline-block mb-2 text-gray-700">Email</label>
-                <input type="text" wire:model.defer="empresa.email" name='email'
-                    class="form-control block  w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300  rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                    placeholder="email">
-                <x-jet-input-error for="empresa.email" />
-            </div>
         </div>
         <div class="grid grid-cols-2 gap-4">
             <div class="form-group mb-6">
@@ -53,16 +46,19 @@
                 <x-jet-input-error for="empresa.ciudad" />
             </div>
             <div class="form-group mb-6">
-                <label for="exampleInputEmail2" class="form-label inline-block mb-2 text-gray-700">Descripcion
-                </label>
-                <input type="text" wire:model.defer="empresa.descripcion" name='descripcion'
+                <label for="exampleInputEmail2" class="form-label inline-block mb-2 text-gray-700">Email</label>
+                <input type="text" wire:model.defer="empresa.email" name='email'
                     class="form-control block  w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300  rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                    placeholder="descripcion">
-                <x-jet-input-error for="empresa.descripcion" />
+                    placeholder="email">
+                <x-jet-input-error for="empresa.email" />
             </div>
-
         </div>
-
+        <div class="form-group mb-6">
+            <label for="exampleInputEmail2" class="form-label inline-block mb-2 text-gray-700">Descripción</label>
+            <textarea name="descripcion" id="" cols="30" rows="5" wire:model.defer="empresa.descripcion"
+                class="form-control block  w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300  rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"></textarea>
+            <x-jet-input-error for="empresa.descripcion" />
+        </div>
 
         {{-- <div class="grid grid-cols-1 gap-4">
             <div class="form-group mb-6">

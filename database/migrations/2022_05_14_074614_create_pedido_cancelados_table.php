@@ -15,10 +15,12 @@ class CreatePedidoCanceladosTable extends Migration
     {
         Schema::create('pedido_cancelados', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('pedido_id');
             $table->text('motivo');     
             $table->text('descripcion');
             $table->date('fecha')->nullable();
             $table->time('hora')->nullable();
+            $table->foreign('pedido_id')->references('id')->on('pedidos')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

@@ -23,6 +23,7 @@ class LwMateriaPrimaEdit extends Component
         'materia.tamaño'=>'required',
         'materia.peso'=>'required',
         'materia.color'=>'required',
+        'materia.cantidad'=>'required',
     ]);
     $materia = MateriaPrima::find($this->materia['id']);
     $materia->nombre = $this->materia['nombre'];
@@ -30,6 +31,7 @@ class LwMateriaPrimaEdit extends Component
     $materia->tamaño = $this->materia['tamaño'];
     $materia->peso = $this->materia['peso'];
     $materia->color = $this->materia['color'];
+    $materia->cantidad = $this->materia['cantidad'];
     if ($this->materia['descripcion']) {
         $materia->descripcion = $this->materia['descripcion'];
     }

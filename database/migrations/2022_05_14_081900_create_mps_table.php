@@ -15,8 +15,11 @@ class CreateMpsTable extends Migration
     {
         Schema::create('mps', function (Blueprint $table) {
             $table->id();
-            $table->dateTime('fecha_limite')->nullable();
+            $table->unsignedBigInteger('pedido_id');
             $table->dateTime('fecha_solicitud')->nullable();
+            $table->string('tipo')->nullable();
+
+            $table->foreign('pedido_id')->references('id')->on('pedidos')->onDelete('cascade');
             $table->timestamps();
         });
     }
