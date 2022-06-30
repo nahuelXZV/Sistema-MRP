@@ -125,6 +125,9 @@
                 <thead class="border-b bg-gray-800 ">
                     <tr>
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
+                            Codigo
+                        </th>
+                        <th scope="col" class="text-sm font-bold text-white px-6 py-4">
                             Cliente
                         </th>
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
@@ -148,6 +151,8 @@
                     @foreach ($pedidos as $pedido)
                         <tr class="bg-white border-b">
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                {{ $pedido->id }}</td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                 {{ $pedido->cliente->nombre }}</td>
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                 @if ($pedido->distribuidor)
@@ -157,7 +162,7 @@
                                 @endif
                             </td>
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                {{ substr($pedido->descripcion, 0, 50) }}
+                                {{ substr($pedido->descripcion, 0, 30) }}
                             </td>
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                 {{ $pedido->estado }}</td>
@@ -178,7 +183,7 @@
                                                     d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                                             </svg>
                                         </a>
-                                        @if ($pedido->estado != 'Finalizado')
+                                        @if ($pedido->estado == 'Pendiente')
                                             <button type="button" wire:click='delete({{ $pedido->id }} )'
                                                 class="m-1 inline-block px-4 py-1.5 bg-red-600 text-white font-bold text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out">
                                                 <x-delete> </x-delete>

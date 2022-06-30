@@ -59,27 +59,6 @@
                 class="form-control block  w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300  rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"></textarea>
             <x-jet-input-error for="empresa.descripcion" />
         </div>
-
-        {{-- <div class="grid grid-cols-1 gap-4">
-            <div class="form-group mb-6">
-                <label for="exampleInputEmail2" class="form-label inline-block mb-2 text-gray-700">Descripción</label>
-                <textarea name="descripcion" id="" cols="30" rows="5" wire:model.defer="empresa.descripcion"
-                    class="form-control block  w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300  rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"></textarea>
-                <x-jet-input-error for="empresa.descripcion" />
-            </div>
-
-            <div class="form-group mb-6">
-                <label for="exampleInputEmail2"
-                    class="form-label inline-block mb-2 text-gray-700">Especificaciones</label>
-                <textarea name="especificacion" id="" cols="30" rows="5" wire:model.defer="empresa.especificacion"
-                    class="form-control block  w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300  rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"></textarea>
-                <x-jet-input-error for="empresa.especificacion" />
-            </div>
-        </div> --}}
-
-
-
-
         <div
             class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-start p-4 border-t border-gray-200 rounded-b-md">
             <button type="button" wire:click="edit()" wire:loading.attr="disabled"
