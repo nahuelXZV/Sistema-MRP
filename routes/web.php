@@ -12,6 +12,7 @@ use App\Http\Controllers\Inventario\ProductoController;
 use App\Http\Controllers\Inventario\MaquinariaController;
 
 use App\Http\Controllers\CategoriaProductoController;
+
 use App\Http\Controllers\CompraDistribucion\NotaCompraController;
 use App\Http\Controllers\CompraDistribucion\PedidoCanceladoController;
 use App\Http\Controllers\Configuracion\EmpresaController;
@@ -97,6 +98,7 @@ Route::middleware([
 
     // Route categoria productos
     Route::resource('empresas', EmpresaController::class);
+ 
 
     //Route nota compra
     Route::get('/nota-compra', [NotaCompraController::class, 'index'])->name('nota-compra.index');
