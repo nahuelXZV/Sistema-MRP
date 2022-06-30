@@ -1,16 +1,17 @@
 <div>
     @if ($bandera)
-        <x-header-multi>
-            <h6 class="font-medium leading-tight text-base"></h6>
-            <div
-                class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-start border-t border-gray-200 rounded-b-md">
-                <button type="button" wire:click="verificar" wire:loading.attr="disabled"
-                    class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ml-1">
-                    Verificar</button>
+        @if ($botton == 'Verificar')
+            <x-header-multi>
+                <h6 class="font-medium leading-tight text-base"></h6>
+                <div
+                    class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-start border-t border-gray-200 rounded-b-md">
+                    <button type="button" wire:click="verificar" wire:loading.attr="disabled"
+                        class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ml-1">
+                        Verificar</button>
 
-            </div>
-        </x-header-multi>
-
+                </div>
+            </x-header-multi>
+        @endif
         @if ($error)
             <div class="bg-red-100 border border-red-400 text-red-800 px-4 py-3 rounded relative mt-4" role="alert">
                 <strong class="font-bold">Error!</strong>

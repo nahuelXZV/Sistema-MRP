@@ -57,7 +57,7 @@
         <h6 class="mb-4 text-base font-bold leading-tight text-black uppercase">Detalles de envio</h6>
         <div class="grid grid-cols-2 gap-4">
             <div class="mb-6 form-group">
-                <label for="exampleInputEmail2" class="inline-block mb-2 text-gray-700 form-label">Distribudiora</label>
+                <label for="exampleInputEmail2" class="inline-block mb-2 text-gray-700 form-label">Distribuidora</label>
                 <input type="text" wire:model="datos.distribuidor" readonly
                     class="form-control block  w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300  rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">
             </div>

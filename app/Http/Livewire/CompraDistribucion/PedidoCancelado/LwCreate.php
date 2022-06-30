@@ -6,6 +6,7 @@ use App\Models\CompraDistribucion\Pedido;
 use App\Models\CompraDistribucion\PedidoCancelado;
 use App\Models\DetallePedido;
 use App\Models\Inventario\Producto;
+use App\Models\Produccion\EstadoPedido;
 use Livewire\Component;
 
 class LwCreate extends Component
@@ -31,7 +32,11 @@ class LwCreate extends Component
             foreach ($dpedidos as $pedido) {
                 $cantidadP = $pedido->cantidad;
                 $producto = Producto::find($pedido->producto_id);
-                $producto->cantidad += $cantidadP;      //Aumentamos el stock del producto
+                if ($mpse = EstadoPedido::where('detallePedido_id', $pedido->id)->first()) {
+                    $producto->cantidad += $mpse->cantidad_stock;      //Aumentamos el stock del mps 
+                } else {
+                    $producto->cantidad += $cantidadP;      //Aumentamos el stock del producto
+                }
                 $producto->update();
                 $pedido->update();
             }
@@ -47,7 +52,7 @@ class LwCreate extends Component
 
     public function render()
     {
-        $pedidos = Pedido::all();
-        return view('livewire.compra-distribucion.pedido-cancelado.lw-create',compact('pedidos'));
+        $pedidos = Pedido::where('estado', '!=', 'Cancelado')->get();
+        return view('livewire.compra-distribucion.pedido-cancelado.lw-create', compact('pedidos'));
     }
 }
