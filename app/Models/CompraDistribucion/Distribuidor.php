@@ -5,6 +5,9 @@ namespace App\Models\CompraDistribucion;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+
+
+
 class Distribuidor extends Model
 {
     use HasFactory;
@@ -29,9 +32,9 @@ class Distribuidor extends Model
         'Nombre',
         'Dirección',
         'Teléfono',
-        'Correo',
+        'Email',
         'Tipo',
-        'Medio de transporte', 'Creado'
+        'medio_transporte', 'Creado'
     ];
     static public $default = ['nombre', 'direccion', 'telefono', 'email', 'medio_transporte'];
     static public $tabla = 'distribuidors';
