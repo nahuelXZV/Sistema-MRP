@@ -5,7 +5,7 @@
 @endsection
 
 @section('action')
-    <a href="{{route('distribuidores.index')}}" class="hover:underline ">Distribuidors</a>
+    <a href="{{route('distribuidores.index')}}" class="hover:underline ">Distribuidores</a>
 @endsection
 
 @section('content')
