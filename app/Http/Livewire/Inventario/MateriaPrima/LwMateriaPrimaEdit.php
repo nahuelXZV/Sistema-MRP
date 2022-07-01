@@ -17,6 +17,11 @@ class LwMateriaPrimaEdit extends Component
         $this->materia = MateriaPrima::find($id)->toArray();
     }
 
+    public function limpiar()
+    {
+        $this->materia = [];
+    }
+
     public function guardar(){
         $this->validate(['materia.nombre' => 'required', 
         'materia.tipo' => 'required',
