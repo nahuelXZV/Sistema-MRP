@@ -55,7 +55,10 @@ Route::middleware([
     // Route clientes
     Route::resource('clientes', ClienteController::class);
 
+    // Route Proveedores
     Route::resource('proveedor', ProveedorController::class);
+    
+    // Route Distribuidores
     Route::resource('distribuidores', DistribuidorController::class);
 
     // Route categoria productos
@@ -125,7 +128,7 @@ Route::middleware([
     Route::get('/mps', [MpsController::class, 'index'])->name('mps.index');
     Route::get('/detalles-mps/{id}', [MpsController::class, 'details'])->name('mps.details');
 
-
+    
     Route::get('stock', function () {
         return MateriaPrima::all();
     });
@@ -137,4 +140,8 @@ Route::middleware([
     Route::get('/pedidos-cancelados', [PedidoCanceladoController::class, 'index'])->name('pedido-cancelado.index');
     Route::get('/pedidos-cancelados/create', [PedidoCanceladoController::class, 'create'])->name('pedido-cancelado.create');
     Route::get('/pedidos-cancelados/edit/{id}', [PedidoCanceladoController::class, 'edit'])->name('pedido-cancelado.edit');
+
+
+
+
 });
