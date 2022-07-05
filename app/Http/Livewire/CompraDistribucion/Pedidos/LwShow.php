@@ -131,6 +131,9 @@ class LwShow extends Component
             case 'Finalizado':
                 $this->botton = "Ocultar";
                 break;
+            case 'Cancelado':
+                $this->botton = "OcultarV";
+                break;
             case 'En Manufactura':
                 $this->botton = "OcultarV";
                 break;

@@ -11,8 +11,7 @@ class Proveedor extends Model
 
 
     //reportes
-    static public $atributos = ['nombre_empresa', 'telefono', 'direccion', 'email', 'encargado'];
-    static public $interface = ['Nombre', 'Teléfono', 'Dirección', 'Correo', 'Encargado'];
-    static public $default = ['nombre_empresa', 'telefono', 'direccion', 'email', 'encargado'];
     static public $tabla = 'proveedors';
+    public $fillable = ['nombre_empresa', 'telefono', 'direccion', 'email', 'encargado'];
+
 }

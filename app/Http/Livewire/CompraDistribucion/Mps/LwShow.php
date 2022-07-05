@@ -17,6 +17,7 @@ class LwShow extends Component
     public $datos = [];
     public $mensaje = 'No se puede verificar la MPS, hay productos sin finalizar';
     public $error = false;
+    public $botton = 'Verificar';
 
     public function mount($id)
     {
@@ -57,6 +58,14 @@ class LwShow extends Component
             $estados = EstadoPedido::where('mps_id', $this->mps->id)->get();
         } else {
             $estados = [];
+        }
+        switch ($this->pedido->estado) {
+            case 'En Manufactura':
+                $this->botton = "Verificar";
+                break;
+            default:
+                $this->botton = 'Ocultar';
+                break;
         }
         return view('livewire.compra-distribucion.mps.lw-show', compact('estados'));
     }

@@ -1,4 +1,4 @@
-<div class="m-1">
+  <div class="m-1">
     <x-header-table>
         <div class="container-fluid flex flex-wrap">
             <div class="m-1">
@@ -42,31 +42,31 @@
                     aria-labelledby="dropdownMenuButton1">
                     <li>
                         <div class="form-check ml-2 mr-6">
-                            <input wire:model.defer='type' value='cliente'
+                            <input wire:model.defer='type' value='nombre'
                                 class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600  mt-1 align-top  mr-2"
                                 type="radio" name="flexRadioDefault" id="flexRadioDefault1">
                             <label class="form-check-label inline-block text-gray-800" for="flexRadioDefault1">
-                                Cliente
+                                Nombre
                             </label>
                         </div>
                     </li>
                     <li>
                         <div class="form-check ml-2">
-                            <input wire:model.defer='type' value='distribuidor'
+                            <input wire:model.defer='type' value='estado'
                                 class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600  mt-1 align-top  mr-2"
                                 type="radio" name="flexRadioDefault" id="flexRadioDefault1">
                             <label class="form-check-label inline-block text-gray-800" for="flexRadioDefault1">
-                                Distribuidor
+                                Estado
                             </label>
                         </div>
                     </li>
                     <li>
                         <div class="form-check ml-2">
-                            <input wire:model.defer='type' value='fecha'
+                            <input wire:model.defer='type' value='categoria'
                                 class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600  mt-1 align-top  mr-2"
                                 type="radio" name="flexRadioDefault" id="flexRadioDefault1">
                             <label class="form-check-label inline-block text-gray-800" for="flexRadioDefault1">
-                                Fecha
+                                Categoria
                             </label>
                         </div>
                     </li>
@@ -74,7 +74,7 @@
         </div>
         <div class="container-fluid flex">
             <div class="m-1 flex flex-row text-right">
-                <a type="button" href="{{ route('pedidos.create') }}"
+                <a type="button" href="{{ route('proveedor.create') }}"
                     class="mr-2 inline-block px-6 py-2.5 bg-blue-600 text-white font-bold text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
                     Nuevo
                 </a>
@@ -99,21 +99,11 @@
                     <li>
                         <p class="dropdown-item flex text-sm py-2 px-4 font-normal w-full
                             whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100 "
-                            wire:click='order("cliente")'>Cliente
+                            wire:click='order("nombre")'>Nombre
+                            <x-signo-table :type='$type' :direction='$direction' etiqueta='nombre'> </x-signo-table>
                         </p>
                     </li>
-                    <li>
-                        <p class="dropdown-item flex text-sm py-2 px-4 font-normal w-full
-                        whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100 "
-                            wire:click='order("distribuidor")'>Distribuidor
-                        </p>
-                    </li>
-                    <li>
-                        <p class="dropdown-item flex text-sm py-2 px-4 font-normal w-full
-                        whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100 "
-                            wire:click='order("fecha")'>Fecha
-                        </p>
-                    </li>
+
                 </ul>
             </div>
         </div>
@@ -121,26 +111,32 @@
 
     <x-table>
         <table class="min-w-full">
-            @if ($pedidos->count())
+            @if ($proveedores->count())
                 <thead class="border-b bg-gray-800 ">
                     <tr>
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
                             Codigo
+                            <x-signo-table :type='$type' :direction='$direction' etiqueta='id'> </x-signo-table>
                         </th>
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
-                            Cliente
+                            Nombre
+                            <x-signo-table :type='$type' :direction='$direction' etiqueta='nombre'> </x-signo-table>
                         </th>
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
-                            Distribuidora
+                            Telefono
+                            <x-signo-table :type='$type' :direction='$direction' etiqueta='estado'> </x-signo-table>
                         </th>
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
-                            Descripción
+                            Direccion
+                            <x-signo-table :type='$type' :direction='$direction' etiqueta='categoria'> </x-signo-table>
                         </th>
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
-                            Estado
+                            email
+                            <x-signo-table :type='$type' :direction='$direction' etiqueta='categoria'> </x-signo-table>
                         </th>
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
-                            Fecha y hora
+                            encargado
+                            <x-signo-table :type='$type' :direction='$direction' etiqueta='categoria'> </x-signo-table>
                         </th>
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
                             Acciones
@@ -148,32 +144,27 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($pedidos as $pedido)
+                    @foreach ($proveedores as $proveedor)
                         <tr class="bg-white border-b">
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                {{ $pedido->id }}</td>
+                                {{ $proveedor->id }}</td>
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                {{ $pedido->cliente->nombre }}</td>
+                                {{ $proveedor->nombre }}</td>
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                @if ($pedido->distribuidor)
-                                    {{ $pedido->distribuidor->nombre }}
-                                @else
-                                    No asignado
-                                @endif
+                                {{ $proveedor->telefono }}</td>
+                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                {{ $proveedor->direccion }}
                             </td>
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                {{ substr($pedido->descripcion, 0, 30) }}
+                                {{ $proveedor->email }}
                             </td>
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                {{ $pedido->estado }}</td>
-                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                {{ $pedido->fecha }} - {{ $pedido->hora }}
+                                {{ $proveedor->encargado }}
                             </td>
-
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                 <div class="flex items-center justify-center">
                                     <div class="inline-flex" role="group">
-                                        <a href="{{ route('pedidos.details', $pedido->id) }}"
+                                        <a href="{{ route('proveedor.edit', $proveedor->id) }}"
                                             class="m-1 inline-block px-4 py-1.5 bg-blue-600 text-white font-bold text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
                                                 viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -183,12 +174,10 @@
                                                     d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                                             </svg>
                                         </a>
-                                        @if ($pedido->estado == 'Pendiente')
-                                            <button type="button" wire:click='delete({{ $pedido->id }} )'
-                                                class="m-1 inline-block px-4 py-1.5 bg-red-600 text-white font-bold text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out">
-                                                <x-delete> </x-delete>
-                                            </button>
-                                        @endif
+                                        <button type="button" wire:click='delete({{ $proveedor->id }} )'
+                                            class="m-1 inline-block px-4 py-1.5 bg-red-600 text-white font-bold text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out">
+                                            <x-delete> </x-delete>
+                                        </button>
                                     </div>
                                 </div>
                             </td>
@@ -199,6 +188,8 @@
                 <span>No hay resultados...</span>
             @endif
         </table>
-        <x-pagination :modelo='$pedidos'> </x-pagination>
+        <x-pagination :modelo='$proveedores'> </x-pagination>
     </x-table>
-</div>
+</div>   
+
+

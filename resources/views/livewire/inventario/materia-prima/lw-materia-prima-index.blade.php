@@ -105,7 +105,7 @@
                             Peso
                         </th>
                         <th scope="col" class="px-6 py-4 text-sm font-bold text-white">
-                            Color
+                            Cantidad
                         </th>
                         </th>
                         <th scope="col" class="px-6 py-4 text-sm font-bold text-white">
@@ -129,7 +129,7 @@
                                 {{ $materia->peso }}
                             </td>
                             <td class="px-6 py-4 text-sm font-light text-gray-900 whitespace-nowrap">
-                                {{ $materia->color }}
+                                {{ $materia->cantidad }}
                             </td>
                             <td class="px-6 py-4 text-sm font-light text-gray-900 whitespace-nowrap">
                                 <div class="flex items-center justify-center">
