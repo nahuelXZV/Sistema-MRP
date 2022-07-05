@@ -254,7 +254,7 @@
                                             </svg>
                                             <a href="{{ route('dada-baja.index') }}"
                                                 class="w-full ml-2  text-sm font-semibold text-white ">
-                                                Dada de Baja</a>
+                                                Productos Dada de Baja</a>
                                         </div>
                                     </div>
                                 </li>
