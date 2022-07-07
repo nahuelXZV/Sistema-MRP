@@ -131,8 +131,8 @@
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                 {{ $nota->costo_total }}</td>
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                @if ($nota->proveedor_id)
-                                    {{ $nota->proveedor_id->nombre }}
+                                @if ($nota->proveedor)
+                                    {{ $nota->proveedor->nombre_empresa }}
                                 @else
                                     Sin nombre
                                 @endif

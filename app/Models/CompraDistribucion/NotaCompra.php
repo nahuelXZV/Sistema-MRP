@@ -11,7 +11,7 @@ use App\Traits\ApiTrait;
 class NotaCompra extends Model
 {
     use HasFactory, ApiTrait;
-    protected $fillable = ['id','fecha','hora','costo_total'];
+    protected $fillable = ['proveedor_id','costo_total','hora','fecha'];
 
     static $rules = [
         'nombre' => 'required',
@@ -32,7 +32,7 @@ class NotaCompra extends Model
     //ATRIBUTO POR LOS CUALES SE PUEDEN ORDENAR
     protected $allowSort = ['id', 'proveedor_id', 'costo_total', 'hora', 'fecha' ];
 
-    public function proveedor_id()
+    public function proveedor()
     {
         return $this->belongsTo(Proveedor::class);
     }
