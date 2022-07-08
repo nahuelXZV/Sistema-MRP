@@ -51,10 +51,7 @@
                 <thead class="border-b bg-gray-800 ">
                     <tr>
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
-                            Codigo
-                        </th>
-                        <th scope="col" class="text-sm font-bold text-white px-6 py-4">
-                            Id Materia
+                            Materia Prima
                         </th>
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
                             Cantidad
@@ -71,9 +68,7 @@
                     @foreach ($detalles as $detalle)
                         <tr class="bg-white border-b">
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                {{ $detalle->id }}</td>
-                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                {{ $detalle->materia_primas_id}}</td>
+                                {{ $detalle->materia->nombre}}</td>
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                 {{ $detalle->cantidad }}</td>
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">

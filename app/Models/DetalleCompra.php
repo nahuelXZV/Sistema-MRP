@@ -18,6 +18,6 @@ class DetalleCompra extends Model
     }
 
     public function materia(){
-        return $this->belongsTo(MateriaPrima::class);
+        return $this->belongsTo(MateriaPrima::class, 'materia_primas_id', 'id');
     }
 }

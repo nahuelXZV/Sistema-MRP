@@ -94,10 +94,6 @@
                 <thead class="border-b bg-gray-800 ">
                     <tr>
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
-                            Codigo
-                            <x-signo-table :type='$type' :direction='$direction' etiqueta='id'> </x-signo-table>
-                        </th>
-                        <th scope="col" class="text-sm font-bold text-white px-6 py-4">
                             Id Pedido
                             <x-signo-table :type='$type' :direction='$direction' etiqueta='pedido_id'> </x-signo-table>
                         </th>
@@ -125,8 +121,6 @@
                 <tbody>
                     @foreach ($pedidosc as $pedidoc)
                         <tr class="bg-white border-b">
-                            <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                {{ $pedidoc->id }}</td>
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                 {{ $pedidoc->pedido_id }}</td>
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
