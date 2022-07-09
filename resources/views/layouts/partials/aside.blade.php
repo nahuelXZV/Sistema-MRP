@@ -66,20 +66,21 @@
                                 x-transition:leave-end="opacity-0 max-h-0"
                                 class="p-2 space-y-2 overflow-hidden text-sm font-medium  rounded-md shadow-inner"
                                 aria-label="submenu">
-
-                                <li class="px-2 py-1 text-white transition-colors duration-150">
-                                    <div class="px-1 rounded-md">
-                                        <div class="flex items-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                    d="M10 21h7a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v11m0 5l4.879-4.879m0 0a3 3 0 104.243-4.242 3 3 0 00-4.243 4.242z" />
-                                            </svg>
-                                            <a href="{{ route('bitacora.index') }}"
-                                                class="w-full ml-2  text-sm font-semibold text-white">Bitacora</a>
+                                @can('bitacora.index')
+                                    <li class="px-2 py-1 text-white transition-colors duration-150">
+                                        <div class="px-1 rounded-md">
+                                            <div class="flex items-center">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M10 21h7a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v11m0 5l4.879-4.879m0 0a3 3 0 104.243-4.242 3 3 0 00-4.243 4.242z" />
+                                                </svg>
+                                                <a href="{{ route('bitacora.index') }}"
+                                                    class="w-full ml-2  text-sm font-semibold text-white">Bitacora</a>
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
+                                    </li>
+                                @endcan
                                 @can('usuarios.index')
                                     <li class="px-2 py-1 text-white transition-colors duration-150">
                                         <div class="px-1  rounded-md">
@@ -97,21 +98,23 @@
                                         </div>
                                     </li>
                                 @endcan
-                                <li class="px-2 py-1 text-white transition-colors duration-150">
-                                    <div class="px-1  rounded-md">
-                                        <div class="flex items-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                                            </svg>
+                                @can('roles.index')
+                                    <li class="px-2 py-1 text-white transition-colors duration-150">
+                                        <div class="px-1  rounded-md">
+                                            <div class="flex items-center">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                                                </svg>
 
-                                            <a href="{{ route('roles.index') }}"
-                                                class="w-full ml-2  text-sm font-semibold text-white ">Roles</a>
+                                                <a href="{{ route('roles.index') }}"
+                                                    class="w-full ml-2  text-sm font-semibold text-white ">Roles</a>
 
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
+                                    </li>
+                                @endcan
                             </ul>
                         </div>
                     </li>
@@ -149,35 +152,38 @@
                                 x-transition:leave-end="opacity-0 max-h-0"
                                 class="p-2 space-y-2 overflow-hidden text-sm font-medium  rounded-md shadow-inner"
                                 aria-label="submenu">
-
-                                <li class="px-2 py-1 text-white transition-colors duration-150">
-                                    <div class="px-1 rounded-md">
-                                        <div class="flex items-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                    d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                                            </svg>
-                                            <a href="{{ route('procesos.index') }}"
-                                                class="w-full ml-2  text-sm font-semibold text-white">
-                                                Procesos</a>
+                                @can('procesos.index')
+                                    <li class="px-2 py-1 text-white transition-colors duration-150">
+                                        <div class="px-1 rounded-md">
+                                            <div class="flex items-center">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                                                </svg>
+                                                <a href="{{ route('procesos.index') }}"
+                                                    class="w-full ml-2  text-sm font-semibold text-white">
+                                                    Procesos</a>
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
-                                <li class="px-2 py-1 text-white transition-colors duration-150">
-                                    <div class="px-1  rounded-md">
-                                        <div class="flex items-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                    d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-                                            </svg>
-                                            <a href="{{ route('mps.index') }}"
-                                                class="w-full ml-2  text-sm font-semibold text-white ">
-                                                MPS</a>
+                                    </li>
+                                @endcan
+                                @can('mps.index')
+                                    <li class="px-2 py-1 text-white transition-colors duration-150">
+                                        <div class="px-1  rounded-md">
+                                            <div class="flex items-center">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                                                </svg>
+                                                <a href="{{ route('mps.index') }}"
+                                                    class="w-full ml-2  text-sm font-semibold text-white ">
+                                                    MPS</a>
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
+                                    </li>
+                                @endcan
                             </ul>
                         </div>
                     </li>
@@ -215,46 +221,52 @@
                                 x-transition:leave-end="opacity-0 max-h-0"
                                 class="p-2 space-y-2 overflow-hidden text-sm font-medium  rounded-md shadow-inner"
                                 aria-label="submenu">
-
-                                <li class="px-2 py-1 text-white transition-colors duration-150">
-                                    <div class="px-1 rounded-md">
-                                        <div class="flex items-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                    d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-                                            </svg>
-                                            <a href="{{ route('productos.index') }}"
-                                                class="w-full ml-2  text-sm font-semibold text-white">
-                                                Productos</a>
+                                @can('productos.index')
+                                    <li class="px-2 py-1 text-white transition-colors duration-150">
+                                        <div class="px-1 rounded-md">
+                                            <div class="flex items-center">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                                                </svg>
+                                                <a href="{{ route('productos.index') }}"
+                                                    class="w-full ml-2  text-sm font-semibold text-white">
+                                                    Productos</a>
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
-                                <li class="px-2 py-1 text-white transition-colors duration-150">
-                                    <div class="px-1  rounded-md">
-                                        <div class="flex items-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                    d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
-                                            </svg>
-                                            <a href="" class="w-full ml-2  text-sm font-semibold text-white ">
-                                                Maquinarias</a>
+                                    </li>
+                                @endcan
+                                @can('maquinarias.index')
+                                    <li class="px-2 py-1 text-white transition-colors duration-150">
+                                        <div class="px-1  rounded-md">
+                                            <div class="flex items-center">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
+                                                </svg>
+                                                <a href="" class="w-full ml-2  text-sm font-semibold text-white ">
+                                                    Maquinarias</a>
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
-                                <li class="px-2 py-1 text-white transition-colors duration-150">
-                                    <div class="px-1  rounded-md">
-                                        <div class="flex items-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                    d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
-                                            </svg>
-                                            <a href="{{ route('materia-prima.index') }}"
-                                                class="w-full ml-2  text-sm font-semibold text-white ">
-                                                Materia Prima</a>
+                                    </li>
+                                @endcan
+                                @can('materia-prima.index')
+                                    <li class="px-2 py-1 text-white transition-colors duration-150">
+                                        <div class="px-1  rounded-md">
+                                            <div class="flex items-center">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                                                </svg>
+                                                <a href="{{ route('materia-prima.index') }}"
+                                                    class="w-full ml-2  text-sm font-semibold text-white ">
+                                                    Materia Prima</a>
+                                            </div>
                                         </div>
+<<<<<<< HEAD
                                     </div>
                                 </li>
                                 <li class="px-2 py-1 text-white transition-colors duration-150">
@@ -268,9 +280,26 @@
                                             <a href="{{ route('dada-baja.index') }}"
                                                 class="w-full ml-2  text-sm font-semibold text-white ">
                                                 Productos Dada de Baja</a>
+=======
+                                    </li>
+                                @endcan
+                                @can('dada-baja.index')
+                                    <li class="px-2 py-1 text-white transition-colors duration-150">
+                                        <div class="px-1  rounded-md">
+                                            <div class="flex items-center">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                                                </svg>
+                                                <a href="{{ route('dada-baja.index') }}"
+                                                    class="w-full ml-2  text-sm font-semibold text-white ">
+                                                    Productos Dada de Baja</a>
+                                            </div>
+>>>>>>> 875c8fbe16f769a03a5b9a3445f6fe289ffcee4c
                                         </div>
-                                    </div>
-                                </li>
+                                    </li>
+                                @endcan
                             </ul>
                         </div>
                     </li>
@@ -308,92 +337,102 @@
                                 x-transition:leave-end="opacity-0 max-h-0"
                                 class="p-2 space-y-2 overflow-hidden text-sm font-medium  rounded-md shadow-inner"
                                 aria-label="submenu">
-
-                                <li class="px-2 py-1 text-white transition-colors duration-150">
-                                    <div class="px-1 rounded-md">
-                                        <div class="flex items-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                    d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-                                            </svg>
-                                            <a href="{{ route('clientes.index') }}"
-                                                class="w-full ml-2  text-sm font-semibold text-white">
-                                                Clientes</a>
+                                @can('clientes.index')
+                                    <li class="px-2 py-1 text-white transition-colors duration-150">
+                                        <div class="px-1 rounded-md">
+                                            <div class="flex items-center">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                                                </svg>
+                                                <a href="{{ route('clientes.index') }}"
+                                                    class="w-full ml-2  text-sm font-semibold text-white">
+                                                    Clientes</a>
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
-                                <li class="px-2 py-1 text-white transition-colors duration-150">
-                                    <div class="px-1 rounded-md">
-                                        <div class="flex items-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                                            </svg>
-                                            <a href="{{ route('proveedor.index') }}"
-                                                class="w-full ml-2  text-sm font-semibold text-white">
-                                                Proveedores</a>
+                                    </li>
+                                @endcan
+                                @can('proveedor.index')
+                                    <li class="px-2 py-1 text-white transition-colors duration-150">
+                                        <div class="px-1 rounded-md">
+                                            <div class="flex items-center">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                                                </svg>
+                                                <a href="{{ route('proveedor.index') }}"
+                                                    class="w-full ml-2  text-sm font-semibold text-white">
+                                                    Proveedores</a>
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
-                                <li class="px-2 py-1 text-white transition-colors duration-150">
-                                    <div class="px-1 rounded-md">
-                                        <div class="flex items-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                <path
-                                                    d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z" />
-                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                    d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0" />
-                                            </svg>
-                                            <a href="{{ route('distribuidores.index') }}"
-                                                class="w-full ml-2  text-sm font-semibold text-white">
-                                                Distribuidores</a>
+                                    </li>
+                                @endcan
+                                @can('distribuidores.index')
+                                    <li class="px-2 py-1 text-white transition-colors duration-150">
+                                        <div class="px-1 rounded-md">
+                                            <div class="flex items-center">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                    <path
+                                                        d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z" />
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0" />
+                                                </svg>
+                                                <a href="{{ route('distribuidores.index') }}"
+                                                    class="w-full ml-2  text-sm font-semibold text-white">
+                                                    Distribuidores</a>
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
-
-                                <li class="px-2 py-1 text-white transition-colors duration-150">
-                                    <div class="px-1  rounded-md">
-                                        <div class="flex items-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                    d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-                                            </svg>
-                                            <a href="{{ route('nota-compra.index') }}"
-                                                class="w-full ml-2  text-sm font-semibold text-white ">Compras</a>
+                                    </li>
+                                @endcan
+                                @can('nota-compra.index')
+                                    <li class="px-2 py-1 text-white transition-colors duration-150">
+                                        <div class="px-1  rounded-md">
+                                            <div class="flex items-center">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                                </svg>
+                                                <a href="{{ route('nota-compra.index') }}"
+                                                    class="w-full ml-2  text-sm font-semibold text-white ">Compras</a>
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
-                                <li class="px-2 py-1 text-white transition-colors duration-150">
-                                    <div class="px-1  rounded-md">
-                                        <div class="flex items-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                                viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                    d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
-                                            </svg>
-                                            <a href="{{ route('pedidos.index') }}"
-                                                class="w-full ml-2  text-sm font-semibold text-white ">Pedidos</a>
+                                    </li>
+                                @endcan
+                                @can('pedidos.index')
+                                    <li class="px-2 py-1 text-white transition-colors duration-150">
+                                        <div class="px-1  rounded-md">
+                                            <div class="flex items-center">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                        d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                                                </svg>
+                                                <a href="{{ route('pedidos.index') }}"
+                                                    class="w-full ml-2  text-sm font-semibold text-white ">Pedidos</a>
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
-                                <li class="px-2 py-1 text-white transition-colors duration-150">
-                                    <div class="px-1  rounded-md">
-                                        <div class="flex items-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                    d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
-                                            </svg>
-                                            <a href="{{ route('pedido-cancelado.index') }}"
-                                                class="w-full ml-2  text-sm font-semibold text-white ">Pedidos
-                                                Cancelados</a>
+                                    </li>
+                                @endcan
+                                @can('pedido-cancelado.index')
+                                    <li class="px-2 py-1 text-white transition-colors duration-150">
+                                        <div class="px-1  rounded-md">
+                                            <div class="flex items-center">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
+                                                </svg>
+                                                <a href="{{ route('pedido-cancelado.index') }}"
+                                                    class="w-full ml-2  text-sm font-semibold text-white ">Pedidos
+                                                    Cancelados</a>
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
+                                    </li>
+                                @endcan
                             </ul>
                         </div>
                     </li>
@@ -433,64 +472,72 @@
                                 x-transition:leave-end="opacity-0 max-h-0"
                                 class="p-2 space-y-2 overflow-hidden text-sm font-medium  rounded-md shadow-inner"
                                 aria-label="submenu">
-                                <li class="px-2 py-1 text-white transition-colors duration-150">
-                                    <div class="px-1  rounded-md">
-                                        <div class="flex items-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                                            </svg>
-                                            <a href="{{ route('empresas.index') }}"
-                                                class="w-full ml-2  text-sm font-semibold text-white ">
-                                                Perfil Empresa</a>
+                                @can('empresa.index')
+                                    <li class="px-2 py-1 text-white transition-colors duration-150">
+                                        <div class="px-1  rounded-md">
+                                            <div class="flex items-center">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                                                </svg>
+                                                <a href="{{ route('empresas.index') }}"
+                                                    class="w-full ml-2  text-sm font-semibold text-white ">
+                                                    Perfil Empresa</a>
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
-                                <li class="px-2 py-1 text-white transition-colors duration-150">
-                                    <div class="px-1 rounded-md">
-                                        <div class="flex items-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                    d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
-                                            </svg>
-                                            <a href="{{ route('categoria-prima.index') }}"
-                                                class="w-full ml-2  text-sm font-semibold text-white">
-                                                Categoria de materia prima
-                                            </a>
+                                    </li>
+                                @endcan
+                                @can('categoria-prima.index')
+                                    <li class="px-2 py-1 text-white transition-colors duration-150">
+                                        <div class="px-1 rounded-md">
+                                            <div class="flex items-center">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                                                </svg>
+                                                <a href="{{ route('categoria-prima.index') }}"
+                                                    class="w-full ml-2  text-sm font-semibold text-white">
+                                                    Categoria de materia prima
+                                                </a>
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
-                                <li class="px-2 py-1 text-white transition-colors duration-150">
-                                    <div class="px-1 rounded-md">
-                                        <div class="flex items-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                    d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
-                                            </svg>
-                                            <a href="{{ route('categoria_productos.index') }}"
-                                                class="w-full ml-2  text-sm font-semibold text-white">
-                                                Categoria de productos
-                                            </a>
+                                    </li>
+                                @endcan
+                                @can('categoria_productos.index')
+                                    <li class="px-2 py-1 text-white transition-colors duration-150">
+                                        <div class="px-1 rounded-md">
+                                            <div class="flex items-center">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                                                </svg>
+                                                <a href="{{ route('categoria_productos.index') }}"
+                                                    class="w-full ml-2  text-sm font-semibold text-white">
+                                                    Categoria de productos
+                                                </a>
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
-                                <li class="px-2 py-1 text-white transition-colors duration-150">
-                                    <div class="px-1  rounded-md">
-                                        <div class="flex items-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                    d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
-                                            </svg>
-                                            <a href="{{ route('sistema-unidad.index') }}"
-                                                class="w-full ml-2  text-sm font-semibold text-white ">Sistema de
-                                                unidades</a>
+                                    </li>
+                                @endcan
+                                @can('sistema-unidad.index')
+                                    <li class="px-2 py-1 text-white transition-colors duration-150">
+                                        <div class="px-1  rounded-md">
+                                            <div class="flex items-center">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
+                                                </svg>
+                                                <a href="{{ route('sistema-unidad.index') }}"
+                                                    class="w-full ml-2  text-sm font-semibold text-white ">Sistema de
+                                                    unidades</a>
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
+                                    </li>
+                                @endcan
                             </ul>
                         </div>
                     </li>
