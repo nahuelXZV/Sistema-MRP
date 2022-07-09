@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Inventario\DadaBaja;
 
+use App\Models\Bitacora;
 use App\Models\Inventario\BajaProducto;
 use App\Models\Inventario\DadaBaja;
 use App\Models\Inventario\Producto;
@@ -14,21 +15,6 @@ class LwCreate extends Component
     public $producto = [];       //seleccion de un solo producto unico
     public $productos = [];      //lista de todos los productos añadidos
 
-
-    public function add()
-    {
-        $this->validate([
-            'baja.motivo' => 'required',
-            'baja.descripcion' => 'required',
-            'baja.fecha' => 'required',
-        ]);
-        $this->baja['estado'] = 'Pendiente';
-        $this->baja['hora'] = now();
-        // $pedido = Pedido::create($this->pedido);
-        // Bitacora::Bitacora('C', 'Pedido', $pedido->id);
-        // return redirect()->route('pedidos.add', $pedido->id);
-        return redirect()->route('dada-baja.index');
-    }
     //  productos
     public function addProducto()
     {
@@ -47,28 +33,31 @@ class LwCreate extends Component
     {
         unset($this->productos[$id]);
     }
+
     //Dada Baja
     public function finalizar()
-    {   
+    {
         $this->validate([
             'baja.motivo' => 'required',
             'baja.descripcion' => 'required',
             'baja.fecha' => 'required',
-            
+
         ]);
         if (count($this->productos) == 0) {
-            $mensaje ='!Error, Seleccione Productos';
+            $mensaje = '!Error, Seleccione Productos';
             $this->render($mensaje);
         } else {
-            // $this->baja['estado'] = 'Pendiente';
             $this->baja['hora'] = now();
             $b = DadaBaja::create($this->baja);
+            Bitacora::Bitacora('C', 'Dada de Baja', $b->id);
             foreach ($this->productos as $p) {
-                $p['dada_baja_id'] = $b->id ;
+                $p['dada_baja_id'] = $b->id;
                 BajaProducto::create($p);
+                $DCProduc = Producto::where('id', $p['producto_id'])->first();
+                $DCProduc->cantidad = $DCProduc->cantidad - $p['cantidad'];
+                $DCProduc->save();
             }
             return redirect()->route('dada-baja.index');
-
         }
     }
     public function limpiar()

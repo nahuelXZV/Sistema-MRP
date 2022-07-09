@@ -20,7 +20,7 @@
         </li>
         <li class="nav-item" role="presentation">
             <button type="button"
-                class="nav-link block font-medium text-xs leading-tight uppercase rounded px-6 py-3 my-2 md:mr-2 focus:outline-none focus:ring-0 "
+                class="nav-link block @if ($mps == null) disabled @endif font-medium text-xs leading-tight uppercase rounded px-6 py-3 my-2 md:mr-2 focus:outline-none focus:ring-0 "
                 id="pills-profile-tab3" data-bs-toggle="pill" data-bs-target="#pills-profile3" role="tab"
                 aria-controls="pills-profile3" aria-selected="false">
                 Detalles MPS
@@ -28,7 +28,7 @@
         </li>
         <li class="nav-item" role="presentation">
             <button type="button"
-                class="nav-link block font-medium text-xs leading-tight uppercase rounded px-6 py-3 my-2 md:mr-2 focus:outline-none focus:ring-0 "
+                class="nav-link block @if ($manu == null) disabled @endif font-medium text-xs leading-tight uppercase rounded px-6 py-3 my-2 md:mr-2 focus:outline-none focus:ring-0 "
                 id="pills-contact-tab3" data-bs-toggle="pill" data-bs-target="#pills-contact3" role="tab"
                 aria-controls="pills-contact3" aria-selected="false">
                 Manufactura
@@ -36,7 +36,7 @@
         </li>
         <li class="nav-item" role="presentation">
             <button type="button"
-                class="nav-link block font-medium text-xs leading-tight uppercase rounded px-6 py-3 my-2 md:mr-2 focus:outline-none focus:ring-0 "
+                class="nav-link block  @if ($rep == null) disabled @endif font-medium text-xs leading-tight uppercase rounded px-6 py-3 my-2 md:mr-2 focus:outline-none focus:ring-0 "
                 id="pills-contact-tab3" data-bs-toggle="pill" data-bs-target="#pills-contact3" role="tab"
                 aria-controls="pills-contact4" aria-selected="false">
                 Reportes
