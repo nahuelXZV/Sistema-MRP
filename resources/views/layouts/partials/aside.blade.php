@@ -266,21 +266,6 @@
                                                     Materia Prima</a>
                                             </div>
                                         </div>
-<<<<<<< HEAD
-                                    </div>
-                                </li>
-                                <li class="px-2 py-1 text-white transition-colors duration-150">
-                                    <div class="px-1  rounded-md">
-                                        <div class="flex items-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                <path stroke-linecap="round" stroke-linejoin="round"
-                                                    d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6" />
-                                            </svg>
-                                            <a href="{{ route('dada-baja.index') }}"
-                                                class="w-full ml-2  text-sm font-semibold text-white ">
-                                                Productos Dada de Baja</a>
-=======
                                     </li>
                                 @endcan
                                 @can('dada-baja.index')
@@ -296,7 +281,6 @@
                                                     class="w-full ml-2  text-sm font-semibold text-white ">
                                                     Productos Dada de Baja</a>
                                             </div>
->>>>>>> 875c8fbe16f769a03a5b9a3445f6fe289ffcee4c
                                         </div>
                                     </li>
                                 @endcan

@@ -19,6 +19,7 @@ use App\Http\Controllers\Configuracion\SistemaUnidadController;
 use App\Http\Controllers\Inventario\BOMController as InventarioBOMController;
 use App\Http\Controllers\Inventario\DadaBajaController;
 use App\Http\Controllers\PedidosCompras\PedidoController;
+use App\Http\Controllers\Produccion\ManufacturaController;
 use App\Http\Controllers\Produccion\MpsController;
 use App\Http\Controllers\Produccion\ProcesosController;
 //use App\Http\Controllers\Login\UserController;
@@ -26,6 +27,7 @@ use App\Http\Controllers\Reportes\ReporteController;
 use App\Models\CompraDistribucion\PedidoCancelado;
 use App\Models\Empresa;
 use App\Models\Inventario\MateriaPrima;
+use App\Models\Produccion\Manufactura;
 use App\Models\Produccion\Mps;
 use Illuminate\Http\Request;
 
@@ -129,12 +131,11 @@ Route::middleware([
     Route::get('/mps', [MpsController::class, 'index'])->middleware('can:mps.index')->name('mps.index');
     Route::get('/detalles-mps/{id}', [MpsController::class, 'details'])->middleware('can:mps.index')->name('mps.details');
 
+    //Route manufactura
+    Route::get('/manufactura/{id}/{idP}', [ManufacturaController::class, 'show'])->name('manufactura.show');
 
-    Route::get('stock', function () {
-        return MateriaPrima::all();
-    });
-    Route::get('mps/stock', function () {
-        return Mps::all();
+    Route::get('/manu', function () {
+        return Manufactura::all();
     });
 
     //Route pedidos cancelados

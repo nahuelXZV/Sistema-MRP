@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class Manufactura extends Model
 {
     use HasFactory;
-    protected $fillable = ['mps_id', 'producto_id', 'cantidad','productos_terminados','descripcion','estado'];
+    protected $fillable = ['mps_id', 'producto_id', 'cantidad', 'productos_terminados', 'productos_faltante', 'estado'];
 
     public function mps()
     {
@@ -21,4 +21,3 @@ class Manufactura extends Model
         return $this->belongsTo(Producto::class);
     }
 }
-
