@@ -8,7 +8,6 @@ use App\Http\Controllers\Inventario\MateriaPrimaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\Inventario\ProductoController;
-use App\Http\Controllers\Inventario\MaquinariaController;
 use App\Http\Controllers\CategoriaProductoController;
 use App\Http\Controllers\CompraDistribucion\DistribuidorController;
 use App\Http\Controllers\CompraDistribucion\NotaCompraController;
@@ -22,14 +21,10 @@ use App\Http\Controllers\PedidosCompras\PedidoController;
 use App\Http\Controllers\Produccion\ManufacturaController;
 use App\Http\Controllers\Produccion\MpsController;
 use App\Http\Controllers\Produccion\ProcesosController;
-//use App\Http\Controllers\Login\UserController;
 use App\Http\Controllers\Reportes\ReporteController;
-use App\Models\CompraDistribucion\PedidoCancelado;
-use App\Models\Empresa;
-use App\Models\Inventario\MateriaPrima;
+use App\Http\Controllers\WelcomeController;
 use App\Models\Produccion\Manufactura;
-use App\Models\Produccion\Mps;
-use Illuminate\Http\Request;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -48,9 +43,7 @@ Route::middleware([
     'verified'
 ])->group(function () {
 
-    Route::get('/', function () {
-        return view('welcome');
-    });
+    Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
 
     // Route Sistema de unidades
     Route::resource('sistema-unidad', SistemaUnidadController::class)->middleware('can:sistema-unidad.index');
