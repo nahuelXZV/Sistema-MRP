@@ -1,7 +1,17 @@
 <div>
     <x-header-multi>
         <h6 class="font-medium leading-tight text-base">Nota de compra</h6>
+
+        <a href="{{ route('reporte.rdc', $nota['id']) }}"
+            class="m-1 inline-block px-4 py-1.5 bg-blue-600 text-white font-bold text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+            </svg>
+        </a>
     </x-header-multi>
+
     <div class="modal-body relative p-4 ">
         <div class="grid grid-cols-2 gap-4">
             <div class="form-group mb-6">
@@ -68,7 +78,7 @@
                     @foreach ($detalles as $detalle)
                         <tr class="bg-white border-b">
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                {{ $detalle->materia->nombre}}</td>
+                                {{ $detalle->materia->nombre }}</td>
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                 {{ $detalle->cantidad }}</td>
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">

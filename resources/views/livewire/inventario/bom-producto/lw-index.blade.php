@@ -120,7 +120,7 @@
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                 {{ $bom->materia_prima->tipo }}</td>
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                {{ $bom->materia_prima->tamaño }}</td>
+                                {{ substr($bom->materia_prima->tamaño, 0, 50) }}</td>
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                 {{ $bom->materia_prima->color }}
                             </td>

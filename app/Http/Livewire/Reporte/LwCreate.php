@@ -4,6 +4,8 @@ namespace App\Http\Livewire\Reporte;
 
 use App\Models\Cliente;
 use App\Models\CompraDistribucion\Distribuidor;
+use App\Models\CompraDistribucion\NotaCompra;
+use App\Models\CompraDistribucion\Pedido;
 use App\Models\CompraDistribucion\Proveedor;
 use App\Models\Inventario\MateriaPrima;
 use App\Models\Inventario\Producto;
@@ -13,7 +15,7 @@ use Livewire\Component;
 
 class LwCreate extends Component
 {
-    //IU
+    //IU 
     public $modelos = [];
     public $atributosM = [];
     public $tipo = 'defecto';
@@ -55,6 +57,14 @@ class LwCreate extends Component
                 "id" => 'maquinarias',
                 "Modelo" =>  "Maquinaria"
             ],
+            [
+                "id" => 'nota_compras',
+                "Modelo" =>  "Compras"
+            ],
+            [
+                "id" => 'pedidos',
+                "Modelo" =>  "Pedidos"
+            ],
         ];
         $this->datos = [
             'nombre' => '',
@@ -95,6 +105,12 @@ class LwCreate extends Component
             case 'distribuidors':
                 return Distribuidor::$interface;
                 break;
+            case 'nota_compras':
+                return NotaCompra::$interface;
+                break;
+            case 'pedidos':
+                return Pedido::$interface;
+                break;
             default:
                 # code...
                 break;
@@ -123,6 +139,12 @@ class LwCreate extends Component
                 break;
             case 'distribuidors':
                 return Distribuidor::$atributos;
+                break;
+            case 'nota_compras':
+                return NotaCompra::$atributos;
+                break;
+            case 'pedidos':
+                return Pedido::$atributos;
                 break;
             default:
                 # code...
@@ -155,6 +177,12 @@ class LwCreate extends Component
                 break;
             case 'maquinarias':
                 $this->atributosM = Maquinaria::$atributos;
+                break;
+            case 'nota_compras':
+                $this->atributosM = NotaCompra::$atributos;
+                break;
+            case 'pedidos':
+                $this->atributosM = Pedido::$atributos;
                 break;
             default:
                 $this->atributosM = [];

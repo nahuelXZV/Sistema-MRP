@@ -11,6 +11,12 @@ class Pedido extends Model
     use HasFactory;
     protected $fillable = ['cliente_id', 'distribuidor_id', 'direccion', 'descripcion', 'estado', 'fecha', 'hora'];
 
+    //reportes
+    static public $tabla = 'pedidos';
+    static public $atributos = ['direccion', 'fecha', 'hora', 'estado', 'descripcion'];
+    static public $interface = ['Dirección', 'Fecha', 'Hora', 'Estado', 'Descripción'];
+    static public $default = ['direccion', 'fecha', 'hora', 'estado', 'descripcion'];
+
     public function cliente()
     {
         return $this->belongsTo(Cliente::class);

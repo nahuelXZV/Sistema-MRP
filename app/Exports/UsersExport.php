@@ -41,7 +41,7 @@ class UsersExport implements FromCollection, WithHeadings
                     ->orderBy($datos['orderBy'], $datos['order'])
                     ->get();
             } else {
-                $$this->query = DB::table($datos['modelo'])
+                $this->query = DB::table($datos['modelo'])
                     ->orderBy($datos['orderBy'], $datos['order'])
                     ->paginate($datos['cantidad']);
             }

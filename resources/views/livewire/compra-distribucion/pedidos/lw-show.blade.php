@@ -1,9 +1,10 @@
 <div>
-    @if ($botton != 'Ocultar')
-        <x-header-multi>
-            <h6 class="text-base font-medium leading-tight"></h6>
-            <div
-                class="flex flex-wrap items-center justify-start flex-shrink-0 border-t border-gray-200 modal-footer rounded-b-md">
+    <x-header-multi>
+        <h6 class="text-base font-medium leading-tight"></h6>
+        <div
+            class="flex flex-wrap items-center justify-start flex-shrink-0 border-t border-gray-200 modal-footer rounded-b-md">
+            @if ($botton != 'Ocultar')
+
                 @if ($botton != 'OcultarV')
                     <button type="button" wire:click="continuar" wire:loading.attr="disabled"
                         class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out ml-1">
@@ -12,9 +13,19 @@
                 <a type="button" href="{{ route('pedidos.edit', $pedido->id) }}"
                     class="inline-block px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out ml-1">
                     Editar</a>
-            </div>
-        </x-header-multi>
-    @endif
+
+            @endif
+
+            <a href="{{ route('reporte.rdp', $pedido->id) }}"
+                class="m-1 inline-block px-4 py-1.5 bg-blue-600 text-white font-bold text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+            </a>
+        </div>
+    </x-header-multi>
     <div class="relative p-4 modal-body ">
         <h6 class="mt-4 mb-4 text-base font-bold leading-tight text-black uppercase">Detalles del pedido</h6>
         <div class="grid grid-cols-2 gap-4">
