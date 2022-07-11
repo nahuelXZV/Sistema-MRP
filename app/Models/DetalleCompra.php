@@ -14,10 +14,10 @@ class DetalleCompra extends Model
 
     public function nota()
     {
-        return $this->belongsTo(NotaCompra::class);
+        return $this->belongsTo(NotaCompra::class, 'nota_compras_id', 'id');
     }
 
     public function materia(){
-        return $this->belongsTo(MateriaPrima::class);
+        return $this->belongsTo(MateriaPrima::class, 'materia_primas_id', 'id');
     }
 }

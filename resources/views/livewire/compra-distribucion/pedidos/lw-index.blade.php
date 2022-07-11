@@ -114,6 +114,17 @@
                             wire:click='order("fecha")'>Fecha
                         </p>
                     </li>
+                    <h6
+                        class="text-gray-500 font-semibold text-sm py-2 px-4 block w-full whitespace-nowrap
+                      bg-transparent ">
+                        DESCARGAR POR
+                    </h6>
+                    <li>
+                        <a href="{{ route('reporte.rlp') }}"
+                            class="dropdown-item flex text-sm py-2 px-4 font-normal w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100 ">
+                            PDF
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>

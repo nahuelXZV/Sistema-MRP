@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\CompraDistribucion\DistribuidorController;
+use App\Http\Controllers\Api\CompraDistribucion\NotaCompraApiController;
 use App\Http\Controllers\Api\CompraDistribucion\ProveedorController;
 use App\Http\Controllers\Api\Inventario\MateriaPrimaController;
 use App\Http\Controllers\Api\Inventario\MateriaPrimaApiController;
@@ -91,3 +92,8 @@ Route::post('pedido-api/delete/{pedido}', [PedidoController::class, 'delete'])->
 Route::get('detalle-pedido-api/{pedido}', [PedidoController::class, 'show_detalle'])->name('detalle-pedido-api');
 
 Route::apiResource('productos', ProductoApiController::class)->names('api.productos');
+
+//------------------------------------------------------ NOta Compra API----------------------------------------------------------------------------------//
+Route::apiResource('nota-compra', NotaCompraApiController::class)->names('api.nota-compra');
+Route::get('nota-compra-detalles/{id}', [NotaCompraApiController::class, 'detalles'])->name('api.nota-compra-datelles');
+

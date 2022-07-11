@@ -10,6 +10,7 @@ use App\Models\Inventario\MateriaPrima;
 use App\Models\Inventario\Producto;
 use App\Models\Produccion\Estado;
 use App\Models\Produccion\EstadoPedido;
+use App\Models\Produccion\Manufactura;
 use App\Models\Produccion\Mps;
 use Livewire\Component;
 
@@ -108,11 +109,24 @@ class LwShow extends Component
             $mps = Mps::create([    //Creamos el MPS
                 'pedido_id' => $this->pedido->id,
                 'fecha_solicitud' => date('Y-m-d'),
-                'tipo' => 'Pedido'
+                'tipo' => 'Pedido',
+                'estado' => 'En proceso',
             ]);
             foreach ($ListMPS as $estado) {     //Creamos los estados del mps
                 $estado['mps_id'] = $mps->id;
                 EstadoPedido::create($estado);
+                //--Crear manufactura
+                if ($estado['estado'] == 'Listo para fabricar') {
+                    Manufactura::create([
+                        'mps_id' => $mps->id,
+                        'producto_id' => DetallePedido::find($estado['detallePedido_id'])->producto_id,
+                        'cantidad' => $estado['cantidad_total'],
+                        'productos_terminados' => 0,
+                        'productos_faltante' => $estado['cantidad_total'] - $estado['cantidad_stock'],
+                        'estado' => "Sin iniciar",
+                    ]);
+                }
+                //-------------------
             }
             $producto->cantidad -= $cantidadS;
             $producto->update();

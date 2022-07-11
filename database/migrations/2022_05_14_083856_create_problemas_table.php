@@ -16,10 +16,15 @@ class CreateProblemasTable extends Migration
         Schema::create('problemas', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('manufactura_id')->nullable();
+            $table->unsignedBigInteger('proceso_id')->nullable();
+            $table->unsignedBigInteger('mps_id')->nullable();
             $table->string('tipo_problema');
-            $table->text('descripcion');
+            $table->text('descripcion')->nullable();
             $table->dateTime('fecha');
+            $table->string('estado')->nullable();
             $table->foreign('manufactura_id')->references('id')->on('manufacturas')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('proceso_id')->references('id')->on('procesos')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('mps_id')->references('id')->on('mps')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

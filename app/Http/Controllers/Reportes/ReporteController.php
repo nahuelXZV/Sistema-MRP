@@ -13,7 +13,10 @@ use App\Http\Controllers\Controller;
 use App\Models\Bitacora;
 use App\Models\Cliente;
 use App\Models\CompraDistribucion\Distribuidor;
+use App\Models\CompraDistribucion\NotaCompra;
+use App\Models\CompraDistribucion\Pedido;
 use App\Models\CompraDistribucion\Proveedor;
+use App\Models\DetallePedido;
 use App\Models\Empresa;
 use App\Models\Inventario\MateriaPrima;
 use App\Models\Inventario\Producto;
@@ -209,7 +212,14 @@ class ReporteController extends Controller
 
         // Datos de la tabla
         $header = $this->HeaderModel($datos['modelo'], $datos['atributos']);
-        foreach ($query as $tupla) {
+        foreach ($query as $key => $tupla) {
+
+            if ($datos['modelo'] == "pedidos") {
+                $this->pedidos($tupla);
+            }
+            if ($datos['modelo'] == "nota_compras") {
+                $this->compras($tupla);
+            }
             foreach ($datos['atributos'] as $key => $atributo) {
                 $this->fpdf->SetFont('Arial', 'B', 9);
                 $this->fpdf->Cell(40, 10, utf8_decode(mb_strtoupper($header[$key], "UTF-8") . " :"), 0, 0, 'L', 0);
@@ -221,6 +231,53 @@ class ReporteController extends Controller
             $this->fpdf->Ln(10);
         }
         $this->fpdf->Output("I", $datos['nombre'] . ".pdf", true);
+    }
+
+
+    public function pedidos($tupla)
+    {
+        $pedido = Pedido::find($tupla->id);
+        $this->fpdf->SetFont('Arial', 'B', 9);
+        $this->fpdf->Cell(40, 10, utf8_decode(mb_strtoupper("Cliente", "UTF-8") . " :"), 0, 0, 'L', 0);
+        $this->fpdf->SetFont('Arial', 'I', 9);
+        $this->fpdf->MultiCell(150, 10, utf8_decode($pedido->cliente->nombre), 0, 'L', 0);
+
+        $this->fpdf->SetFont('Arial', 'B', 9);
+        $this->fpdf->Cell(40, 10, utf8_decode(mb_strtoupper("Dirección", "UTF-8") . " :"), 0, 0, 'L', 0);
+        $this->fpdf->SetFont('Arial', 'I', 9);
+        $this->fpdf->MultiCell(150, 10, utf8_decode($pedido->cliente->direccion), 0, 'L', 0);
+
+        if ($pedido->distribuidor) {
+            $this->fpdf->SetFont('Arial', 'B', 9);
+            $this->fpdf->Cell(40, 10, utf8_decode(mb_strtoupper("Distribuidor", "UTF-8") . " :"), 0, 0, 'L', 0);
+            $this->fpdf->SetFont('Arial', 'I', 9);
+            $this->fpdf->MultiCell(150, 10, utf8_decode($pedido->distribuidor->nombre), 0, 'L', 0);
+        }
+    }
+
+    public function compras($tupla)
+    {
+        $compra = NotaCompra::find($tupla->id);
+        $this->fpdf->SetFont('Arial', 'B', 9);
+        $this->fpdf->Cell(40, 10, utf8_decode(mb_strtoupper("Proveedor", "UTF-8") . " :"), 0, 0, 'L', 0);
+        $this->fpdf->SetFont('Arial', 'I', 9);
+        $this->fpdf->MultiCell(150, 10, utf8_decode($compra->proveedor->nombre_empresa), 0, 'L', 0);
+
+        $this->fpdf->SetFont('Arial', 'B', 9);
+        $this->fpdf->Cell(40, 10, utf8_decode(mb_strtoupper("Dirección", "UTF-8") . " :"), 0, 0, 'L', 0);
+        $this->fpdf->SetFont('Arial', 'I', 9);
+        $this->fpdf->MultiCell(150, 10, utf8_decode($compra->proveedor->direccion), 0, 'L', 0);
+    }
+
+    public function tupla($header, $dato)
+    {
+        $this->fpdf->SetFont('Arial', 'B', 9);
+        $this->fpdf->Cell(30, 10, utf8_decode(mb_strtoupper($header, "UTF-8") . " :"), 0, 0, 'L', 0);
+        if ($header == "Descripción") {
+            $this->fpdf->Ln(10);
+        }
+        $this->fpdf->SetFont('Arial', 'I', 9);
+        $this->fpdf->MultiCell(170, 10, utf8_decode($dato), 0, 'L', 0);
     }
 
     public function DefaultModel($modelo)
@@ -246,6 +303,12 @@ class ReporteController extends Controller
                 break;
             case 'distribuidors':
                 return Distribuidor::$default;
+                break;
+            case 'nota_compras':
+                return NotaCompra::$default;
+                break;
+            case 'pedidos':
+                return Pedido::$default;
                 break;
             default:
                 # code...
@@ -276,6 +339,12 @@ class ReporteController extends Controller
             case 'distribuidors':
                 return Distribuidor::$interface;
                 break;
+            case 'nota_compras':
+                return NotaCompra::$interface;
+                break;
+            case 'pedidos':
+                return Pedido::$interface;
+                break;
             default:
                 # code...
                 break;
@@ -304,6 +373,12 @@ class ReporteController extends Controller
                 break;
             case 'distribuidors':
                 return Distribuidor::$atributos;
+                break;
+            case 'nota_compras':
+                return NotaCompra::$atributos;
+                break;
+            case 'pedidos':
+                return Pedido::$atributos;
                 break;
             default:
                 # code...
@@ -349,6 +424,12 @@ class ReporteController extends Controller
                 return Excel::download(new MaquinariaExport($datos, $interface), $datos['nombre'] . '.' . $datos['extension']);
                 break;
             case 'distribuidors':
+                return Excel::download(new DistribuidorExport($datos, $interface), $datos['nombre'] . '.' . $datos['extension']);
+                break;
+            case 'nota_compras':
+                return Excel::download(new DistribuidorExport($datos, $interface), $datos['nombre'] . '.' . $datos['extension']);
+                break;
+            case 'pedidos':
                 return Excel::download(new DistribuidorExport($datos, $interface), $datos['nombre'] . '.' . $datos['extension']);
                 break;
             default:

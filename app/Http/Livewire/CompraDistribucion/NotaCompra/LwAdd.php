@@ -21,12 +21,17 @@ class LwAdd extends Component
     {
         $this->validate([
             'detalle.materia_primas_id'=>'required',
-            'detalle.cantidad' => 'required',
+            'detalle.cantidad' => 'required|min:0',
             'detalle.costo' => 'required',
         ]);
         $this->detalle['nota_compras_id'] = $this->nota->id;
         DetalleCompra::create($this->detalle);
 
+        //Aumentamos el stock de la materia prima
+        $materia = MateriaPrima::find($this->detalle['materia_primas_id']);
+        $materia->cantidad += $this->detalle['cantidad'];
+        $materia->update();
+        //Actualizamos el coto_total de la nota de compra
         $detalles = DetalleCompra::where('nota_compras_id', $this->nota->id)->get();
         $total = 0;
         foreach ($detalles as $detalle) {
