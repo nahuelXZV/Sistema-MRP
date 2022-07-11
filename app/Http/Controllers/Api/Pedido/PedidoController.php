@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Api\Pedido;
 
 use App\Http\Controllers\Controller;
 use App\Models\CompraDistribucion\Pedido;
+use App\Models\DetallePedido;
+use App\Models\Inventario\Producto;
 use Illuminate\Http\Request;
 
 class PedidoController extends Controller
@@ -30,6 +32,12 @@ class PedidoController extends Controller
     public function delete($id)
     {
         return Pedido::find($id)->delete();
+    }
+
+    public function show_detalle($id)
+    {
+        return DetallePedido::where('pedido_id', '=', $id)->get();
+        //return DetallePedido::all();
     }
 
 }

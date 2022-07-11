@@ -15,7 +15,7 @@ class ProductoSeeder extends Seeder
      */
     public function run()
     {
-        Producto::create([
+        /*Producto::create([
             'nombre' => Str::random(10),
             'descripcion' => Str::random(10),
             'color' => Str::random(10),
@@ -24,7 +24,43 @@ class ProductoSeeder extends Seeder
             'peso' => Str::random(10),
             'especificacion' => Str::random(10),
             'costo_produccion' => Str::random(10),
-            'cantidad' => Str::random(10),            
+            'cantidad' => Str::random(10),
+        ]);*/
+
+        Producto::create([
+            'nombre' => 'Mesa',
+            'descripcion' => 'Est eget ut eu magna fames hac felis sodales parturient pharetra, hendrerit auctor vel vitae litora pellentesque taciti sagittis conubia, placerat fusce per tristique lectus risus aliquam vestibulum class. Dictum curae torquent platea eros urna in justo ',
+            'color' => 'Marrón',
+            'tamaño' => '25x14x15x15',
+            'estado' => 'Stock',
+            'peso' => 20,
+            'especificacion' => 'Est eget ut eu magna fames hac felis sodales parturient pharetra, hendrerit auctor vel vitae litora pellentesque taciti sagittis conubia, placerat fusce per tristique lectus risus aliquam vestibulum class. Dictum curae torquent platea eros urna in justo ',
+            'costo_produccion' => 200,
+            'cantidad' => 0,
         ]);
+        Producto::create([
+            'nombre' => 'Silla',
+            'descripcion' => 'Est eget ut eu magna fames hac felis sodales parturient pharetra, hendrerit auctor vel vitae litora pellentesque taciti sagittis conubia, placerat fusce per tristique lectus risus aliquam vestibulum class. Dictum curae torquent platea eros urna in justo ',
+            'color' => 'Negro',
+            'tamaño' => '12x25x14x51',
+            'estado' => 'Stock',
+            'peso' => 20,
+            'especificacion' => 'Est eget ut eu magna fames hac felis sodales parturient pharetra, hendrerit auctor vel vitae litora pellentesque taciti sagittis conubia, placerat fusce per tristique lectus risus aliquam vestibulum class. Dictum curae torquent platea eros urna in justo ',
+            'costo_produccion' => 80,
+            'cantidad' => 18,
+        ]);
+        Producto::create([
+            'nombre' => 'Armario',
+            'descripcion' => 'Est eget ut eu magna fames hac felis sodales parturient pharetra, hendrerit auctor vel vitae litora pellentesque taciti sagittis conubia, placerat fusce per tristique lectus risus aliquam vestibulum class. Dictum curae torquent platea eros urna in justo ',
+            'color' => 'Blanco',
+            'tamaño' => '21x25x14x45',
+            'estado' => 'Stock',
+            'peso' => 54,
+            'especificacion' => 'Est eget ut eu magna fames hac felis sodales parturient pharetra, hendrerit auctor vel vitae litora pellentesque taciti sagittis conubia, placerat fusce per tristique lectus risus aliquam vestibulum class. Dictum curae torquent platea eros urna in justo ',
+            'costo_produccion' => 150,
+            'cantidad' => 20,
+        ]);
+
+
     }
 }

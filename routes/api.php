@@ -88,6 +88,6 @@ Route::post('update/proveedor-api/{proveedor}', [ProveedorController::class, 'up
 Route::get('pedido-api', [PedidoController::class, 'index'])->name('pedido-api');
 Route::post('show/pedido-api/{pedido}', [PedidoController::class, 'show'])->name('pedido-api.show');
 Route::post('pedido-api/delete/{pedido}', [PedidoController::class, 'delete'])->name('pedido-api.delete');
-
+Route::get('detalle-pedido-api/{pedido}', [PedidoController::class, 'show_detalle'])->name('detalle-pedido-api');
 
 Route::apiResource('productos', ProductoApiController::class)->names('api.productos');
