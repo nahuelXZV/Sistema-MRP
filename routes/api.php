@@ -12,8 +12,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\TokenAuthController;
 use App\Http\Controllers\Api\Login\UserController;
-
-
+use App\Http\Controllers\Api\ClienteController;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
@@ -90,6 +89,12 @@ Route::get('pedido-api', [PedidoController::class, 'index'])->name('pedido-api')
 Route::post('show/pedido-api/{pedido}', [PedidoController::class, 'show'])->name('pedido-api.show');
 Route::post('pedido-api/delete/{pedido}', [PedidoController::class, 'delete'])->name('pedido-api.delete');
 Route::get('detalle-pedido-api/{pedido}', [PedidoController::class, 'show_detalle'])->name('detalle-pedido-api');
+
+//------------------------------------------------------ CLIENTE API----------------------------------------------------------------------------------//
+Route::get('cliente-api', [ClienteController::class, 'index'])->name('cliente-api');
+
+
+
 
 Route::apiResource('productos', ProductoApiController::class)->names('api.productos');
 

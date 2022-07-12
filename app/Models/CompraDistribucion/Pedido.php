@@ -13,9 +13,9 @@ class Pedido extends Model
 
     //reportes
     static public $tabla = 'pedidos';
-    static public $atributos = ['direccion', 'fecha', 'hora', 'estado', 'descripcion'];
-    static public $interface = ['Dirección', 'Fecha', 'Hora', 'Estado', 'Descripción'];
-    static public $default = ['direccion', 'fecha', 'hora', 'estado', 'descripcion'];
+    static public $atributos = ['direccion', 'fecha', 'hora', 'estado', 'descripcion', 'cliente_id'];
+    static public $interface = ['Dirección', 'Fecha', 'Hora', 'Estado', 'Descripción', 'cliente_id'];
+    static public $default = ['direccion', 'fecha', 'hora', 'estado', 'descripcion', 'cliente_id'];
 
     public function cliente()
     {
