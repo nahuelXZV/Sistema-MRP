@@ -17,7 +17,7 @@
                             border border-solid border-gray-300 rounded transition ease-in-out m-0
                             focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
                     id="exampleFormControlInput1" placeholder="Search.." />
-                <button type="button" wire:click='render()'
+                <button type="button" wire:click='render'
                     class="w-12 inline-block px-3 py-1.5 border-2 border-gray-700 text-black font-medium text-xs leading-normal uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mx-auto" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">
@@ -80,7 +80,7 @@
                         <p class="dropdown-item flex text-sm py-2 px-4 font-normal w-full
                             whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100 "
                             wire:click='order("fecha")'>Fecha
-                            <x-signo-table :type='$type' :direction='$direction' etiqueta='nombre'> </x-signo-table>
+                            <x-signo-table :type='$type' :direction='$direction' etiqueta='fecha'> </x-signo-table>
                         </p>
                     </li>
                 </ul>
@@ -95,7 +95,6 @@
                     <tr>
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
                             Codigo
-                            <x-signo-table :type='$type' :direction='$direction' etiqueta='id'> </x-signo-table>
                         </th>
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
                             Fecha
@@ -103,16 +102,12 @@
                         </th>
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
                             Hora
-                            <x-signo-table :type='$type' :direction='$direction' etiqueta='hora'> </x-signo-table>
                         </th>
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
                             Costo Total
-                            <x-signo-table :type='$type' :direction='$direction' etiqueta='costo_total'> </x-signo-table>
                         </th>
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
                             Proveedor
-                            <x-signo-table :type='$type' :direction='$direction' etiqueta='proveedor_id'>
-                            </x-signo-table>
                         </th>
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
                             Acciones
@@ -131,8 +126,8 @@
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                 {{ $nota->costo_total }}</td>
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                @if ($nota->proveedor_id)
-                                    {{ $nota->proveedor_id->nombre }}
+                                @if ($nota->proveedor)
+                                    {{ $nota->proveedor->nombre_empresa }}
                                 @else
                                     Sin nombre
                                 @endif

@@ -43,8 +43,8 @@ class LwCategoriaPrimaIndex extends Component
     public function render()
     {
         switch ($this->type) {
-            case 'descripcion':
-                $categorias = CategoriaMateriaPrima::where('descripcion', 'like', '%' . $this->attribute . '%')
+            case 'nombre':
+                $categorias = CategoriaMateriaPrima::where('nombre', 'like', '%' . $this->attribute . '%')
                     ->orderBy($this->sort, $this->direction)
                     ->paginate($this->pagination);
                 break;

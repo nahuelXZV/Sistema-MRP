@@ -13,6 +13,7 @@ class LwCreate extends Component
     public function add()
     {
         $this->validate([
+            'nota.proveedor_id'=>'required',
             'nota.fecha' => 'required',
             'nota.hora' => 'required',
         ]);

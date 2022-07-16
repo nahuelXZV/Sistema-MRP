@@ -25,7 +25,8 @@ class DatabaseSeeder extends Seeder
         $this->call(SistemaUnidadSeeder::class);
         $this->call(ClienteSeeder::class);
         $this->call(InventarioSeeder::class);
-        //$this->call(PedidoSeeder::class);
+        $this->call(ProductoSeeder::class);
+        $this->call(PedidoSeeder::class);
 
         Empresa::create([
             'nombre' => 'Nombre Empresa',

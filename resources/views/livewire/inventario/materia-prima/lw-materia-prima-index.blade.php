@@ -41,7 +41,7 @@
                     aria-labelledby="dropdownMenuButton1">
                     <li>
                         <div class="ml-2 mr-6 form-check">
-                            <input value='name' wire:model.defer="type"
+                            <input value='nombre' wire:model.defer="type"
                                 class="w-4 h-4 mt-1 mr-2 align-top bg-white border border-gray-300 rounded-full appearance-none form-check-input checked:bg-blue-600 checked:border-blue-600"
                                 type="radio" name="flexRadioDefault" id="flexRadioDefault1">
                             <label class="inline-block text-gray-800 form-check-label" for="flexRadioDefault1">
@@ -49,7 +49,16 @@
                             </label>
                         </div>
                     </li>
-
+                    <li>
+                        <div class="ml-2 mr-6 form-check">
+                            <input value='tipo' wire:model.defer="type"
+                                class="w-4 h-4 mt-1 mr-2 align-top bg-white border border-gray-300 rounded-full appearance-none form-check-input checked:bg-blue-600 checked:border-blue-600"
+                                type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                            <label class="inline-block text-gray-800 form-check-label" for="flexRadioDefault1">
+                                Tipo
+                            </label>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -81,6 +90,13 @@
                             <x-signo-table :type='$type' :direction='$direction' etiqueta='nombre'> </x-signo-table>
                         </p>
                     </li>
+                    <li>
+                        <p class="flex w-full px-4 py-2 text-sm font-normal text-gray-700 bg-transparent dropdown-item whitespace-nowrap hover:bg-gray-100 "
+                            wire:click="order('tipo')">
+                            Tipo
+                            <x-signo-table :type='$type' :direction='$direction' etiqueta='tipo'> </x-signo-table>
+                        </p>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -97,6 +113,7 @@
                         </th>
                         <th scope="col" class="px-6 py-4 text-sm font-bold text-white">
                             Tipo
+                            <x-signo-table :type='$type' :direction='$direction' etiqueta='tipo'> </x-signo-table>
                         </th>
                         <th scope="col" class="px-6 py-4 text-sm font-bold text-white">
                             Tamaño
@@ -105,7 +122,7 @@
                             Peso
                         </th>
                         <th scope="col" class="px-6 py-4 text-sm font-bold text-white">
-                            Color
+                            Cantidad
                         </th>
                         </th>
                         <th scope="col" class="px-6 py-4 text-sm font-bold text-white">
@@ -129,7 +146,7 @@
                                 {{ $materia->peso }}
                             </td>
                             <td class="px-6 py-4 text-sm font-light text-gray-900 whitespace-nowrap">
-                                {{ $materia->color }}
+                                {{ $materia->cantidad }}
                             </td>
                             <td class="px-6 py-4 text-sm font-light text-gray-900 whitespace-nowrap">
                                 <div class="flex items-center justify-center">

@@ -18,6 +18,7 @@ class CreateMpsTable extends Migration
             $table->unsignedBigInteger('pedido_id');
             $table->dateTime('fecha_solicitud')->nullable();
             $table->string('tipo')->nullable();
+            $table->string('estado')->nullable();
 
             $table->foreign('pedido_id')->references('id')->on('pedidos')->onDelete('cascade');
             $table->timestamps();

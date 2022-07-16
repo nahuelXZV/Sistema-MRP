@@ -19,7 +19,7 @@ class CreateManufacturasTable extends Migration
             $table->unsignedBigInteger('mps_id')->nullable();
             $table->unsignedInteger('cantidad');
             $table->unsignedInteger('productos_terminados')->nullable();
-            $table->text('descripcion')->nullable();
+            $table->unsignedInteger('productos_faltante')->nullable();
             $table->string('estado')->nullable();
             $table->foreign('producto_id')->references('id')->on('productos')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('mps_id')->references('id')->on('mps')->onDelete('cascade')->onUpdate('cascade');
