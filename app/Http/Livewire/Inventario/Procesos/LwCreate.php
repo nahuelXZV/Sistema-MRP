@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Inventario\Procesos;
 use App\Models\Bitacora;
 use App\Models\Inventario\Producto;
 use App\Models\ProcesoProducto;
+use App\Models\Produccion\Maquinaria;
 use App\Models\Produccion\Proceso;
 use Livewire\Component;
 
@@ -43,6 +44,7 @@ class LwCreate extends Component
     public function render()
     {
         $procesos = Proceso::all();
-        return view('livewire.inventario.procesos.lw-create', compact('procesos'));
+        $maquinarias = Maquinaria::all();
+        return view('livewire.inventario.procesos.lw-create', compact('procesos', 'maquinarias'));
     }
 }

@@ -13,7 +13,7 @@
             </div>
         </div>
 
-        <div class="grid grid-cols-2 gap-4">
+        <div class="grid grid-cols-3 gap-4">
             <div class="form-group mb-6">
                 <div class="form-group mb-6">
                     <label for="exampleInputEmail2" class="form-label inline-block mb-2 text-gray-700">Nombre la materia
@@ -28,6 +28,13 @@
                     class="form-control block  w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300  rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                     placeholder="Cantidad">
                 <x-jet-input-error for="cantidad" />
+            </div>
+            <div class="form-group mb-6">
+                <label for="exampleInputEmail2" class="form-label inline-block mb-2 text-gray-700">Estado</label>
+                <input type="text" wire:model.defer="estado" name='estado'
+                    class="form-control block  w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300  rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                    placeholder="Estado">
+                <x-jet-input-error for="estado" />
             </div>
         </div>
 

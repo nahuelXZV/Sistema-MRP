@@ -26,6 +26,7 @@ use App\Http\Controllers\Reportes\ManufacturaController as ReportesManufacturaCo
 use App\Http\Controllers\Reportes\PedidoController as ReportesPedidoController;
 use App\Http\Controllers\Reportes\ReporteController;
 use App\Http\Controllers\WelcomeController;
+use App\Models\Produccion\Problema;
 
 /*
 |--------------------------------------------------------------------------

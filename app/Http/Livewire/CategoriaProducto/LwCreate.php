@@ -2,12 +2,13 @@
 
 namespace App\Http\Livewire\CategoriaProducto;
 
+use App\Models\Bitacora;
 use Livewire\Component;
 use App\Models\CategoriaProducto;
 
 class LwCreate extends Component
 {
-   
+
     public $categoria_producto = [];
 
     public function add()
@@ -16,7 +17,8 @@ class LwCreate extends Component
             'categoria_producto.nombre' => 'required',
             'categoria_producto.descripcion' => 'required',
         ]);
-        CategoriaProducto::create($this->categoria_producto);
+        $cat = CategoriaProducto::create($this->categoria_producto);
+        Bitacora::Bitacora('C', 'Categoria productos', $cat->id);
         return redirect()->route('categoria_productos.index');
     }
 
@@ -28,5 +30,4 @@ class LwCreate extends Component
     {
         return view('livewire.categoria-producto.lw-create');
     }
-    
 }

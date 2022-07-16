@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\CategoriaProducto;
 
+use App\Models\Bitacora;
 use Livewire\Component;
 use App\Models\CategoriaProducto;
 use Livewire\WithPagination;
@@ -41,6 +42,7 @@ class LwIndex extends Component
     public function delete($id)
     {
         $Categoria_Producto = CategoriaProducto::find($id);
+        Bitacora::Bitacora('D', 'Categoria productos', $Categoria_Producto->id);
         $Categoria_Producto->delete();
     }
     public function render()

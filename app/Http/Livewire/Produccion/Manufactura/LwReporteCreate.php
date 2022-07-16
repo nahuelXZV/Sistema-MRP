@@ -40,6 +40,7 @@ class LwReporteCreate extends Component
             'manufactura_id' => $this->manufactura->id,
             'mps_id' => $this->manufactura->mps_id,
         ]);
+        Bitacora::Bitacora('C', 'Problemas de producción', $problema->id);
         return redirect()->route('pedidos.details', $this->manufactura->mps->pedido_id);
     }
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\CompraDistribucion\Distribuidor;
 
+use App\Models\Bitacora;
 use Livewire\Component;
 use App\Models\CompraDistribucion\Distribuidor;
 
@@ -20,7 +21,8 @@ class LwCreate extends Component
             'distribuidor.tipo' => 'required',
             'distribuidor.medio_transporte' => 'required',
         ]);
-        Distribuidor ::create($this->distribuidor);
+        $distribuidor = Distribuidor::create($this->distribuidor);
+        Bitacora::Bitacora('C', 'Distribuidores', $distribuidor->id);
         return redirect()->route('distribuidores.index');
     }
 
@@ -34,5 +36,4 @@ class LwCreate extends Component
         $distribuidores = Distribuidor::all();
         return view('livewire.compra-distribucion.distribuidor.lw-create', compact('distribuidores'));
     }
-   
 }
