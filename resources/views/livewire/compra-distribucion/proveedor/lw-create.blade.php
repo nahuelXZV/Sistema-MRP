@@ -9,7 +9,7 @@
                 <label for="exampleInputEmail2" class="form-label inline-block mb-2 text-gray-700">Nombre de Empresa</label>
                 <input type="text" wire:model.defer="proveedor.nombre_empresa" name='nombre_empresa'
                     class="form-control block  w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300  rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                    placeholder="nombre empresa">
+                    placeholder="nombre_empresa">
                 <x-jet-input-error for="proveedor.nombre_empresa" />
             </div>
             <div class="form-group mb-6">

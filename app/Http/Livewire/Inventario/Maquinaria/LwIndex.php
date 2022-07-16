@@ -5,7 +5,7 @@ namespace App\Http\Livewire\Inventario\Maquinaria;
 
 use Livewire\Component;
 use App\Models\Bitacora;
-use App\Models\Maquinaria;
+use App\Models\Inventario\Maquinaria;
 use Livewire\WithPagination;
 
 class LwIndex extends Component
@@ -67,6 +67,6 @@ class LwIndex extends Component
                     ->paginate($this->pagination);
                 break;
         }
-        return view('livewire.inventario.maquinaria.lw-index', compact('$maquinarias'));
+        return view('livewire.inventario.maquinaria.lw-index', compact('maquinarias'));
     }
 }

@@ -3,13 +3,15 @@
 namespace App\Http\Livewire\Inventario\Maquinaria;
 
 use App\Models\Bitacora;
-use App\Models\Maquinaria;
+use App\Models\Inventario\Maquinaria;
 use Livewire\Component;
 
 class LwCreate extends Component
 {
     public $maquinaria = [];
-
+    public $nombre;
+    public $descripcion;
+  
     public function add()
     {
         $this->validate([
