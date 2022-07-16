@@ -40,7 +40,12 @@ class LwIndex extends Component
     public function render()
     {
         switch ($this->type) {
-            case 'email':
+            case 'name':
+                $usuarios = User::where('name', 'like', '%' . $this->attribute . '%')
+                    ->orderBy($this->sort, $this->direction)
+                    ->paginate($this->pagination);
+                break;
+            case 'role':
                 $usuarios = User::where('email', 'like', '%' . $this->attribute . '%')
                     ->orderBy($this->sort, $this->direction)
                     ->paginate($this->pagination);

@@ -95,7 +95,15 @@
                                 whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100 "
                             wire:click="order('name')">
                             Nombre
-                            <x-signo-table :type='$type' :direction='$direction' etiqueta='nombre'> </x-signo-table>
+                            <x-signo-table :type='$type' :direction='$direction' etiqueta='name'> </x-signo-table>
+                        </p>
+                    </li>
+                    <li>
+                        <p class="dropdown-item flex text-sm py-2 px-4 font-normal w-full
+                                whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100 "
+                            wire:click="order('email')">
+                            Email
+                            <x-signo-table :type='$type' :direction='$direction' etiqueta='email'> </x-signo-table>
                         </p>
                     </li>
                 </ul>
@@ -110,13 +118,14 @@
                     <tr>
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
                             Id
-                            <x-signo-table :type='$type' :direction='$direction' etiqueta='nombre'> </x-signo-table>
                         </th>
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
                             Nombre
+                            <x-signo-table :type='$type' :direction='$direction' etiqueta='name'> </x-signo-table>
                         </th>
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
                             Email
+                            <x-signo-table :type='$type' :direction='$direction' etiqueta='email'> </x-signo-table>
                         </th>
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
                             Rol

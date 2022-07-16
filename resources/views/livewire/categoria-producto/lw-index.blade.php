@@ -50,26 +50,6 @@
                             </label>
                         </div>
                     </li>
-                    <li>
-                        <div class="form-check ml-2">
-                            <input wire:model.defer='type' value='estado'
-                                class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600  mt-1 align-top  mr-2"
-                                type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                            <label class="form-check-label inline-block text-gray-800" for="flexRadioDefault1">
-                                Estado
-                            </label>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="form-check ml-2">
-                            <input wire:model.defer='type' value='categoria'
-                                class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600  mt-1 align-top  mr-2"
-                                type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                            <label class="form-check-label inline-block text-gray-800" for="flexRadioDefault1">
-                                Categoria Productos
-                            </label>
-                        </div>
-                    </li>
             </div>
         </div>
         <div class="container-fluid flex">
@@ -116,7 +96,6 @@
                     <tr>
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
                             Codigo
-                            <x-signo-table :type='$type' :direction='$direction' etiqueta='id'> </x-signo-table>
                         </th>
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
                             Nombre
@@ -124,7 +103,6 @@
                         </th>
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
                             Descripcion
-                            <x-signo-table :type='$type' :direction='$direction' etiqueta='estado'> </x-signo-table>
                         </th>
 
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
