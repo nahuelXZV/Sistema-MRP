@@ -46,18 +46,28 @@ class LwIndex extends Component
     public function render()
     {
         switch ($this->type) {
+            case 'id':
+                $pedidosc = PedidoCancelado::where('id', 'like', '%' . $this->attribute . '%')
+                    ->orderBy($this->sort, $this->direction)
+                    ->paginate($this->pagination);
+                break;
+            case 'motivo':
+                $pedidosc = PedidoCancelado::where('motivo', 'like', '%' . $this->attribute . '%')
+                    ->orderBy($this->sort, $this->direction)
+                    ->paginate($this->pagination);
+                break;
             case 'fecha':
                 $pedidosc = PedidoCancelado::where('fecha', 'like', '%' . $this->attribute . '%')
                     ->orderBy($this->sort, $this->direction)
                     ->paginate($this->pagination);
                 break;
             default:
-                $pedidosc = PedidoCancelado::where('fecha', 'like', '%' . $this->attribute . '%')
+                $pedidosc = PedidoCancelado::where('id', 'like', '%' . $this->attribute . '%')
                     ->orderBy($this->sort, $this->direction)
                     ->paginate($this->pagination);
                 break;
         }
         $pedidos = Pedido::all();
-        return view('livewire.compra-distribucion.pedido-cancelado.lw-index',compact('pedidosc','pedidos'));
+        return view('livewire.compra-distribucion.pedido-cancelado.lw-index', compact('pedidosc', 'pedidos'));
     }
 }

@@ -144,9 +144,9 @@ Route::middleware([
     Route::get('/detalles-mps/{id}', [MpsController::class, 'details'])->middleware('can:mps.index')->name('mps.details');
 
     //Route manufactura
-    Route::get('/manufactura/{id}/{idP}', [ManufacturaController::class, 'show'])->name('manufactura.show');
-    Route::get('/manufactura/reporte/create/{id}/{idM}', [ManufacturaController::class, 'report'])->name('manufactura.report');
-    Route::get('/manufactura/reporte/details/{id}', [ManufacturaController::class, 'details'])->name('manufactura.details');
+    Route::get('/manufactura/{id}/{idP}', [ManufacturaController::class, 'show'])->middleware('can:pedidos.index')->name('manufactura.show');
+    Route::get('/manufactura/reporte/create/{id}/{idM}', [ManufacturaController::class, 'report'])->middleware('can:pedidos.index')->name('manufactura.report');
+    Route::get('/manufactura/reporte/details/{id}', [ManufacturaController::class, 'details'])->middleware('can:pedidos.index')->name('manufactura.details');
 
     //Route pedidos cancelados
     Route::get('/pedidos-cancelados', [PedidoCanceladoController::class, 'index'])->middleware('can:pedido-cancelado.index')->name('pedido-cancelado.index');

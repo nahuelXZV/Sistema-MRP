@@ -51,19 +51,8 @@ class LwIndex extends Component
                     ->orderBy($this->sort, $this->direction)
                     ->paginate($this->pagination);
                 break;
-            /* case 'estado':
-                $productos = Cliente::where('estado', 'like', '%' . $this->attribute . '%')
-                    ->orderBy($this->sort, $this->direction)
-                    ->paginate($this->pagination);
-                break;
-            case 'categoria':
-                $productos = Cliente::join('categoria_productos', 'productos.categoria_producto', 'categoria_productos.id')
-                    ->where('categoria_productos.nombre', 'like', '%' . $this->attribute . '%')
-                    ->orderBy($this->sort, $this->direction)
-                    ->paginate($this->pagination);
-                break; */
             default:
-                $categoria_productos = CategoriaProducto::where('id', 'like', '%' . $this->attribute . '%')
+                $categoria_productos = CategoriaProducto::where('nombre', 'like', '%' . $this->attribute . '%')
                     ->orderBy($this->sort, $this->direction)
                     ->paginate($this->pagination);
                 break;
