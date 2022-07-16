@@ -8,13 +8,12 @@ use App\Http\Controllers\Inventario\MateriaPrimaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\Inventario\ProductoController;
-
 use App\Http\Controllers\Inventario\MaquinariaController;
-
 use App\Http\Controllers\CategoriaProductoController;
-
+use App\Http\Controllers\CompraDistribucion\DistribuidorController;
 use App\Http\Controllers\CompraDistribucion\NotaCompraController;
 use App\Http\Controllers\CompraDistribucion\PedidoCanceladoController;
+use App\Http\Controllers\CompraDistribucion\ProveedorController;
 use App\Http\Controllers\Configuracion\EmpresaController;
 use App\Http\Controllers\Configuracion\SistemaUnidadController;
 use App\Http\Controllers\Inventario\BOMController as InventarioBOMController;
@@ -55,6 +54,10 @@ Route::middleware([
 
     // Route clientes
     Route::resource('clientes', ClienteController::class);
+
+    Route::resource('proveedor', ProveedorController::class);
+    Route::resource('distribuidores', DistribuidorController::class);
+    Route::resource('maquinarias', MaquinariaController::class);
 
     // Route categoria productos
     Route::resource('categoria_productos', CategoriaProductoController::class);
