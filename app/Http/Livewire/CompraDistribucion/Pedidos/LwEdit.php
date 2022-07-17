@@ -17,13 +17,14 @@ class LwEdit extends Component
         $this->pedido = Pedido::find($id);
         $this->datos['cliente'] = $this->pedido->cliente->nombre;
         if ($this->pedido->distribuidor) {
-            $this->datos['distribuidor'] = $this->pedido->distribuidor->nombre;
+            $this->datos['distribuidor'] = $this->pedido->distribuidor_id;
         } else {
             $this->datos['distribuidor'] = 'No Asignado';
         }
         $this->datos['fecha'] = $this->pedido->fecha;
         $this->datos['hora'] = $this->pedido->hora;
         $this->datos['descripcion'] = $this->pedido->descripcion;
+        $this->datos['direccion'] = $this->pedido->direccion;
     }
 
     public function update()
@@ -31,14 +32,14 @@ class LwEdit extends Component
         $this->validate([
             'pedido.fecha' => 'required',
             'pedido.descripcion' => 'required',
-            'pedido.direccion' => 'required',
         ]);
-        if ($this->datos['distribuidor'] == '') {
+        if ($this->datos['distribuidor']) {
             $this->pedido->distribuidor_id = $this->datos['distribuidor'];
         }
         $this->pedido->fecha = $this->datos['fecha'];
         $this->pedido->hora = $this->datos['hora'];
         $this->pedido->descripcion = $this->datos['descripcion'];
+        $this->pedido->direccion = $this->datos['direccion'];
         $this->pedido->save();
         Bitacora::Bitacora('U', 'Pedido', $this->pedido->id);
         if ($this->pedido->estado == 'Pendiente') {

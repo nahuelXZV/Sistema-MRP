@@ -2,7 +2,8 @@
 
 namespace App\Models\Inventario;
 
-use App\Models\CompraDistribucion\Pedido;
+
+use App\Models\CategoriaProducto;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use OwenIt\Auditing\Auditable as AuditingAuditable;
@@ -54,9 +55,9 @@ class Producto extends Model implements Auditable
     protected $allowSort = ['nombre', 'descripcion', 'color', 'tamaño', 'estado', 'peso', 'especificacion', 'costo_produccion', 'cantidad', 'categoria_producto'];
     //Fin para filtrar api
 
-    public function categoria_producto()
+    public function categoria()
     {
-        return $this->belongsTo(CategoriaProducto::class);
+        return $this->belongsTo(CategoriaProducto::class, 'categoria_producto');
     }
 
     public function Bom()

@@ -43,8 +43,8 @@ class LwIndex extends Component
     public function delete($id)
     {
         $distribuidores = Distribuidor::find($id);
-        Bitacora::Bitacora('D', 'Producto', $distribuidores->id);
         $distribuidores->delete();
+        Bitacora::Bitacora('D', 'Distribuidores', $distribuidores->id);
     }
     public function render()
     {
@@ -59,7 +59,7 @@ class LwIndex extends Component
                     ->orderBy($this->sort, $this->direction)
                     ->paginate($this->pagination);
                 break;
-          
+
             default:
                 $distribuidores = Distribuidor::where('id', 'like', '%' . $this->attribute . '%')
                     ->orderBy($this->sort, $this->direction)
@@ -68,5 +68,4 @@ class LwIndex extends Component
         }
         return view('livewire.compra-distribucion.distribuidor.lw-index', compact('distribuidores'));
     }
-    
 }

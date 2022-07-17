@@ -3,34 +3,36 @@
 namespace App\Http\Livewire\Inventario\Maquinaria;
 
 use App\Models\Bitacora;
-use App\Models\Maquinaria;
+use App\Models\Inventario\Maquinaria;
 use Livewire\Component;
 
 class LwCreate extends Component
 {
     public $maquinaria = [];
-
+    public $nombre;
+    public $descripcion;
+  
     public function add()
     {
-    $this->validate([
-        'maquinaria.nombre' => 'required',
-        'maquinaria.descripcion' => 'required',
-        'maquinaria.marca' => 'required',
-       
-    ]);
-    Maquinaria ::create($this->Maquinaria);
-    return redirect()->route('maquinarias.index');
-}
+        $this->validate([
+            'maquinaria.nombre' => 'required',
+            'maquinaria.descripcion' => 'required',
+            'maquinaria.marca' => 'required',
 
-public function limpiar()
-{
-    $this->Maquinaria = [];
-}
+        ]);
+        $ma = Maquinaria::create($this->Maquinaria);
+        Bitacora::Bitacora('C', 'Maquinaria', $ma->id);
+        return redirect()->route('maquinarias.index');
+    }
 
-public function render()
-{
-    $maquinarias = Maquinaria::all();
-    return view('livewire.inventario.maquinaria.lw-create', compact('maquinarias'));
-}
-   
+    public function limpiar()
+    {
+        $this->Maquinaria = [];
+    }
+
+    public function render()
+    {
+        $maquinarias = Maquinaria::all();
+        return view('livewire.inventario.maquinaria.lw-create', compact('maquinarias'));
+    }
 }

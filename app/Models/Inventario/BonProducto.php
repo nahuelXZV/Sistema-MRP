@@ -12,6 +12,7 @@ class BonProducto extends Model
         'id',
         'cantidad',
         'producto_id',
+        'estado',
         'materia_prima_id'
     ];
 

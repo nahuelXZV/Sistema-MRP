@@ -15,6 +15,7 @@ class LwEdit extends Component
     public $materia;
     public $cantidad;
     public $bom;
+    public $estado;
 
     public function mount($id, $idbom)
     {
@@ -24,15 +25,18 @@ class LwEdit extends Component
         $this->cantidad = $bom->cantidad;
         $this->materia = MateriaPrima::find($bom->materia_prima_id)->nombre;
         $this->name = $this->producto->nombre;
+        $this->estado = $bom->estado;
     }
 
     public function edit()
     {
         $this->validate([
             'cantidad' => 'required',
+            'estado' => 'required',
         ]);
         $bom = BonProducto::find($this->bom);
         $bom->cantidad = $this->cantidad;
+        $bom->estado = $this->estado;
         $bom->save();
         Bitacora::Bitacora('U', 'BOM Producto', $bom->id);
         return redirect()->route('productos.show', $this->producto->id);

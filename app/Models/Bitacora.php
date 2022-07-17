@@ -17,7 +17,7 @@ class Bitacora extends Model
     ];
 
     static public function Bitacora($evento, $tabla, $id_registro)
-    {
+    { 
         $event = '';
         $bitacora = new Bitacora();
         switch ($evento) {

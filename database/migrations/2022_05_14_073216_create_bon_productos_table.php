@@ -15,9 +15,10 @@ class CreateBonProductosTable extends Migration
     {
         Schema::create('bon_productos', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('producto_id')->nullable(); 
-            $table->unsignedBigInteger('materia_prima_id')->nullable(); 
+            $table->unsignedBigInteger('producto_id')->nullable();
+            $table->unsignedBigInteger('materia_prima_id')->nullable();
             $table->unsignedInteger('cantidad')->nullable();
+            $table->string('estado')->nullable();
             $table->foreign('producto_id')->references('id')->on('productos')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('materia_prima_id')->references('id')->on('materia_primas')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();

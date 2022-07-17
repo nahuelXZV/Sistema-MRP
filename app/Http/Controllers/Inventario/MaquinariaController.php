@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Inventario;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class Maquinaria extends Controller
+class MaquinariaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -24,7 +24,7 @@ class Maquinaria extends Controller
      */
     public function create()
     {
-        //
+        return view('inventario.maquinarias.create');
     }
 
     /**

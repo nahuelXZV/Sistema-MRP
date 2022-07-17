@@ -27,7 +27,7 @@ class LwShow extends Component
         $this->pedido = Pedido::find($id);
         $this->datos['cliente'] = $this->pedido->cliente->nombre;
         if ($this->pedido->distribuidor) {
-            $this->datos['distribuidor'] = $this->pedido->distribuidor;
+            $this->datos['distribuidor'] = $this->pedido->distribuidor->nombre;
         } else {
             $this->datos['distribuidor'] = 'No Asignado';
         }

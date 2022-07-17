@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Produccion\Manufactura;
 
+use App\Models\Bitacora;
 use App\Models\Produccion\Problema;
 use Livewire\Component;
 
@@ -29,6 +30,7 @@ class LwReporteShow extends Component
 
     public function delete()
     {
+        Bitacora::Bitacora('D', 'Problemas de producción', $this->problema->id);
         $this->problema->delete();
         return redirect()->route('pedidos.details', $this->problema->mps->pedido_id);
     }

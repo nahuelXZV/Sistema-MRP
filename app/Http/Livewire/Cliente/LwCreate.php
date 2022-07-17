@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Cliente;
 
-
+use App\Models\Bitacora;
 use Livewire\Component;
 use App\Models\Cliente;
 
@@ -18,7 +18,8 @@ class LwCreate extends Component
             'cliente.telefono' => 'required',
             'cliente.direccion' => 'required',
         ]);
-        Cliente::create($this->cliente);
+        $cliente = Cliente::create($this->cliente);
+        Bitacora::Bitacora('C', 'Clientes', $cliente->id);
         return redirect()->route('clientes.index');
     }
 
