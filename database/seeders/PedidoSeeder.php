@@ -94,11 +94,11 @@ class PedidoSeeder extends Seeder
         ]);
 
         //Detalle compra
-        NotaCompra::create([
-            'proveedor_id'=>1,
-            'costo_total'=>0,  
-            'hora'=>"14:07:36",
-            'fecha'=>"31/05/2022",
-        ]);
+       // NotaCompra::create([
+       //     'proveedor_id'=>1,
+       //     'costo_total'=>0,  
+       //     'hora'=>"14:07:36",
+       //     'fecha'=>"31/05/2022",
+      //  ]);
     }
 }
