@@ -17,6 +17,7 @@ use App\Http\Controllers\Configuracion\EmpresaController;
 use App\Http\Controllers\Configuracion\SistemaUnidadController;
 use App\Http\Controllers\Inventario\BOMController as InventarioBOMController;
 use App\Http\Controllers\Inventario\DadaBajaController;
+use App\Http\Controllers\Inventario\MaquinariaController;
 use App\Http\Controllers\PedidosCompras\PedidoController;
 use App\Http\Controllers\Produccion\ManufacturaController;
 use App\Http\Controllers\Produccion\MpsController;
@@ -59,6 +60,9 @@ Route::middleware([
 
     // Route distribuidores
     Route::resource('distribuidores', DistribuidorController::class)->middleware('can:distribuidores.index');
+    
+    // Route maquinarias
+    Route::resource('maquinarias', MaquinariaController::class)->middleware('can:maquinarias.index');
 
     // Route categoria productos
     Route::resource('categoria_productos', CategoriaProductoController::class)->middleware('can:categoria_productos.index');
