@@ -2,6 +2,7 @@
 
 namespace App\Models\Inventario;
 
+use App\Models\CompraDistribucion\Pedido;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use OwenIt\Auditing\Auditable as AuditingAuditable;
@@ -61,5 +62,12 @@ class Producto extends Model implements Auditable
     public function Bom()
     {
         return $this->HasMany(MateriaPrima::class, 'materia_prima_id');
+    }
+
+    // relacion de muchos a muchos
+    public function detalle_pedidos(){
+        return $this->belongsToMany(Pedido::class, 'detalle_pedidos', 'producto_id', 'pedido_id')
+                ->as('detalle_pedido')
+                ->withPivot('id', 'producto_id', 'pedido_id', 'cantidad' , 'estado');
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Models\CompraDistribucion;
 
 use App\Models\Cliente;
+use App\Models\Inventario\Producto;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -31,4 +32,12 @@ class Pedido extends Model
     {
         return $this->belongsTo(PedidoCancelado::class);
     }
+
+    // relacion de muchos a muchos
+    public function detalle_pedidos(){
+        return $this->belongsToMany(Producto::class, 'detalle_pedidos', 'producto_id', 'pedido_id')
+                ->as('detalle_pedido')
+                ->withPivot('id', 'producto_id', 'pedido_id', 'cantidad' , 'estado');
+    }
+
 }

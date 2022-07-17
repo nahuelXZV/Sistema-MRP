@@ -89,9 +89,13 @@ Route::get('pedido-api', [PedidoController::class, 'index'])->name('pedido-api')
 Route::post('show/pedido-api/{pedido}', [PedidoController::class, 'show'])->name('pedido-api.show');
 Route::post('pedido-api/delete/{pedido}', [PedidoController::class, 'delete'])->name('pedido-api.delete');
 Route::get('detalle-pedido-api/{pedido}', [PedidoController::class, 'show_detalle'])->name('detalle-pedido-api');
+Route::get('producto-pedido-api/{producto}', [PedidoController::class, 'show_producto'])->name('producto-pedido-api');
+
 
 //------------------------------------------------------ CLIENTE API----------------------------------------------------------------------------------//
 Route::get('cliente-api', [ClienteController::class, 'index'])->name('cliente-api');
+Route::get('show/cliente-api/{cliente}', [ClienteController::class, 'show_cliente'])->name('show-cliente-api');
+
 
 
 
