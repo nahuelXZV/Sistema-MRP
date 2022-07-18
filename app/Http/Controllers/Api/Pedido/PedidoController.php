@@ -37,7 +37,6 @@ class PedidoController extends Controller
     public function show_detalle($id)
     {
         return DetallePedido::join('productos', 'detalle_pedidos.producto_id', 'productos.id')->select('detalle_pedidos.id', 'productos.nombre as producto', 'detalle_pedidos.cantidad', 'productos.estado as estado')->where('detalle_pedidos.pedido_id', '=', $id)->get();
-        //return DetallePedido::all();
     }
 
     public function show_producto_detalle($id){

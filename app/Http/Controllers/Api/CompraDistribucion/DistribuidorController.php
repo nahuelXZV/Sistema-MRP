@@ -13,6 +13,11 @@ class DistribuidorController extends Controller
         return Distribuidor::all();
     }
 
+    public function delete($id)
+    {
+        return Distribuidor::find($id)->delete();
+    }
+
     public function show_distribuidora($id)
     {
         return Distribuidor::where('id', '=', $id)->get();
