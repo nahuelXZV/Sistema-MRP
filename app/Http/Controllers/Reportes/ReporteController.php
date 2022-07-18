@@ -168,7 +168,7 @@ class ReporteController extends Controller
             $datos['atributos']  = $this->DefaultModel($datos['modelo']);
         }
 
-        $this->fpdf->SetFont('Arial', 'B', 9);
+        $this->fpdf->SetFont('Arial', 'B', 9);  
         $this->fpdf->SetFillColor(238, 238, 238);
         $this->fpdf->SetDrawColor(238, 238, 238);
         $this->fpdf->SetTextColor(0, 0, 0);

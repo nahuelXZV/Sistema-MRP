@@ -10,7 +10,7 @@ class ClienteController extends Controller
 {
     public function index()
     {
-        return Cliente::all();
+        return ['cliente' => Cliente::all()];
     }
 
     public function show_cliente($id)

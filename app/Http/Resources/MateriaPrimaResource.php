@@ -17,11 +17,12 @@ class MateriaPrimaResource extends JsonResource
         return[
             'id' => $this->id,
             'nombre' => $this->evento_id ,
-            'descripcion' => $this->nombre ,
             'tipo' => $this->tipo ,
+            'descripcion' => $this->nombre ,
             'tamaño' => $this->tamaño,
             'peso' => $this->peso ,
             'color' => $this->color ,
+            'cantidad' => $this->cantidad ,
             'idCategoriaMP' => $this->idCategoriaMP,
         ];
     }
