@@ -42,6 +42,26 @@
                     aria-labelledby="dropdownMenuButton1">
                     <li>
                         <div class="form-check ml-2 mr-6">
+                            <input wire:model.defer='type' value='id'
+                                class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600  mt-1 align-top  mr-2"
+                                type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                            <label class="form-check-label inline-block text-gray-800" for="flexRadioDefault1">
+                                Id
+                            </label>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="form-check ml-2 mr-6">
+                            <input wire:model.defer='type' value='motivo'
+                                class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600  mt-1 align-top  mr-2"
+                                type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                            <label class="form-check-label inline-block text-gray-800" for="flexRadioDefault1">
+                                Motivo
+                            </label>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="form-check ml-2 mr-6">
                             <input wire:model.defer='type' value='fecha'
                                 class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600  mt-1 align-top  mr-2"
                                 type="radio" name="flexRadioDefault" id="flexRadioDefault1">
@@ -79,8 +99,22 @@
                     <li>
                         <p class="dropdown-item flex text-sm py-2 px-4 font-normal w-full
                             whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100 "
+                            wire:click='order("id")'>Id
+                            <x-signo-table :type='$type' :direction='$direction' etiqueta='id'> </x-signo-table>
+                        </p>
+                    </li>
+                    <li>
+                        <p class="dropdown-item flex text-sm py-2 px-4 font-normal w-full
+                            whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100 "
+                            wire:click='order("motivo")'>Motivo
+                            <x-signo-table :type='$type' :direction='$direction' etiqueta='motivo'> </x-signo-table>
+                        </p>
+                    </li>
+                    <li>
+                        <p class="dropdown-item flex text-sm py-2 px-4 font-normal w-full
+                            whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100 "
                             wire:click='order("fecha")'>Fecha
-                            <x-signo-table :type='$type' :direction='$direction' etiqueta='nombre'> </x-signo-table>
+                            <x-signo-table :type='$type' :direction='$direction' etiqueta='fecha'> </x-signo-table>
                         </p>
                     </li>
                 </ul>
@@ -95,7 +129,7 @@
                     <tr>
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
                             Id Pedido
-                            <x-signo-table :type='$type' :direction='$direction' etiqueta='pedido_id'> </x-signo-table>
+                            <x-signo-table :type='$type' :direction='$direction' etiqueta='id'> </x-signo-table>
                         </th>
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
                             Motivo
@@ -103,7 +137,6 @@
                         </th>
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
                             Descripcion
-                            <x-signo-table :type='$type' :direction='$direction' etiqueta='descripcion'> </x-signo-table>
                         </th>
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
                             Fecha
@@ -111,7 +144,6 @@
                         </th>
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
                             Hora
-                            <x-signo-table :type='$type' :direction='$direction' etiqueta='hora'> </x-signo-table>
                         </th>
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
                             Acciones

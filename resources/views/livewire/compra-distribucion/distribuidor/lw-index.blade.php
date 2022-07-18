@@ -135,13 +135,13 @@
                             <x-signo-table :type='$type' :direction='$direction' etiqueta='categoria'> </x-signo-table>
                         </th>
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
-                            tipo
+                            Tipo
                         </th>
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
-                            medio_transporte  
+                            Transporte  
                         </th>
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
-                            acciones  
+                            Acciones  
                         </th>
                     </tr>
                 </thead>

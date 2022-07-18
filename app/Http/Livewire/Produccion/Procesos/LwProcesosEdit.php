@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Produccion\Procesos;
 
 use App\Models\Bitacora;
+use App\Models\Maquinaria as ModelsMaquinaria;
 use App\Models\Produccion\Maquinaria;
 use App\Models\Produccion\Proceso;
 use Livewire\Component;

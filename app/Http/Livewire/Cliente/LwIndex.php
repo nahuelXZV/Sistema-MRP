@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Cliente;
 
+use App\Models\Bitacora;
 use Livewire\Component;
 use App\Models\Cliente;
 use Livewire\WithPagination;
@@ -42,6 +43,7 @@ class LwIndex extends Component
     {
         $cliente = Cliente::find($id);
         $cliente->delete();
+        Bitacora::Bitacora('D', 'Clientes',  $cliente->id);
     }
     public function render()
     {
@@ -51,7 +53,7 @@ class LwIndex extends Component
                     ->orderBy($this->sort, $this->direction)
                     ->paginate($this->pagination);
                 break;
-            /* case 'estado':
+                /* case 'estado':
                 $productos = Cliente::where('estado', 'like', '%' . $this->attribute . '%')
                     ->orderBy($this->sort, $this->direction)
                     ->paginate($this->pagination);

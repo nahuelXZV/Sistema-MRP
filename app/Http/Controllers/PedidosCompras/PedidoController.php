@@ -25,8 +25,8 @@ class PedidoController extends Controller
         $mps = Mps::where('pedido_id', $id)->first();
         if ($mps) {
             $manu = Manufactura::where('mps_id', $mps->id)->first();
-            if ($manu) {
-                $rep = Problema::where('manufactura_id', $manu->id)->first();
+            if ($manu != null) {
+                $rep = Problema::where('mps_id', $mps->id)->first();
             } else {
                 $rep = null;
             }

@@ -12,9 +12,10 @@ class DistribuidorController extends Controller
     {
         return Distribuidor::all();
     }
-    public function delete($id)
+
+    public function show_distribuidora($id)
     {
-        return Distribuidor::find($id)->delete();
+        return Distribuidor::where('id', '=', $id)->get();
     }
 
     public function create(Request $request)

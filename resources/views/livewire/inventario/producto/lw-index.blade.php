@@ -122,7 +122,7 @@
             </div>
         </div>
     </x-header-table>
- 
+
     <x-table>
         <table class="min-w-full">
             @if ($productos->count())

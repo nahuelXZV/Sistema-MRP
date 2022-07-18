@@ -14,6 +14,7 @@ class LwCreate extends Component
     public $name;
     public $materias_primas;
     public $cantidad;
+    public $estado;
 
     public function mount($id)
     {
@@ -26,11 +27,13 @@ class LwCreate extends Component
         $this->validate([
             'materias_primas' => 'required',
             'cantidad' => 'required',
+            'estado' => 'required',
         ]);
         $bom = BonProducto::create([
             'producto_id' => $this->producto->id,
             'materia_prima_id' => $this->materias_primas,
             'cantidad' => $this->cantidad,
+            'estado' => $this->estado,
         ]);
         Bitacora::Bitacora('C', 'BOM Producto', $bom->id);
         return redirect()->route('productos.show', $this->producto->id);

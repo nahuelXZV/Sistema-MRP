@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\CompraDistribucion\Distribuidor;
 
+use App\Models\Bitacora;
 use Livewire\Component;
 use App\Models\CompraDistribucion\Distribuidor;
 
@@ -16,18 +17,19 @@ class LwShow extends Component
     {
         return view('livewire.compra-distribucion.distribuidor.lw-show');
     }
-    
-    public function guardar(){
-        $this->validate(['distribuidor.nombre' => 'required', 
-        
-    ]);
-    $distribuidor = Distribuidor::find($this->distribuidor['id']);
-    $distribuidor->nombre = $this->distribuidor['nombre'];
-    $distribuidor->telefono = $this->distribuidor['telefono'];
-    $distribuidor->direccion = $this->distribuidor['direccion'];
-    $distribuidor->save();
-    return redirect()->route('distribuidores.index');
+
+    public function guardar()
+    {
+        $this->validate([
+            'distribuidor.nombre' => 'required',
+
+        ]);
+        $distribuidor = Distribuidor::find($this->distribuidor['id']);
+        $distribuidor->nombre = $this->distribuidor['nombre'];
+        $distribuidor->telefono = $this->distribuidor['telefono'];
+        $distribuidor->direccion = $this->distribuidor['direccion'];
+        $distribuidor->save();
+        Bitacora::Bitacora('U', 'Distribuidores', $distribuidor->id);
+        return redirect()->route('distribuidores.index');
     }
-    
-    
 }

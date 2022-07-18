@@ -45,14 +45,13 @@ class LwMateriaPrimaIndex extends Component
                     ->orderBy($this->sort, $this->direction)
                     ->paginate($this->pagination);
                 break;
-            case 'materias':
-                $productos = MateriaPrima::join('categoria_materia_primas', 'materia_primas.idCategoriaMP', 'categoria_materia_primas.id')
-                    ->where('categoria_materia_primas.nombre', 'like', '%' . $this->attribute . '%')
+            case 'tipo':
+                $materias = MateriaPrima::where('tipo', 'like', '%' . $this->attribute . '%')
                     ->orderBy($this->sort, $this->direction)
                     ->paginate($this->pagination);
                 break;
             default:
-                $materias = MateriaPrima::where('id', 'like', '%' . $this->attribute . '%')
+                $materias = MateriaPrima::where('nombre', 'like', '%' . $this->attribute . '%')
                     ->orderBy($this->sort, $this->direction)
                     ->paginate($this->pagination);
                 break;

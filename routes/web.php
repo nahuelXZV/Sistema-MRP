@@ -17,6 +17,7 @@ use App\Http\Controllers\Configuracion\EmpresaController;
 use App\Http\Controllers\Configuracion\SistemaUnidadController;
 use App\Http\Controllers\Inventario\BOMController as InventarioBOMController;
 use App\Http\Controllers\Inventario\DadaBajaController;
+use App\Http\Controllers\Inventario\MaquinariaController;
 use App\Http\Controllers\PedidosCompras\PedidoController;
 use App\Http\Controllers\Produccion\ManufacturaController;
 use App\Http\Controllers\Produccion\MpsController;
@@ -26,7 +27,6 @@ use App\Http\Controllers\Reportes\ManufacturaController as ReportesManufacturaCo
 use App\Http\Controllers\Reportes\PedidoController as ReportesPedidoController;
 use App\Http\Controllers\Reportes\ReporteController;
 use App\Http\Controllers\WelcomeController;
-use App\Models\Produccion\Manufactura;
 use App\Models\Produccion\Problema;
 
 /*
@@ -60,6 +60,9 @@ Route::middleware([
 
     // Route distribuidores
     Route::resource('distribuidores', DistribuidorController::class)->middleware('can:distribuidores.index');
+    
+    // Route maquinarias
+    Route::resource('maquinarias', MaquinariaController::class)->middleware('can:maquinarias.index');
 
     // Route categoria productos
     Route::resource('categoria_productos', CategoriaProductoController::class)->middleware('can:categoria_productos.index');
@@ -107,24 +110,11 @@ Route::middleware([
 
     // Route Reporte Detalle Pedido 
     Route::get('/reporte/rdp/{id}', [ReportesPedidoController::class, 'rdp'])->middleware('can:reportes.index')->name('reporte.rdp');
-
-    // Route Reporte Detalle Pedido Todo
-    //Route::get('/reporte/rtp/{id}', [ReportesPedidoController::class, 'rtp'])->middleware('can:reportes.index')->name('reporte.rtp');
-
     // Route Reporte Pedidos
     Route::get('/reporte/rlp', [ReportesPedidoController::class, 'rlp'])->middleware('can:reportes.index')->name('reporte.rlp');
 
-    // Route Reporte Pedidos cancelados
-    //Route::get('/reporte/rpc', [ReportesPedidoController::class, 'rpc'])->middleware('can:reportes.index')->name('reporte.rpc');
-
-    // Route Reporte lista Compras
-    // Route::get('/reporte/rlc', [ComprasController::class, 'rlc'])->middleware('can:reportes.index')->name('reporte.rlc');
-
     // Route Reporte detalles Compras
     Route::get('/reporte/rdc/{id}', [ComprasController::class, 'rdc'])->middleware('can:reportes.index')->name('reporte.rdc');
-
-    // Route Reporte Dada de baja
-    //Route::get('/reporte/rdb', [ComprasController::class, 'rdb'])->middleware('can:reportes.index')->name('reporte.rdb');
 
     //Route Rol
     Route::get('/roles', [RoleController::class, 'index'])->middleware('can:roles.index')->name('roles.index');
@@ -167,9 +157,4 @@ Route::middleware([
     Route::get('/pedidos-cancelados', [PedidoCanceladoController::class, 'index'])->middleware('can:pedido-cancelado.index')->name('pedido-cancelado.index');
     Route::get('/pedidos-cancelados/create', [PedidoCanceladoController::class, 'create'])->middleware('can:pedido-cancelado.index')->name('pedido-cancelado.create');
     Route::get('/pedidos-cancelados/edit/{id}', [PedidoCanceladoController::class, 'edit'])->middleware('can:pedido-cancelado.index')->name('pedido-cancelado.edit');
-
-    // ruta que devuelve todos los problemas 
-    Route::get("/datos", function () {
-        return Problema::all();
-    });
 });

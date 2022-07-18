@@ -5,11 +5,11 @@ namespace App\Http\Livewire\Inventario\Maquinaria;
 
 use Livewire\Component;
 use App\Models\Bitacora;
-use App\Models\Maquinaria;
+use App\Models\Inventario\Maquinaria;
 use Livewire\WithPagination;
+
 class LwIndex extends Component
 {
-    
     use WithPagination;
     public $pagination = 10;
     public $attribute = '';
@@ -43,8 +43,8 @@ class LwIndex extends Component
     public function delete($id)
     {
         $maquinarias = Maquinaria::find($id);
-        Bitacora::Bitacora('D', 'Producto', $maquinarias->id);
         $maquinarias->delete();
+        Bitacora::Bitacora('D', 'Maquinaria', $maquinarias->id);
     }
     public function render()
     {
@@ -59,14 +59,13 @@ class LwIndex extends Component
                     ->orderBy($this->sort, $this->direction)
                     ->paginate($this->pagination);
                 break;
-          
+
             default:
                 $maquinarias = Maquinaria::where('id', 'like', '%' . $this->attribute . '%')
                     ->orderBy($this->sort, $this->direction)
                     ->paginate($this->pagination);
                 break;
         }
-        return view('livewire.inventario.maquinaria.lw-index', compact('$maquinarias'));
+        return view('livewire.inventario.maquinaria.lw-index', compact('maquinarias'));
     }
-    
 }

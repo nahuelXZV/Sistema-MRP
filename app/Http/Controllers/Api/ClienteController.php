@@ -12,4 +12,9 @@ class ClienteController extends Controller
     {
         return ['cliente' => Cliente::all()];
     }
+
+    public function show_cliente($id)
+    {
+        return Cliente::where('id', '=', $id)->get();
+    }
 }

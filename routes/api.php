@@ -73,10 +73,9 @@ Route::post('update/materia-prima-api/{materia}', [MateriaPrimaController::class
 Route::apiResource('materia-prima-api2', MateriaPrimaApiController::class)->names('api.materia-prima');
 
 //------------------------------------------------------ DISTRIBUIDOR API----------------------------------------------------------------------------------//
-Route::get('distribuidor-api', [DistribuidorController::class, 'index'])->name('distribuidor-api');
-Route::post('ditribuidor-api/delete/{distribuidor}', [DistribuidorController::class, 'delete'])->name('distribuidor-api.delete');
-Route::post('create/distribuidor-api', [DistribuidorController::class, 'create'])->name('distribuidor-api.create');
-Route::post('update/distribuidor-api/{distribuidor}', [DistribuidorController::class, 'update'])->name('distribuidor-api.update');
+Route::get('distribuidora-api', [DistribuidorController::class, 'index'])->name('distribuidora-api');
+Route::get('show/distribuidora-api/{distribuidora}', [DistribuidorController::class, 'show_distribuidora'])->name('show-distribuidora-api');
+
 
 //------------------------------------------------------ PROVEEDOR API----------------------------------------------------------------------------------//
 Route::get('proveedor-api', [ProveedorController::class, 'index'])->name('proveedor-api');
@@ -89,9 +88,14 @@ Route::get('pedido-api', [PedidoController::class, 'index'])->name('pedido-api')
 Route::post('show/pedido-api/{pedido}', [PedidoController::class, 'show'])->name('pedido-api.show');
 Route::post('pedido-api/delete/{pedido}', [PedidoController::class, 'delete'])->name('pedido-api.delete');
 Route::get('detalle-pedido-api/{pedido}', [PedidoController::class, 'show_detalle'])->name('detalle-pedido-api');
+Route::get('producto-pedido-api/{producto}', [PedidoController::class, 'show_producto'])->name('producto-pedido-api');
+Route::get('producto-detalle-pedido-api/{producto}', [PedidoController::class, 'show_producto_detalle'])->name('producto-detalle-pedido-api');
+
 
 //------------------------------------------------------ CLIENTE API----------------------------------------------------------------------------------//
 Route::get('cliente-api', [ClienteController::class, 'index'])->name('cliente-api');
+Route::get('show/cliente-api/{cliente}', [ClienteController::class, 'show_cliente'])->name('show-cliente-api');
+
 
 
 

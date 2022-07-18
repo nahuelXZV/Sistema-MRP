@@ -11,7 +11,7 @@
             </div>
             <div class="form-group mb-6">
                 <label for="exampleInputEmail2" class="form-label inline-block mb-2 text-gray-700">Distribuidora</label>
-                <select wire:model.defer='datos.distribuidor' name='datos.distribuidor'
+                <select wire:model.defer='datos.distribuidor' name='distribuidor'
                     class="form-select appearance-none   h-9   block    w-full    px-2    py-1    text-sm    font-normal    text-gray-700    bg-white bg-clip-padding bg-no-repeat    border border-solid border-gray-300    rounded    transition    ease-in-out    m-0    focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                     aria-label=".form-select-sm example">
                     <option selected>Selecciona un distribuidor</option>
@@ -33,10 +33,10 @@
             </div>
             <div class="form-group mb-6">
                 <label for="exampleInputEmail2" class="form-label inline-block mb-2 text-gray-700">Dirección*</label>
-                <input type="text" wire:model.defer="pedido.direccion" name='direccion'
+                <input type="text" wire:model.defer="datos.direccion" name='direccion'
                     class="form-control block  w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300  rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                     placeholder="Direccion">
-                <x-jet-input-error for="pedido.direccion" />
+                <x-jet-input-error for="datos.direccion" />
             </div>
         </div>
         <div class="form-group mb-6">
