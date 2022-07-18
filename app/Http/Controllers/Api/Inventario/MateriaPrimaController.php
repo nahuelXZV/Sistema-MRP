@@ -13,6 +13,12 @@ class MateriaPrimaController extends Controller
     {
         return MateriaPrima::all();
     }
+
+    public function mostrar($id){
+        return MateriaPrima::join('categoria_materia_primas', 'materia_primas.idCategoriaMP', 'categoria_materia_primas.id')->select('materia_primas.id', 'materia_primas.nombre', 'materia_primas.tipo', 'materia_primas.descripcion', 'materia_primas.tamaño', 'materia_primas.peso', 'materia_primas.color', 'materia_primas.cantidad', 'categoria_materia_primas.nombre as categoria_materia' )->get();
+    }
+
+    /*
     public function delete($id)
     {
         return MateriaPrima::find($id)->delete();
@@ -60,6 +66,6 @@ class MateriaPrimaController extends Controller
                 'success' => false,
             ]);
         }
-    }
+    }*/
 
 }

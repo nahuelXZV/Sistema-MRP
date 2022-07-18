@@ -74,7 +74,10 @@ Route::post('update/materia-prima-api/{materia}', [MateriaPrimaController::class
 
 //------------------------------------------------------ DISTRIBUIDOR API----------------------------------------------------------------------------------//
 Route::get('distribuidora-api', [DistribuidorController::class, 'index'])->name('distribuidora-api');
+Route::post('distribuidora-api/delete/{distribuidora}', [DistribuidorController::class, 'delete'])->name('distribuidora-api.delete');
 Route::get('show/distribuidora-api/{distribuidora}', [DistribuidorController::class, 'show_distribuidora'])->name('show-distribuidora-api');
+Route::post('create/distribuidora-api', [DistribuidorController::class, 'create'])->name('distribuidora-api.create');
+Route::post('update/distribuidora-api/{distribuidora}', [DistribuidorController::class, 'update'])->name('distribuidora-api.update');
 
 
 //------------------------------------------------------ PROVEEDOR API----------------------------------------------------------------------------------//
@@ -95,6 +98,9 @@ Route::get('producto-detalle-pedido-api/{producto}', [PedidoController::class, '
 //------------------------------------------------------ CLIENTE API----------------------------------------------------------------------------------//
 Route::get('cliente-api', [ClienteController::class, 'index'])->name('cliente-api');
 Route::get('show/cliente-api/{cliente}', [ClienteController::class, 'show_cliente'])->name('show-cliente-api');
+Route::post('cliente-api/delete/{cliente}', [ClienteController::class, 'delete'])->name('cliente-api.delete');
+Route::post('create/cliente-api', [ClienteController::class, 'create'])->name('cliente-api.create');
+Route::post('update/cliente-api/{cliente}', [ClienteController::class, 'update'])->name('cliente-api.update');
 
 
 
