@@ -11,7 +11,7 @@ class LwCreate extends Component
     public $maquinaria = [];
     public $nombre;
     public $descripcion;
-  
+
     public function add()
     {
         $this->validate([
@@ -20,14 +20,14 @@ class LwCreate extends Component
             'maquinaria.marca' => 'required',
 
         ]);
-        $ma = Maquinaria::create($this->Maquinaria);
+        $ma = Maquinaria::create($this->maquinaria);
         Bitacora::Bitacora('C', 'Maquinaria', $ma->id);
         return redirect()->route('maquinarias.index');
     }
 
     public function limpiar()
     {
-        $this->Maquinaria = [];
+        $this->maquinaria = [];
     }
 
     public function render()

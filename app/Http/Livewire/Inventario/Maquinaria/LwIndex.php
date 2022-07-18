@@ -10,7 +10,6 @@ use Livewire\WithPagination;
 
 class LwIndex extends Component
 {
-
     use WithPagination;
     public $pagination = 10;
     public $attribute = '';
