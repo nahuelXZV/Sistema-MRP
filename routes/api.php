@@ -70,7 +70,7 @@ Route::post('materia-prima-api/delete/{materia}', [MateriaPrimaController::class
 Route::post('create/materia-prima-api', [MateriaPrimaController::class, 'create'])->name('materia-prima-api.create');
 Route::post('update/materia-prima-api/{materia}', [MateriaPrimaController::class, 'update'])->name('materia-prima-api.update');
 //------------------------------------------------------ MATERIA PRIMA API RESOURCES----------------------------------------------------------------------------------//
-//Route::apiResource('materia-prima-api2', MateriaPrimaApiController::class)->names('api.materia-prima');
+Route::apiResource('materia-prima-api2', MateriaPrimaApiController::class)->names('api.materia-prima');
 
 //------------------------------------------------------ DISTRIBUIDOR API----------------------------------------------------------------------------------//
 Route::get('distribuidor-api', [DistribuidorController::class, 'index'])->name('distribuidor-api');
