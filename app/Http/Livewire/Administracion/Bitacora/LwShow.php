@@ -60,7 +60,8 @@ class LwShow extends Component
                     ->paginate($this->pagination);
                 break;
             default:
-                $bitacoras = Bitacora::orderBy($this->sort, $this->direction)->get();
+                $bitacoras = Bitacora::orderBy($this->sort, $this->direction)
+                    ->paginate($this->pagination);
                 break;
         }
 

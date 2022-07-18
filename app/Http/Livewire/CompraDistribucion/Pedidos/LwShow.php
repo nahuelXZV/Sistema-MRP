@@ -131,6 +131,8 @@ class LwShow extends Component
             $producto->cantidad -= $cantidadS;
             $producto->update();
             $this->pedido->estado = 'En Manufactura';       //Estado del pedido modificado
+            $this->pedido->save();
+            return redirect()->route('pedidos.details', ['id' => $this->pedido->id]);
         }
         $this->pedido->save();                          //Pedido actualizado
         $this->render();

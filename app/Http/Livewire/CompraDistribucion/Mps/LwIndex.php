@@ -13,7 +13,7 @@ class LwIndex extends Component
     public $attribute = '';
     public $type = 'id';
     public $sort = 'id';
-    public $direction = 'asc';
+    public $direction = 'desc';
 
 
     //Metodo de reinicio de buscador

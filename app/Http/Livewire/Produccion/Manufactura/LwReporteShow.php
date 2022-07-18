@@ -17,7 +17,7 @@ class LwReporteShow extends Component
         $this->datos['proceso'] = $this->problema->proceso->nombre;
         $this->datos['codigo'] = $this->problema->manufactura->id;
         $this->datos['tipo'] = $this->problema->tipo_problema;
-        $this->datos['fecha'] = $this->problema->fecha;
+        $this->datos['fecha'] = substr($this->problema->fecha, 0, 10);
         $this->datos['descripcion'] = $this->problema->descripcion;
         $this->datos['estado'] = $this->problema->estado;
     }
@@ -26,6 +26,7 @@ class LwReporteShow extends Component
     {
         $this->problema->estado = "Verificado";
         $this->problema->save();
+        return redirect()->route('pedidos.details', $this->problema->manufactura->mps->pedido_id);
     }
 
     public function delete()

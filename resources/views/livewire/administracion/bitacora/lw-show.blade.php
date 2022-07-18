@@ -20,8 +20,8 @@
                         id="exampleFormControlInput1" placeholder="Search.." />
                     <button type="button" wire:click='render()'
                         class="w-12 inline-block px-3 py-1.5 border-2 border-gray-700 text-black font-medium text-xs leading-normal uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mx-auto" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mx-auto" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                         </svg>
@@ -31,7 +31,8 @@
                         class="w-12 inline-block px-3 py-1.5 border-2 border-gray-700 text-black font-medium text-xs leading-normal uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
                         type="button" id="dropdownMenuButton9" data-bs-toggle="dropdown" aria-expanded="false">
                         <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="caret-down"
-                            class="h-4 w-4 mx-auto" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                            class="h-4 w-4 mx-auto" role="img" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 320 512">
                             <path fill="currentColor"
                                 d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z">
                             </path>
@@ -125,6 +126,8 @@
                 @endif
             </table>
         </x-table>
+        <x-pagination :modelo='$bitacoras'> </x-pagination>
+
     </div>
 
 </div>
