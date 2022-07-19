@@ -97,6 +97,7 @@ Route::get('producto-detalle-pedido-api/{producto}', [PedidoController::class, '
 
 //------------------------------------------------------ CLIENTE API----------------------------------------------------------------------------------//
 Route::get('cliente-api', [ClienteController::class, 'index'])->name('cliente-api');
+Route::get('cliente-api2', [ClienteController::class, 'index2'])->name('cliente-api2');
 Route::get('show/cliente-api/{cliente}', [ClienteController::class, 'show_cliente'])->name('show-cliente-api');
 Route::post('cliente-api/delete/{cliente}', [ClienteController::class, 'delete'])->name('cliente-api.delete');
 Route::post('create/cliente-api', [ClienteController::class, 'create'])->name('cliente-api.create');
