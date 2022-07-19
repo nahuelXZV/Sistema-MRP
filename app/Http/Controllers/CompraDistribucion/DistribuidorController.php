@@ -5,6 +5,7 @@ namespace App\Http\Controllers\CompraDistribucion;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\CompraDistribucion\Distribuidor;
+
 class DistribuidorController extends Controller
 {
     /**
@@ -46,7 +47,7 @@ class DistribuidorController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('compra-distribucion.distribuidores.edit', compact('id'));
     }
 
     /**
@@ -57,7 +58,7 @@ class DistribuidorController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('compra-distribucion.distribuidores.edit', compact('id'));
     }
 
     /**

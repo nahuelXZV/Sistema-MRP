@@ -11,6 +11,7 @@ use App\Models\Produccion\Estado;
 use App\Models\Produccion\EstadoPedido;
 use App\Models\Produccion\Manufactura;
 use App\Models\Produccion\Mps;
+use Illuminate\Support\Facades\Redirect;
 use Livewire\Component;
 
 class LwShow extends Component
@@ -31,7 +32,7 @@ class LwShow extends Component
             $this->mps = Mps::where('pedido_id', $this->pedido->id)->first();
             $this->datos['tipo'] = $this->mps->tipo;
             $this->datos['estadoM'] = $this->mps->estado;
-            $this->datos['fecha'] = $this->mps->fecha_solicitud;
+            $this->datos['fecha'] = substr($this->mps->fecha_solicitud, 0, 10);
             $this->datos['cliente'] = $this->mps->pedido->cliente->nombre;
             $this->datos['estado'] = $this->mps->pedido->estado;
             if ($this->mps->pedido->distribuidor) {
@@ -58,6 +59,7 @@ class LwShow extends Component
         $this->mps->save();
         $this->pedido->estado = 'Listo para el envio';
         $this->pedido->save();
+        return Redirect::route('pedidos.details', $this->pedido->id);
     }
 
 

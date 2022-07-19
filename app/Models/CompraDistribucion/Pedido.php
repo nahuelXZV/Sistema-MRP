@@ -14,9 +14,9 @@ class Pedido extends Model
 
     //reportes
     static public $tabla = 'pedidos';
-    static public $atributos = ['direccion', 'fecha', 'hora', 'estado', 'descripcion', 'cliente_id'];
-    static public $interface = ['Dirección', 'Fecha', 'Hora', 'Estado', 'Descripción', 'cliente_id'];
-    static public $default = ['direccion', 'fecha', 'hora', 'estado', 'descripcion', 'cliente_id'];
+    static public $atributos = ['direccion', 'fecha', 'hora', 'estado', 'descripcion'];
+    static public $interface = ['Dirección', 'Fecha', 'Hora', 'Estado', 'Descripción'];
+    static public $default = ['direccion', 'fecha', 'hora', 'estado', 'descripcion'];
 
     public function cliente()
     {
@@ -34,10 +34,10 @@ class Pedido extends Model
     }
 
     // relacion de muchos a muchos
-    public function detalle_pedidos(){
+    public function detalle_pedidos()
+    {
         return $this->belongsToMany(Producto::class, 'detalle_pedidos', 'producto_id', 'pedido_id')
-                ->as('detalle_pedido')
-                ->withPivot('id', 'producto_id', 'pedido_id', 'cantidad' , 'estado');
+            ->as('detalle_pedido')
+            ->withPivot('id', 'producto_id', 'pedido_id', 'cantidad', 'estado');
     }
-
 }

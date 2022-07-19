@@ -21,7 +21,7 @@ class ProveedorController extends Controller
     {
         $proveedor = new Proveedor();
 
-        $proveedor->nombre_empresa = $request->post('nombre');
+        $proveedor->nombre_empresa = $request->post('nombre_empresa');
         $proveedor->direccion = $request->post('direccion');
         $proveedor->telefono = $request->post('telefono');
         $proveedor->email = $request->post('email');
@@ -40,7 +40,7 @@ class ProveedorController extends Controller
 
     public function update(Request $request, Proveedor $proveedor)
     {
-        $proveedor->nombre_empresa = $request->post('nombre');
+        $proveedor->nombre_empresa = $request->post('nombre_empresa');
         $proveedor->direccion = $request->post('direccion');
         $proveedor->telefono = $request->post('telefono');
         $proveedor->email = $request->post('email');

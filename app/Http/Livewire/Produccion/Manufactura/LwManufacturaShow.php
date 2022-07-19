@@ -8,6 +8,7 @@ use App\Models\ProcesoProducto;
 use App\Models\Produccion\EstadoPedido;
 use App\Models\Produccion\Manufactura;
 use App\Models\Produccion\Proceso;
+use Illuminate\Support\Facades\Redirect;
 use Livewire\Component;
 
 class LwManufacturaShow extends Component
@@ -60,6 +61,7 @@ class LwManufacturaShow extends Component
             $this->pedidoD->estado = 'Listo';
             $this->pedidoD->save();
             $this->bandera = false;
+            return Redirect::route('pedidos.details', $this->detalleP->detallePedido->pedido_id);
         } else {
             $this->mensaje = 'No se puede finalizar la fabricación, quedan productos por fabricar';
             $this->error = true;

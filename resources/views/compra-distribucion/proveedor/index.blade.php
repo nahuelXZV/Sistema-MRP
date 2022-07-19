@@ -1,13 +1,13 @@
 @extends('layouts.plantilla')
 
 @section('title')
-   Proveedor
+    Proveedor
 @endsection
 
 @section('action')
-    <a href="{{route('proveedor.index')}}" class="hover:underline ">Proveedor</a>
+    <a href="{{ route('proveedor.index') }}" class="hover:underline ">Proveedor</a>
 @endsection
 
 @section('content')
- @livewire('compra-distribucion.proveedor.lw-index')
-@endsection 
+    @livewire('compra-distribucion.proveedor.lw-index')
+@endsection

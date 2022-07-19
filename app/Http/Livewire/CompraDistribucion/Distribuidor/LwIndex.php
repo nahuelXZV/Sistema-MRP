@@ -54,8 +54,8 @@ class LwIndex extends Component
                     ->orderBy($this->sort, $this->direction)
                     ->paginate($this->pagination);
                 break;
-            case 'estado':
-                $distribuidores = Distribuidor::where('estado', 'like', '%' . $this->attribute . '%')
+            case 'id':
+                $distribuidores = Distribuidor::where('id', 'like', '%' . $this->attribute . '%')
                     ->orderBy($this->sort, $this->direction)
                     ->paginate($this->pagination);
                 break;

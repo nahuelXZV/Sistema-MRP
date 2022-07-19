@@ -24,7 +24,7 @@ class LwCreate extends Component
         $distribuidor = Distribuidor::create($this->distribuidor);
         Bitacora::Bitacora('C', 'Distribuidores', $distribuidor->id);
         return redirect()->route('distribuidores.index');
-    }
+    } 
 
     public function limpiar()
     {

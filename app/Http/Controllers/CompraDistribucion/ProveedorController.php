@@ -5,6 +5,7 @@ namespace App\Http\Controllers\CompraDistribucion;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\CompraDistribucion\Proveedor;
+
 class ProveedorController extends Controller
 {
     /**
@@ -57,7 +58,7 @@ class ProveedorController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('compra-distribucion.proveedor.edit', compact('id'));
     }
 
     /**

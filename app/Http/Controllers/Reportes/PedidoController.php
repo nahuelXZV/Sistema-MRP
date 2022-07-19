@@ -150,7 +150,7 @@ class PedidoController extends Controller
 
         // Datos de la tabla
         foreach ($query as $key => $tupla) {
-            $this->tupla2("Número", $key);
+            $this->tupla2("Número", $key+1);
             $this->tupla2("Nombre", $tupla->detallePedido->producto->nombre);
             $this->tupla2("Cantidad total", $tupla->cantidad_total);
             $this->tupla2("Cantidad en stock", $tupla->cantidad_stock);

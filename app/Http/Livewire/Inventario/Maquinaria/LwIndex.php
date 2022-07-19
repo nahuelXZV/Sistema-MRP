@@ -55,7 +55,7 @@ class LwIndex extends Component
                     ->paginate($this->pagination);
                 break;
             case 'estado':
-                $maquinarias = Maquinaria::where('estado', 'like', '%' . $this->attribute . '%')
+                $maquinarias = Maquinaria::where('id', 'like', '%' . $this->attribute . '%')
                     ->orderBy($this->sort, $this->direction)
                     ->paginate($this->pagination);
                 break;

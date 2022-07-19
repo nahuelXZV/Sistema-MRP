@@ -41,32 +41,22 @@
                         rounded-lg shadow-lg mt-1 hidden m-0 bg-clip-padding border-none"
                     aria-labelledby="dropdownMenuButton1">
                     <li>
+                        <div class="form-check ml-2">
+                            <input wire:model.defer='type' value='id'
+                                class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600  mt-1 align-top  mr-2"
+                                type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                            <label class="form-check-label inline-block text-gray-800" for="flexRadioDefault1">
+                                Codigo
+                            </label>
+                        </div>
+                    </li>
+                    <li>
                         <div class="form-check ml-2 mr-6">
                             <input wire:model.defer='type' value='nombre'
                                 class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600  mt-1 align-top  mr-2"
                                 type="radio" name="flexRadioDefault" id="flexRadioDefault1">
                             <label class="form-check-label inline-block text-gray-800" for="flexRadioDefault1">
                                 Nombre
-                            </label>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="form-check ml-2">
-                            <input wire:model.defer='type' value='estado'
-                                class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600  mt-1 align-top  mr-2"
-                                type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                            <label class="form-check-label inline-block text-gray-800" for="flexRadioDefault1">
-                                Estado
-                            </label>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="form-check ml-2">
-                            <input wire:model.defer='type' value='categoria'
-                                class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600  mt-1 align-top  mr-2"
-                                type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                            <label class="form-check-label inline-block text-gray-800" for="flexRadioDefault1">
-                                Categoria
                             </label>
                         </div>
                     </li>
@@ -99,6 +89,13 @@
                     <li>
                         <p class="dropdown-item flex text-sm py-2 px-4 font-normal w-full
                             whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100 "
+                            wire:click='order("id")'>Codigo
+                            <x-signo-table :type='$type' :direction='$direction' etiqueta='id'> </x-signo-table>
+                        </p>
+                    </li>
+                    <li>
+                        <p class="dropdown-item flex text-sm py-2 px-4 font-normal w-full
+                            whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100 "
                             wire:click='order("nombre")'>Nombre
                             <x-signo-table :type='$type' :direction='$direction' etiqueta='nombre'> </x-signo-table>
                         </p>
@@ -124,11 +121,9 @@
                         </th>
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
                             Marca
-                            <x-signo-table :type='$type' :direction='$direction' etiqueta='estado'> </x-signo-table>
                         </th>
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
                             Descripcion
-                            <x-signo-table :type='$type' :direction='$direction' etiqueta='categoria'> </x-signo-table>
                         </th>
 
                         <th scope="col" class="text-sm font-bold text-white px-6 py-4">
@@ -146,7 +141,7 @@
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                 {{ $maquinaria->marca }}</td>
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                {{ $maquinaria->descripcion }}</td>
+                                {{ substr($maquinaria->descripcion, 0, 50) }}</td>
 
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                 <div class="flex items-center justify-center">
