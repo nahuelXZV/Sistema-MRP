@@ -60,7 +60,7 @@ Route::middleware([
 
     // Route distribuidores
     Route::resource('distribuidores', DistribuidorController::class)->middleware('can:distribuidores.index');
-    
+
     // Route maquinarias
     Route::resource('maquinarias', MaquinariaController::class)->middleware('can:maquinarias.index');
 
