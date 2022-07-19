@@ -50,7 +50,7 @@ class ManufacturaController extends Controller
 
         // Datos de la tabla
         foreach ($query as $key => $tupla) {
-            $this->tupla("Codigo", $key);
+            $this->tupla("Número", $key + 1);
             $this->tupla("Codigo de manufactura", $tupla->manufactura_id);
             $this->tupla("Nombre del procesos", $tupla->proceso->nombre);
             $this->tupla("Tipo de problema", $tupla->tipo_problema);

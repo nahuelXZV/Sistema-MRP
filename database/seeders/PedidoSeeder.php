@@ -21,11 +21,19 @@ class PedidoSeeder extends Seeder
     public function run()
     {
         CategoriaProducto::create([
-            'nombre' => 'Mueble',
+            'nombre' => 'Muebles',
             'descripcion' => 'Artefacto para el hogar'
         ]);
         CategoriaProducto::create([
-            'nombre' => 'Sillon',
+            'nombre' => 'Sillones',
+            'descripcion' => 'Artefacto para el hogar'
+        ]);
+        CategoriaProducto::create([
+            'nombre' => 'Mesas',
+            'descripcion' => 'Artefacto para el hogar'
+        ]);
+        CategoriaProducto::create([
+            'nombre' => 'Sofas',
             'descripcion' => 'Artefacto para el hogar'
         ]);
 
@@ -44,6 +52,7 @@ class PedidoSeeder extends Seeder
             'email' => 'maderac@gmail.com',
             'encargado' => 'Limber Hurtado'
         ]);
+
 
         //Distribuidores
         Distribuidor::create([
