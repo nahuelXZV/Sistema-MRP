@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TokenAuthController;
 use App\Http\Controllers\Api\Login\UserController;
 use App\Http\Controllers\Api\ClienteController;
+use App\Http\Controllers\Api\Inventario\MaquinariaApiController;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
@@ -106,3 +107,5 @@ Route::apiResource('productos', ProductoApiController::class)->names('api.produc
 Route::apiResource('nota-compra', NotaCompraApiController::class)->names('api.nota-compra');
 Route::get('nota-compra-detalles/{id}', [NotaCompraApiController::class, 'detalles'])->name('api.nota-compra-datelles');
 
+//------------------------------------------------------ Maquinaria API----------------------------------------------------------------------------------//
+Route::apiResource('maquinarias', MaquinariaApiController::class)->names('api.maquinaria');
