@@ -43,31 +43,21 @@
                       aria-labelledby="dropdownMenuButton1">
                       <li>
                           <div class="form-check ml-2 mr-6">
-                              <input wire:model.defer='type' value='nombre'
+                              <input wire:model.defer='type' value='id'
+                                  class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600  mt-1 align-top  mr-2"
+                                  type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                              <label class="form-check-label inline-block text-gray-800" for="flexRadioDefault1">
+                                  Codigo
+                              </label>
+                          </div>
+                      </li>
+                      <li>
+                          <div class="form-check ml-2">
+                              <input wire:model.defer='type' value='nombre_empresa'
                                   class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600  mt-1 align-top  mr-2"
                                   type="radio" name="flexRadioDefault" id="flexRadioDefault1">
                               <label class="form-check-label inline-block text-gray-800" for="flexRadioDefault1">
                                   Nombre
-                              </label>
-                          </div>
-                      </li>
-                      <li>
-                          <div class="form-check ml-2">
-                              <input wire:model.defer='type' value='estado'
-                                  class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600  mt-1 align-top  mr-2"
-                                  type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                              <label class="form-check-label inline-block text-gray-800" for="flexRadioDefault1">
-                                  Estado
-                              </label>
-                          </div>
-                      </li>
-                      <li>
-                          <div class="form-check ml-2">
-                              <input wire:model.defer='type' value='categoria'
-                                  class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600  mt-1 align-top  mr-2"
-                                  type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                              <label class="form-check-label inline-block text-gray-800" for="flexRadioDefault1">
-                                  Categoria
                               </label>
                           </div>
                       </li>
@@ -98,10 +88,17 @@
                           ORDENAR POR
                       </h6>
                       <li>
+                        <p class="dropdown-item flex text-sm py-2 px-4 font-normal w-full
+                          whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100 "
+                            wire:click='order("id")'>Codigo
+                            <x-signo-table :type='$type' :direction='$direction' etiqueta='id'> </x-signo-table>
+                        </p>
+                    </li>
+                      <li>
                           <p class="dropdown-item flex text-sm py-2 px-4 font-normal w-full
                             whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100 "
-                              wire:click='order("nombre")'>Nombre
-                              <x-signo-table :type='$type' :direction='$direction' etiqueta='nombre'> </x-signo-table>
+                              wire:click='order("nombre_empresa")'>Nombre
+                              <x-signo-table :type='$type' :direction='$direction' etiqueta='nombre_empresa'> </x-signo-table>
                           </p>
                       </li>
 
@@ -121,25 +118,19 @@
                           </th>
                           <th scope="col" class="text-sm font-bold text-white px-6 py-4">
                               Nombre
-                              <x-signo-table :type='$type' :direction='$direction' etiqueta='nombre'> </x-signo-table>
+                              <x-signo-table :type='$type' :direction='$direction' etiqueta='nombre_empresa'> </x-signo-table>
                           </th>
                           <th scope="col" class="text-sm font-bold text-white px-6 py-4">
                               Telefono
-                              <x-signo-table :type='$type' :direction='$direction' etiqueta='estado'> </x-signo-table>
                           </th>
                           <th scope="col" class="text-sm font-bold text-white px-6 py-4">
                               Direccion
-                              <x-signo-table :type='$type' :direction='$direction' etiqueta='categoria'> </x-signo-table>
                           </th>
                           <th scope="col" class="text-sm font-bold text-white px-6 py-4">
-                              email
-                              <x-signo-table :type='$type' :direction='$direction' etiqueta='categoria'>
-                              </x-signo-table>
+                              Email
                           </th>
                           <th scope="col" class="text-sm font-bold text-white px-6 py-4">
-                              encargado
-                              <x-signo-table :type='$type' :direction='$direction' etiqueta='categoria'>
-                              </x-signo-table>
+                              Encargado
                           </th>
                           <th scope="col" class="text-sm font-bold text-white px-6 py-4">
                               Acciones

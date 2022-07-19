@@ -48,22 +48,16 @@ class LwIndex extends Component
     public function render()
     {
         switch ($this->type) {
-            case 'nombre':
-                $proveedores = Proveedor::where('nombre', 'like', '%' . $this->attribute . '%')
+            case 'nombre_empresa':
+                $proveedores = Proveedor::where('nombre_empresa', 'like', '%' . $this->attribute . '%')
                     ->orderBy($this->sort, $this->direction)
                     ->paginate($this->pagination);
                 break;
-            /* case 'estado':
-                $productos = Proveedor::where('estado', 'like', '%' . $this->attribute . '%')
+            case 'id':
+                $proveedores = Proveedor::where('id', 'like', '%' . $this->attribute . '%')
                     ->orderBy($this->sort, $this->direction)
                     ->paginate($this->pagination);
                 break;
-            case 'categoria':
-                $productos = Proveedor::join('categoria_productos', 'productos.categoria_producto', 'categoria_productos.id')
-                    ->where('categoria_productos.nombre', 'like', '%' . $this->attribute . '%')
-                    ->orderBy($this->sort, $this->direction)
-                    ->paginate($this->pagination);
-                break; */
             default:
                 $proveedores = Proveedor::where('id', 'like', '%' . $this->attribute . '%')
                     ->orderBy($this->sort, $this->direction)

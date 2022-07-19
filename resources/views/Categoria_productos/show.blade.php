@@ -1,7 +1,7 @@
 @extends('layouts.plantilla')
 
 @section('title')
-    Productos-Editar
+    Categoria
 @endsection
 
 @section('action')

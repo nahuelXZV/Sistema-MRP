@@ -1,7 +1,7 @@
 @extends('layouts.plantilla')
 
 @section('title')
-    Productos
+    Categoria
 @endsection
 
 @section('action')
